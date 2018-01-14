@@ -7,7 +7,7 @@ import {FETCH_LOCATIONS_SUCCESS} from '../actions/users';
 const initialState = {
     data: '',
     error: null,
-    locations: null
+    locations: []
 };
 
 export default function reducer(state = initialState, action) {

@@ -1,24 +1,28 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchLocations} from '../actions/users';
+import { fetchLocations } from '../actions/users';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchLocations(this.props.id));
     }
 
-    renderLocations(){
-        if(this.props.locations.length===0) {
-            return(<p>nothing to see here.</p>)
+    renderLocations() {
+        if (this.props.locations.length === 0) {
+            return (
+                <div>
+                    <p>nothing to see here.</p>
+                </div>
+            )
         }
         else {
             const locationsData = this.props.locations.map((item, index) =>
-            <div>
-                <p>{item}</p>
-            </div>
-        )
-            return(
+                <div>
+                    <p>{item}</p>
+                </div>
+            )
+            return (
                 <div>
                     {locationsData}
                 </div>
@@ -34,16 +38,16 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    
-                </div>
+
+                {this.renderLocations()}
+
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
+    const { currentUser } = state.auth;
     return {
         username: state.auth.currentUser.username,
         id: state.auth.currentUser.id,
