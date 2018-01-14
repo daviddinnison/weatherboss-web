@@ -4,7 +4,9 @@
 // containing the status text.  If there is no error then we continue with
 // the promise chain.
 export const normalizeResponseErrors = res => {
+ 
     if (!res.ok) {
+   
         if (
             res.headers.has('content-type') &&
             res.headers.get('content-type').startsWith('application/json')
@@ -18,5 +20,6 @@ export const normalizeResponseErrors = res => {
             message: res.statusText
         });
     }
+  
     return res;
 };

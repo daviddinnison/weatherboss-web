@@ -1,5 +1,5 @@
-import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from './utils';
+import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({
@@ -13,18 +13,21 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchProtectedData = () => (dispatch, getState) => {
+export const fetchProtectedData = (id) => (dispatch, getState) => {
+    console.log(id)
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/protected`, {
+    return fetch(`${API_BASE_URL}/protected/${id}`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials
-            Authorization: `Bearer ${authToken}`
+            Authorization: `Bearer ${authToken}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
         }
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
+        .then(({ data }) => dispatch(fetchProtectedDataSuccess(data)))
         .catch(err => {
             dispatch(fetchProtectedDataError(err));
         });
