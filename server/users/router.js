@@ -62,7 +62,7 @@ router.post('/', jsonParser, (req, res) => {
       min: 1
     },
     password: {
-      min: 10,
+      min: 4,
       // bcrypt truncates after 72 characters, so let's not give the illusion
       // of security by storing extra (unused) info
       max: 72
@@ -143,5 +143,29 @@ router.get('/', (req, res) => {
     .then(users => res.json(users.map(user => user.serialize())))
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
+router.get('/:id', jsonParser, (req, res) => {
+  console.log(req.params.id)
+  User
+      .findById(req.params.id)
+      .then(user => {
+          if (!user) { return res.status(404).end(); }
+          return res.status(200).json(user);
+      })
+      .catch(err => next(err));
+});
+
+
+router.post('/locations/:id', jsonParser, (req, res) => {
+  User
+      .findByIdAndUpdate(req.params.id, { $push: { locations: req.body.newLocation } }, { new: true }, function (err, newData) {
+          if (err) {
+              console.err(err)
+          } else {
+              res.send(newData);
+          }
+      })
+});
+
 
 module.exports = {router};

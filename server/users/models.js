@@ -15,14 +15,17 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   firstName: {type: String, default: ''},
-  lastName: {type: String, default: ''}
+  lastName: {type: String, default: ''},
+  locations: { type: Array }
 });
 
 UserSchema.methods.serialize = function() {
   return {
+    id: this._id,
     username: this.username || '',
     firstName: this.firstName || '',
-    lastName: this.lastName || ''
+    lastName: this.lastName || '',
+    locations: [],
   };
 };
 
@@ -31,7 +34,7 @@ UserSchema.methods.validatePassword = function(password) {
 };
 
 UserSchema.statics.hashPassword = function(password) {
-  return bcrypt.hash(password, 10);
+  return bcrypt.hash(password, 4);
 };
 
 const User = mongoose.model('User', UserSchema);
