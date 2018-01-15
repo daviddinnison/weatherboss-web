@@ -162,6 +162,7 @@ router.get('/locations/:id', jsonParser, (req, res) => {
   User
       .findById(req.params.id)
       .then(user => {
+        console.log(user, 'USER LOCATIONS')
           if (!user) { return res.status(404).end(); }
           return res.status(200).json(user.locations);
       })
@@ -171,7 +172,7 @@ router.get('/locations/:id', jsonParser, (req, res) => {
 
 router.post('/locations/:id', jsonParser, (req, res) => {
   User
-      .findByIdAndUpdate(req.params.id, { $push: { locations: req.body.newLocation } }, { new: true }, function (err, newData) {
+      .findByIdAndUpdate(req.params.id, { $push: { locations: {name: req.body.name} } }, { new: true }, function (err, newData) {
           if (err) {
               console.err(err)
           } else {
