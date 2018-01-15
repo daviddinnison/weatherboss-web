@@ -19,7 +19,7 @@ export const getExtendedForecastError = message => ({
 
 export const getExtendedForecast = (userInput) => dispatch => {
     dispatch(getExtendedForecastRequest());
-    fetch(`http://api.wunderground.com/api/${API_KEY}/hourly10day/q/${userInput}.json`, {})
+    fetch(`http://api.wunderground.com/api/${API_KEY}/forecast10day/q/${userInput}.json`, {})
         .then(res => {
             console.log('INSIDE FIRST .THEN. this is the response:::', res)
             if (!res.ok) {
@@ -29,8 +29,8 @@ export const getExtendedForecast = (userInput) => dispatch => {
             return res.json();
         })
         .then(data => {
-            console.log(data.hourly_forecast, 'data received from server-----')
-            dispatch(getExtendedForecastSuccess(data.hourly_forecast));
+            console.log(data, 'data received from server-----')
+            dispatch(getExtendedForecastSuccess(data.forecast.simpleforecast));
         })
 
         .catch(err => {

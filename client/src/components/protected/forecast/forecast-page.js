@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import requiresLogin from '../requires-login';
-import BackButton from '../reusable/back-button';
-import {getExtendedForecast} from '../../actions/forecast';
+import requiresLogin from '../../requires-login';
+import BackButton from '../../reusable/back-button';
+import ExtendedForecast from './extended-forecast';
 
-export class Forecast extends React.Component {
+export class ForecastPage extends React.Component {
     componentDidMount() {
         const location = this.props.location.pathname.replace('/forecast/','');
-        this.props.dispatch(getExtendedForecast(location))
     }
 
     render() {
@@ -19,6 +18,7 @@ export class Forecast extends React.Component {
             <div>
                 <BackButton/>
                 <h2>THIS IS THE FORECAST PAGE for {location}!!!!!</h2>
+                <ExtendedForecast/>
             </div>
         );
     }
@@ -33,4 +33,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Forecast));
+export default requiresLogin()(connect(mapStateToProps)(ForecastPage));
