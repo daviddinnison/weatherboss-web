@@ -155,7 +155,7 @@ router.get('/:id', jsonParser, (req, res) => {
       .catch(err => next(err));
 });
 
-//user locations
+//get user locations
 router.get('/locations/:id', jsonParser, (req, res) => {
   User
       .findById(req.params.id)
@@ -166,8 +166,9 @@ router.get('/locations/:id', jsonParser, (req, res) => {
       .catch(err => next(err));
 });
 
-
-router.post('/locations/:id', jsonParser, (req, res) => {
+//add location
+router.post('/newlocation/:id', jsonParser, (req, res) => {
+  console.log(req.body, '-----------this is the req body------')
   User
       .findByIdAndUpdate(req.params.id, { $push: { locations: {name: req.body.name} } }, { new: true }, function (err, newData) {
           if (err) {

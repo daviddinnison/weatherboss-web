@@ -36,7 +36,7 @@ export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
 export const fetchLocationsSuccess = locations => ({
     type: FETCH_LOCATIONS_SUCCESS,
     locations
-}); 
+});
 
 export const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR';
 export const fetchLocationsError = message => ({
@@ -68,3 +68,37 @@ export const fetchLocations = (id) => dispatch => {
         });
 };
 
+//addlocations
+export const addLocation = (id, input) => dispatch => {
+    console.log('add location action initiated. this is input:', input);
+    console.log('add location action initiated. this is id:', id);
+    const formattedInput = {'name': input};
+    // dispatch(fetchLocationsRequest());
+    console.log (formattedInput, 'formattedInpout>>>>>')
+    fetch(`${API_BASE_URL}/users/newlocation/${id}`, {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formattedInput),
+        method: 'POST',
+    })
+        .then(res => {
+
+
+            console.log('got a response from the server');
+            if (!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        })
+        .then(locations => {
+
+            console.log('new location success');
+            // dispatch(fetchLocationsSuccess(locations));
+        })
+        .catch(err => {
+            console.log('final catch error')
+            // dispatch(fetchLocationsError(err));
+        });
+};
