@@ -4,6 +4,9 @@ import requiresLogin from '../requires-login';
 import { Link } from 'react-router-dom';
 import { fetchLocations } from '../../actions/users';
 
+
+import '../styles/locations.css';
+
 export class Locations extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchLocations(this.props.id));
@@ -19,7 +22,7 @@ export class Locations extends React.Component {
                 </div>
             )
             return (
-                <div>
+                <div className="locations">
                     <h2>Saved locations</h2>
                     {locationsData}
                 </div>
