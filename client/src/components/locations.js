@@ -7,18 +7,19 @@ export class Locations extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchLocations(this.props.id));
     }
-
+    
     renderLocations() {
-        if (this.props.locations.length === 0) {
+        if (this.props.locations.length===0) {
             return (<div><p>nothing to see here</p></div>)
         } else {
             const locationsData = this.props.locations.map((item, index) =>
-                <div>
-                    <p>{item}</p>
+                <div key={item._id}>
+                    <p>{item.name}</p>
                 </div>
             )
             return (
                 <div>
+                    <h2>Saved locations</h2>
                     {locationsData}
                 </div>
             );

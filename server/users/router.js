@@ -146,7 +146,6 @@ router.get('/', (req, res) => {
 
 //single user
 router.get('/:id', jsonParser, (req, res) => {
-  console.log(req.params.id)
   User
       .findById(req.params.id)
       .then(user => {
@@ -158,11 +157,9 @@ router.get('/:id', jsonParser, (req, res) => {
 
 //user locations
 router.get('/locations/:id', jsonParser, (req, res) => {
-  console.log(req.params.id, "REQ PARAMS ID")
   User
       .findById(req.params.id)
       .then(user => {
-        console.log(user, 'USER LOCATIONS')
           if (!user) { return res.status(404).end(); }
           return res.status(200).json(user.locations);
       })

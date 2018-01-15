@@ -3,6 +3,7 @@ import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
+
 export const registerUser = user => dispatch => {
     return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
@@ -26,15 +27,26 @@ export const registerUser = user => dispatch => {
         });
 };
 
+export const FETCH_LOCATIONS_REQUEST = 'FETCH_LOCATIONS_REQUEST';
+export const fetchLocationsRequest = () => ({
+    type: FETCH_LOCATIONS_REQUEST
+});
+
 export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
 export const fetchLocationsSuccess = locations => ({
     type: FETCH_LOCATIONS_SUCCESS,
     locations
+}); 
+
+export const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR';
+export const fetchLocationsError = message => ({
+    type: FETCH_LOCATIONS_ERROR,
+    message
 });
 
 
 export const fetchLocations = (id) => dispatch => {
-    // dispatch(getQuestionsRequest());
+    dispatch(fetchLocationsRequest());
     fetch(`${API_BASE_URL}/users/locations/${id}`, {
         headers: {
             Accept: 'application/json',
@@ -48,11 +60,11 @@ export const fetchLocations = (id) => dispatch => {
             return res.json();
         })
         .then(locations => {
-            console.log('res from getlocations', locations)
+
             dispatch(fetchLocationsSuccess(locations));
         })
         .catch(err => {
-            // dispatch(getQuestionsError(err));
+            dispatch(fetchLocationsError(err));
         });
 };
 
