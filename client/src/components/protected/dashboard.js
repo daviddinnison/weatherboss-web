@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 import requiresLogin from '../requires-login';
 import { fetchLocations } from '../../actions/users';
@@ -13,6 +14,7 @@ export class Dashboard extends React.Component {
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
                 <Locations/>
+                <Link to="/newlocation">Add location</Link>
             </div>
         );
     }

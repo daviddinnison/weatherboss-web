@@ -6,6 +6,7 @@ import HeaderBar from './unprotected/header-bar';
 import LandingPage from './unprotected/landing-page';
 import Dashboard from './protected/dashboard';
 import RegistrationPage from './unprotected/registration-page';
+import NewLocationPage from './protected/new-location-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -45,6 +46,9 @@ export class App extends React.Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path="/newlocation" component={NewLocationPage} />
+
+                
             </div>
         );
     }
