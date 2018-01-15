@@ -1,14 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import requiresLogin from '../../requires-login';
 
 export class NewLocationForm extends React.Component {
+    submitForm(event) {
+        event.preventDefault();
+        const input = this.userInput.value;
+        console.log('USER ENTERED.......', input)
+    }
+
     render() {
         return (
-            <div>
-                <p>WELCOME TO THE NEW LOCATION FORM!!!!</p>
-            </div>
+            <form
+                className="location-form"
+                onSubmit={event => this.submitForm(event)}
+            >
+                <input
+                    type="text"
+                    name="location-input"
+                    required
+                    placeholder="enter location"
+                    id="userInput"
+                    ref={input => (this.userInput = input)}
+                />
+                <button type="submit">Submit</button>
+            </form>
         );
     }
 }
