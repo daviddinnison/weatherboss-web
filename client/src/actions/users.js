@@ -68,13 +68,27 @@ export const fetchLocations = (id) => dispatch => {
         });
 };
 
+export const ADD_LOCATION_REQUEST = 'ADD_LOCATION_REQUEST';
+export const addLocationRequest = () => ({
+    type: ADD_LOCATION_REQUEST
+});
+
+export const ADD_LOCATION_SUCCESS = 'ADD_LOCATION_SUCCESS';
+export const addLocationSuccess = locations => ({
+    type: ADD_LOCATION_SUCCESS,
+});
+
+export const ADD_LOCATION_ERROR = 'ADD_LOCATION_ERROR';
+export const addLocationError = message => ({
+    type: ADD_LOCATION_ERROR,
+    message
+});
+
+
 //addlocations
 export const addLocation = (id, input) => dispatch => {
-    console.log('add location action initiated. this is input:', input);
-    console.log('add location action initiated. this is id:', id);
+    dispatch(addLocationRequest());
     const formattedInput = {'name': input};
-    // dispatch(fetchLocationsRequest());
-    console.log (formattedInput, 'formattedInpout>>>>>')
     fetch(`${API_BASE_URL}/users/newlocation/${id}`, {
         headers: {
             Accept: 'application/json',
@@ -84,21 +98,16 @@ export const addLocation = (id, input) => dispatch => {
         method: 'POST',
     })
         .then(res => {
-
-
-            console.log('got a response from the server');
             if (!res.ok) {
                 throw new Error(res.statusText);
             }
             return res.json();
         })
         .then(locations => {
-
-            console.log('new location success');
-            // dispatch(fetchLocationsSuccess(locations));
+            dispatch(addLocationSuccess());
         })
         .catch(err => {
             console.log('final catch error')
-            // dispatch(fetchLocationsError(err));
+            dispatch(addLocationError(err));
         });
 };
