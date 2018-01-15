@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import requiresLogin from '../requires-login';
-import NewLocationForm from './forms/new-location-form'
+import requiresLogin from '../../requires-login';
 
-export class NewLocationPage extends React.Component {
+export class NewLocationForm extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/dashboard">Go back</Link>
-                <h2>Add location</h2>
-                <NewLocationForm/>
+                <p>WELCOME TO THE NEW LOCATION FORM!!!!</p>
             </div>
         );
     }
@@ -24,4 +21,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(NewLocationPage));
+export default requiresLogin()(connect(mapStateToProps)(NewLocationForm));
