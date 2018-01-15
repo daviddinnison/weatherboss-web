@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 import requiresLogin from '../requires-login';
 import BackButton from '../reusable/back-button';
-import {test} from '../../actions/forecast';
+import {getExtendedForecast} from '../../actions/forecast';
 
 export class Forecast extends React.Component {
     componentDidMount() {
-        this.props.dispatch(test(this.props.test))
+        const location = this.props.location.pathname.replace('/forecast/','');
+        this.props.dispatch(getExtendedForecast(location))
     }
 
     render() {
