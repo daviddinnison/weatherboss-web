@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
-import HeaderBar from './header-bar';
-import LandingPage from './landing-page';
-import Dashboard from './dashboard';
-import RegistrationPage from './registration-page';
+import HeaderBar from './unprotected/header-bar';
+import LandingPage from './unprotected/landing-page';
+import Dashboard from './protected/dashboard';
+import RegistrationPage from './unprotected/registration-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {

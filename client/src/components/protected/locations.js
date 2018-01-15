@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import requiresLogin from './requires-login';
-import { fetchLocations } from '../actions/users';
+import requiresLogin from '../requires-login';
+import { fetchLocations } from '../../actions/users';
 
 export class Locations extends React.Component {
     componentDidMount() {
