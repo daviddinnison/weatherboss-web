@@ -3,18 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import requiresLogin from '../../requires-login';
-import BackButton from '../../reusable/back-button';
-import {getExtendedForecast} from '../../../actions/forecast';
-
-export class ExtendedForecast extends React.Component {
 
 
+export class CurrentConditions extends React.Component {
     render() {
 
         return (
             <div>
-                <h3>EXTENDED FORECAST</h3>
-                <p>this will contain really cool extended forecast data</p>
+                <h3>current conditions</h3>
+                <p>plz make yourself at home while david makes this.</p>
             </div>
         );
     }
@@ -29,4 +26,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(ExtendedForecast));
+export default requiresLogin()(connect(mapStateToProps)(CurrentConditions));
