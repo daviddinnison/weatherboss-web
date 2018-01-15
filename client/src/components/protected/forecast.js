@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 
 import requiresLogin from '../requires-login';
 import BackButton from '../reusable/back-button';
-
+import {test} from '../../actions/forecast';
 
 export class Forecast extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(test(this.props.test))
+    }
+
     render() {
         
         const location = this.props.location.pathname.replace('/forecast/','');
@@ -23,7 +27,8 @@ const mapStateToProps = state => {
     const { currentUser } = state.auth;
     return {
         id: state.auth.currentUser.id,
-        locations: state.protectedData.locations
+        locations: state.protectedData.locations,
+        test: state.forecast.test
     };
 };
 
