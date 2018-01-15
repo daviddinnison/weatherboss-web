@@ -4,14 +4,19 @@ import { Link } from 'react-router-dom';
 
 import requiresLogin from '../../requires-login';
 
+import {getCurrentForecast} from '../../../actions/forecast';
 
 export class CurrentConditions extends React.Component {
-    render() {
+    componentDidMount() {
+        const location = 'New York, NY';
+        this.props.dispatch(getCurrentForecast(location))
+    }
 
+    render() {
         return (
             <div>
                 <h3>current conditions</h3>
-                <p>plz make yourself at home while david makes this.</p>
+                <p>this is placeholder text that will be deleted later.</p>
             </div>
         );
     }

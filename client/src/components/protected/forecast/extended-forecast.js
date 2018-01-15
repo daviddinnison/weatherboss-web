@@ -14,7 +14,8 @@ export class ExtendedForecast extends React.Component {
         return (
             <div>
                 <h3>EXTENDED FORECAST</h3>
-                <p>this will contain really cool extended forecast data</p>
+                <p>this will contain really cool extended forecast data. </p>
+                <p>plz make yourself at home while david makes this.</p>
             </div>
         );
     }
