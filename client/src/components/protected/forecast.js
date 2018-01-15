@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import requiresLogin from '../requires-login';
-import NewLocationForm from './forms/new-location-form'
 import BackButton from '../reusable/back-button';
 
-export class NewLocationPage extends React.Component {
+
+export class Forecast extends React.Component {
     render() {
         return (
             <div>
                 <BackButton/>
-                <h2>Add location</h2>
-                <NewLocationForm/>
+                <h2>THIS IS THE FORECAST PAGE!!!!!</h2>
             </div>
         );
     }
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(NewLocationPage));
+export default requiresLogin()(connect(mapStateToProps)(Forecast));
