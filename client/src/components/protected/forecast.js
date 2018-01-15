@@ -8,10 +8,12 @@ import BackButton from '../reusable/back-button';
 
 export class Forecast extends React.Component {
     render() {
+        
+        const location = this.props.location.pathname.replace('/forecast/','');
         return (
             <div>
                 <BackButton/>
-                <h2>THIS IS THE FORECAST PAGE!!!!!</h2>
+                <h2>THIS IS THE FORECAST PAGE for {location}!!!!!</h2>
             </div>
         );
     }
