@@ -3,23 +3,24 @@ import { connect } from 'react-redux';
 import requiresLogin from '../../requires-login';
 import { Link } from 'react-router-dom';
 
-export class RenderedLocation extends React.Component {
-   
-    render() {
-        return (
-            <div>
-                <p>YOU MADE IT!!!!!</p>
-            </div>
-        );
-    }
+export default function RenderedLocation(props) {
+    // export class Locations extends React.Component {
+
+    
+    return (
+        <div>
+            <p>{props.name}</p>
+        </div>
+    );
+
 }
 
-const mapStateToProps = state => {
-    const { currentUser } = state.auth;
-    return {
-        id: state.auth.currentUser.id,
-        locations: state.protectedData.locations
-    };
-};
+// const mapStateToProps = state => {
+//     const { currentUser } = state.auth;
+//     return {
+//         id: state.auth.currentUser.id,
+//         locations: state.protectedData.locations
+//     };
+// };
 
-export default requiresLogin()(connect(mapStateToProps)(RenderedLocation));
+// export default requiresLogin()(connect(mapStateToProps)(RenderedLocation));

@@ -19,7 +19,7 @@ export class Locations extends React.Component {
         } else {
             const locationsData = this.props.locations.map((item, index) =>
                 <li key={item._id}>
-                    <RenderedLocation/>
+                    <RenderedLocation {...item}/>
                     {/* <Link to={`/forecast/${item.name}`}>{item.name}</Link> */}
                 </li>
             )
