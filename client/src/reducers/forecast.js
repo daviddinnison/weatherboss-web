@@ -9,7 +9,9 @@ import {
 
 const initialState = {
     currentForecastData: {},
-    extendedForecastData: {}
+    extendedForecastData: {
+        forecastday: [{}]
+    }
 };
 
 export default function reducer(state = initialState, action) {
