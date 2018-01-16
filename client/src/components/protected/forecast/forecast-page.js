@@ -6,6 +6,7 @@ import requiresLogin from '../../requires-login';
 import BackButton from '../../reusable/back-button';
 import ExtendedForecast from './extended-forecast';
 import CurrentConditions from './current-conditions';
+import ForecastAlert from './forecast-alert';
 
 export class ForecastPage extends React.Component {
     componentDidMount() {
@@ -20,6 +21,7 @@ export class ForecastPage extends React.Component {
                 <BackButton/>
                 <h2>THIS IS THE FORECAST PAGE for {location}!!!!!</h2>
                 {/* <CurrentConditions/> */}
+                <ForecastAlert name={location}/>
                 <ExtendedForecast name={location}/>
             </div>
         );
