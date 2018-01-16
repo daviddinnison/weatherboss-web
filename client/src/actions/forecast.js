@@ -72,24 +72,41 @@ export const getExtendedForecast = (userInput) => dispatch => {
         });
 }
 
+
+export const GET_ALERT_REQUEST = 'GET_ALERT_REQUEST';
+export const getAlertRequest = () => ({
+    type: GET_ALERT_REQUEST,
+});
+
+export const GET_ALERT_SUCCESS = 'GET_ALERT_SUCCESS';
+export const getAlertSuccess = data => ({
+    type: GET_ALERT_SUCCESS,
+    data
+});
+
+export const GET_ALERT_ERROR = 'GET_ALERT_ERROR';
+export const getAlertError = message => ({
+    type: GET_ALERT_ERROR,
+    message
+});
+
 export const getAlert = (userInput) => dispatch => {
-    // dispatch(getExtendedForecastRequest());
+    dispatch(getAlertRequest());
     fetch(`http://api.wunderground.com/api/${API_KEY}/alerts/q/${userInput}.json`, {})
         .then(res => {
             console.log('INSIDE FIRST .THEN. this is the response:::', res)
             if (!res.ok) {
                 throw new Error(res.statusText);
-                // Actions.error();
             }
             return res.json();
         })
         .then(data => {
-            console.log(data, 'data received from server-----')
-            // dispatch(getExtendedForecastSuccess(data.forecast.simpleforecast));
+            console.log(data.alerts, 'data received from server-----')
+            dispatch(getAlertSuccess(data.alerts));
         })
 
         .catch(err => {
             console.log(err, '------error from server')
-            // dispatch(getExtendedForecastError(err));
+            dispatch(getAlertError(err));
         });
 }

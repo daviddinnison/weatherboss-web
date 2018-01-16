@@ -3,25 +3,41 @@ import { connect } from 'react-redux';
 import requiresLogin from '../../requires-login';
 import { Link } from 'react-router-dom';
 
-import { getCurrentForecast } from '../../../actions/forecast';
+import { getAlert } from '../../../actions/forecast';
 
+import './styles/forecast-alert.css';
 
 
 export class ForecastAlert extends React.Component {
     componentDidMount() {
-        // this.props.dispatch(getAlerts(this.props.name))
-    }
-    renderAlert() {
-        const location = this.props.name;
-        alert(location)
+        this.props.dispatch(getAlert(this.props.name))
     }
 
+    renderAlert() {
+        console.log('--------props---------PROPS-----', this.props.alert)
+        if (this.props.alert.length > 0) {
+            const alerts = this.props.alert.map((item, index) =>
+                <li key={index}>
+                    <p>{item.description}</p>
+                    <p>{item.message}</p>
+                </li>
+            );
+            return (
+                <div>
+                    <ul>
+                        {alerts}
+                    </ul>
+                </div>
+            );
+        } else {
+            return (<li>no alerts.</li>)
+        }
+    }
     render() {
 
         return (
-            <div className="alert">
+            <div className="alert-container">
                 {this.renderAlert()}
-                <p>this would also be the alert for {this.props.name}</p>
             </div>
         );
     }
@@ -33,7 +49,8 @@ const mapStateToProps = state => {
     return {
         id: state.auth.currentUser.id,
         locations: state.protectedData.locations,
-        currentForecastData: state.forecast.currentForecastData
+        currentForecastData: state.forecast.currentForecastData,
+        alert: state.forecast.alert
     };
 };
 
