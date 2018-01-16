@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import requiresLogin from '../requires-login';
 import { Link } from 'react-router-dom';
 import { fetchLocations } from '../../actions/users';
+import RenderedLocation from './forecast/rendered-location';
 
 
-import '../styles/locations.css';
+import './styles/locations.css';
 
 export class Locations extends React.Component {
     componentDidMount() {
@@ -18,7 +19,8 @@ export class Locations extends React.Component {
         } else {
             const locationsData = this.props.locations.map((item, index) =>
                 <li key={item._id}>
-                    <Link to={`/forecast/${item.name}`}>{item.name}</Link>
+                    <RenderedLocation name={item.name}/>
+                    {/* <Link to={`/forecast/${item.name}`}>{item.name}</Link> */}
                 </li>
             )
             return (
