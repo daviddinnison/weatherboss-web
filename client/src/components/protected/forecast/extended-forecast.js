@@ -7,7 +7,10 @@ import BackButton from '../../reusable/back-button';
 import {getExtendedForecast} from '../../../actions/forecast';
 
 export class ExtendedForecast extends React.Component {
-
+    componentDidMount() {
+        const location = 'New York, NY';
+        this.props.dispatch(getExtendedForecast(location))
+    }
 
     render() {
 
@@ -26,7 +29,7 @@ const mapStateToProps = state => {
     return {
         id: state.auth.currentUser.id,
         locations: state.protectedData.locations,
-        test: state.forecast.test
+        extendedForecastData: state.forecast.extendedForecastData
     };
 };
 

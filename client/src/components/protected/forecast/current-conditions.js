@@ -13,10 +13,13 @@ export class CurrentConditions extends React.Component {
     }
 
     render() {
+        // console.log('CURRENT FORECAST PROPS', this.props.currentForecastData)
         return (
             <div>
                 <h3>current conditions</h3>
-                <p>this is placeholder text that will be deleted later.</p>
+                <p>current temp</p>
+                <p>high</p>
+                <p>low</p>
             </div>
         );
     }
@@ -27,6 +30,7 @@ const mapStateToProps = state => {
     return {
         id: state.auth.currentUser.id,
         locations: state.protectedData.locations,
+        currentForecastData: state.forecast.currentForecastData,
         test: state.forecast.test
     };
 };

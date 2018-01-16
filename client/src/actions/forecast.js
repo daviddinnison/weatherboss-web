@@ -28,7 +28,6 @@ export const getCurrentForecast = (userInput) => dispatch => {
             return res.json();
         })
         .then(data => {
-            console.log(data, 'CURRENT FORCAST DATA')
             dispatch(getCurrentForecastSuccess(data.current_observation));
         })
         .catch(err => {
