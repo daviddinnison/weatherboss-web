@@ -8,7 +8,7 @@ import BackButton from '../reusable/back-button';
 export class NewLocationPage extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <BackButton/>
                 <h2>Add location</h2>
                 <NewLocationForm/>

@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import requiresLogin from '../../requires-login';
-import { addLocation } from '../../../actions/users';
+import { addLocation, validateLocation } from '../../../actions/users';
 
 export class NewLocationForm extends React.Component {
     submitForm(event) {
         event.preventDefault();
         const input = this.userInput.value;
-        this.props.dispatch(addLocation(this.props.id, input))
+        this.props.dispatch(validateLocation(this.props.id, input))
     }
 
     render() {

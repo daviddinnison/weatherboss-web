@@ -3,6 +3,8 @@ import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
+const API_KEY = "b20a7be72cb0b77a";
+
 
 export const registerUser = user => dispatch => {
     return fetch(`${API_BASE_URL}/users`, {
@@ -85,10 +87,67 @@ export const addLocationError = message => ({
 });
 
 
+export const validateLocation = (id, userInput) => dispatch => {
+    console.log('ID', id)
+    console.log('input', userInput);
+    // dispatch(getCurrentForecastRequest());
+    fetch(`http://api.wunderground.com/api/${API_KEY}/geolookup/q/${userInput}.json`, {})
+        .then(res => {
+            console.log('res......', res)
+            if (!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log('data......', data)
+            if (data.response.error) {
+                console.log('this is the data error response', data.response.error.description)
+                throw new Error(data.response.error.description);
+            } else {
+                console.log('THIS DATA IS VALID and ready to be sent to addLocation', data)
+
+                //if the input isnt specific and returns multiple results we ask the user to be more specific
+                if (data.response.results) {
+                    throw new Error('Please include a state or country name in search');
+                }
+
+                let formattedLocation;
+                //this formats the location if it is in the us
+                if (data.location.type === "CITY") {
+                    formattedLocation = `${data.location.city}, ${data.location.state}`;
+                    console.log('THIS LOCATION IS IN THE USA.formatted is looks like: ', formattedLocation)
+                }
+                //this formats the location if it is outside the us
+                else if (data.location.type === "INTLCITY") {
+                    formattedLocation = `${data.location.city}, ${data.location.country_name}`;
+                    console.log('THIS LOCATION IS OUTSIDE THE US.formatted is looks like: ', formattedLocation)
+                }
+                //any other situations throws an error
+                else {
+                    console.log('DIFFERENT TYPE?', data.location.type)
+                    throw new Error('This location is not valid');
+                }
+                console.log(formattedLocation, 'THIS WILL BE SENT')
+            }
+
+        })
+        .catch(err => {
+
+            console.log('error.....', err);
+        });
+}
+
+
+
+
 //addlocations
 export const addLocation = (id, input) => dispatch => {
     dispatch(addLocationRequest());
-    const formattedInput = {'name': input};
+    const formattedInput = { 'name': input };
+    //if location is not valid, break and pass error to catch
+
+    console.log('INPUT INSIDE addLocation', formattedInput)
     fetch(`${API_BASE_URL}/users/newlocation/${id}`, {
         headers: {
             Accept: 'application/json',
@@ -98,12 +157,14 @@ export const addLocation = (id, input) => dispatch => {
         method: 'POST',
     })
         .then(res => {
+            console.log('THE RES', res)
             if (!res.ok) {
                 throw new Error(res.statusText);
             }
             return res.json();
         })
         .then(locations => {
+            console.log('LOCATIONS RETURNED SUCCESSFULLY', locations)
             dispatch(addLocationSuccess());
         })
         .catch(err => {
