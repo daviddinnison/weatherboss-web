@@ -6,7 +6,7 @@ import { fetchLocations } from '../../actions/users';
 import RenderedLocation from './forecast/rendered-location';
 
 
-import '../styles/locations.css';
+import './styles/locations.css';
 
 export class Locations extends React.Component {
     componentDidMount() {

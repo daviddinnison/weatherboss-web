@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import requiresLogin from '../../requires-login';
 import { Link } from 'react-router-dom';
 
-import {getCurrentForecast} from '../../../actions/forecast';
+import { getCurrentForecast } from '../../../actions/forecast';
+
+import './styles/rendered-location.css';
 
 
 export class RenderedLocation extends React.Component {
@@ -14,9 +16,11 @@ export class RenderedLocation extends React.Component {
     render() {
 
         return (
-            <div>
-                <p>{this.props.name}</p>
-                <p>{this.props.currentForecastData.weather}</p>
+            <div className="rendered-location">
+                <Link to={`/forecast/${this.props.name}`}>
+                    <p>{this.props.name}</p>
+                    <p>{this.props.currentForecastData.weather}</p>
+                </Link>
             </div>
         );
     }
