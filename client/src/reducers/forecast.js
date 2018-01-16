@@ -9,22 +9,20 @@ import {
 
 const initialState = {
     currentForecastData: {},
-    extendedForecastData: {
-        forecastday: [{}]
-    }
+    extendedForecastData: {forecastday: [{date: {},high: {},low: {},}]}
 };
 
 export default function reducer(state = initialState, action) {
 
     switch (action.type) {
         case 'GET_CURRENT_FORECAST_REQUEST': {
-           
+
             return Object.assign({}, state, {
                 loading: true
             });
         }
         case 'GET_CURRENT_FORECAST_SUCCESS': {
-            
+
             return Object.assign({}, state, {
                 currentForecastData: action.data,
                 loading: false

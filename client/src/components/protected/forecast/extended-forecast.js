@@ -12,16 +12,18 @@ export class ExtendedForecast extends React.Component {
         this.props.dispatch(getExtendedForecast(location))
     }
     renderDays() {
-        console.log('PROPS--------------------', this.props.extendedForecastData.forecastday[0].high)
+        console.log('PROPS--------------------', this.props.extendedForecastData.forecastday[0])
         const tenDayData = this.props.extendedForecastData.forecastday.map((item, index) =>
-            <li className="individual-day" key={item.period}>
+            <li className="individual-day" key={index}>
+                <h4>{item.date.weekday}, {item.date.monthname} {item.date.day}</h4>
                 <img src={item.icon_url}></img>
                 <p>Conditions: {item.conditions}</p>
+                <p>high: {item.high.fahrenheit}° F</p>
+                <p>low: {item.low.fahrenheit}° F</p>
             </li>
         );
         return (
             <div className="day-container">
-                <h2>YOUR EXTENDED FORECAST!!!!</h2>
                 <ul>
                     {tenDayData}
                 </ul>
