@@ -19,7 +19,7 @@ export class ForecastPage extends React.Component {
         return (
             <div className="container">
                 <BackButton/>
-                <h2>THIS IS THE FORECAST PAGE for {location}!!!!!</h2>
+                <h2>{location}</h2>
                 {/* <CurrentConditions/> */}
                 <ForecastAlert name={location}/>
                 <ExtendedForecast name={location}/>

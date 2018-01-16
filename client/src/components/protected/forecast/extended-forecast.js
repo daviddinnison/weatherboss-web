@@ -33,9 +33,6 @@ export class ExtendedForecast extends React.Component {
     render() {
         return (
             <div>
-                <h3>EXTENDED FORECAST</h3>
-                <p>this will contain really cool extended forecast data. </p>
-                <p>plz make yourself at home while david makes this.</p>
                 {this.renderDays()}
             </div>
         );

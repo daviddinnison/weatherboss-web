@@ -1,3 +1,7 @@
 .header-bar {
     background-color: aliceblue;
 }
+
+.header-bar h1 {
+    margin-top: 0px;
+}
