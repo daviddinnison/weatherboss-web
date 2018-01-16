@@ -14,17 +14,19 @@ export class Locations extends React.Component {
     
     renderLocations() {
         if (this.props.locations.length===0) {
-            return (<div><p>nothing to see here</p></div>)
+            return (<li>nothing to see here</li>)
         } else {
             const locationsData = this.props.locations.map((item, index) =>
-                <div key={item._id}>
+                <li key={item._id}>
                     <Link to={`/forecast/${item.name}`}>{item.name}</Link>
-                </div>
+                </li>
             )
             return (
                 <div className="locations">
                     <h2>Saved locations</h2>
+                    <ul>
                     {locationsData}
+                    </ul>
                 </div>
             );
         }
