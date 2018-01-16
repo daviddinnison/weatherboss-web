@@ -14,7 +14,8 @@ export class ExtendedForecast extends React.Component {
     renderDays() {
         console.log('PROPS--------------------', this.props.extendedForecastData.forecastday[0].high)
         const tenDayData = this.props.extendedForecastData.forecastday.map((item, index) =>
-            <li className="individual-day">
+            <li className="individual-day" key={item.period}>
+                <img src={item.icon_url}></img>
                 <p>Conditions: {item.conditions}</p>
             </li>
         );
