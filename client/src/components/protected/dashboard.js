@@ -8,7 +8,7 @@ import Locations from './locations';
 export class Dashboard extends React.Component {
     render() {
         return (
-            <div className="dashboard">
+            <div className="dashboard container">
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>

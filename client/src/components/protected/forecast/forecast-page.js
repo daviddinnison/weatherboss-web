@@ -17,7 +17,7 @@ export class ForecastPage extends React.Component {
         
         const location = this.props.location.pathname.replace('/forecast/','');
         return (
-            <div>
+            <div className="container">
                 <BackButton/>
                 <h2>THIS IS THE FORECAST PAGE for {location}!!!!!</h2>
                 {/* <CurrentConditions/> */}

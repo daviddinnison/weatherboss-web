@@ -22,7 +22,7 @@ export class ExtendedForecast extends React.Component {
             </li>
         );
         return (
-            <div className="day-container">
+            <div className="extended-forecast">
                 <ul>
                     {tenDayData}
                 </ul>
