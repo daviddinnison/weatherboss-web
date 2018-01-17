@@ -1,6 +1,6 @@
 .individual-day {
+    background: #fff;
     border: 2px solid black;
-    background-color: #F5E7F5;
     padding: 20px;
     margin-bottom: 5px;
 }
@@ -9,12 +9,16 @@
     background-color: #D2FFFF;
 }
 
+.individual-day:nth-child(3n+0) {
+    background-color: #F5E7F5;
+}
+
 .individual-day>h4 {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
 }
 
-.individual-day > p{
+.individual-day>p {
     font-family: 'Oswald', sans-serif;
     margin: 0px;
 }
