@@ -18,7 +18,7 @@ export class RenderedLocation extends React.Component {
         return (
             <div className="rendered-location">
                 <Link to={`/forecast/${this.props.name}`}>
-                    <p>{this.props.name}</p>
+                    <h1 className="rendered-location-name">{this.props.name}</h1>
                     <p>{this.props.currentForecastData.weather}</p>
                 </Link>
             </div>

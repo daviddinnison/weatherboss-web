@@ -1,20 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import requiresLogin from '../requires-login';
 import { fetchLocations } from '../../actions/users';
 import Locations from './locations';
+
+import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard container">
                 <div className="dashboard-username">
-                    Username: {this.props.username}
+                    Welcome, {this.props.username}
                 </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <Locations/>
-                <Link to="/newlocation">Add location</Link>
+                <Locations />
+                <div className="dashboard-add-location">
+                    <Link to="/newlocation">Add location</Link>
+                </div>
             </div>
         );
     }

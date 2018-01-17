@@ -1,0 +1,20 @@
+.dashboard-name {
+    margin-bottom: 30px;
+}
+
+.dashboard-username {
+    /* color: black; */
+}
+
+.dashboard-add-location {
+    background-color: #FFD1FF;
+    border: 2px solid black;
+    padding: 10px 15px;
+    width: auto;
+}
+
+.dashboard-add-location>a {
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+}
