@@ -14,6 +14,7 @@ import {
 const initialState = {
     data: '',
     error: null,
+    redirect: false,
     locations: []
 };
 
@@ -56,6 +57,7 @@ export default function reducer(state = initialState, action) {
         
         case 'ADD_LOCATION_SUCCESS': {
             return Object.assign({}, state, {
+                redirect: true,
                 loading: false
             });
         }
@@ -63,6 +65,11 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, {
                 error: action.message,
                 loading: false
+            });
+        }
+        case 'CLEAR_REDIRECT': {
+            return Object.assign({}, state, {
+                redirect: false
             });
         }
     }

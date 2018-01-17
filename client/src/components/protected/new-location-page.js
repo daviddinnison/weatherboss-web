@@ -9,6 +9,9 @@ import './styles/new-location-page.css';
 
 export class NewLocationPage extends React.Component {
     render() {
+        if (this.props.redirect) {
+            return <Redirect to="/dashboard" />;
+        }
         return (
             <div className="container new-location-page">
                 <BackButton/>
@@ -23,7 +26,8 @@ const mapStateToProps = state => {
     const { currentUser } = state.auth;
     return {
         id: state.auth.currentUser.id,
-        locations: state.protectedData.locations
+        locations: state.protectedData.locations,
+        redirect: state.protectedData.redirect
     };
 };
 

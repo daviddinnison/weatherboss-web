@@ -32,3 +32,8 @@ export const fetchProtectedData = (id) => (dispatch, getState) => {
             dispatch(fetchProtectedDataError(err));
         });
 };
+
+export const CLEAR_REDIRECT = 'CLEAR_REDIRECT';
+export const clearRedirect = () => ({
+    type: CLEAR_REDIRECT,
+});
