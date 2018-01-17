@@ -26,6 +26,7 @@ export class NewLocationForm extends React.Component {
                     ref={input => (this.userInput = input)}
                 />
                 <button type="submit">Submit</button>
+                <p>{this.props.locationError}</p>
             </form>
         );
     }
@@ -35,7 +36,8 @@ const mapStateToProps = state => {
     const { currentUser } = state.auth;
     return {
         id: state.auth.currentUser.id,
-        locations: state.protectedData.locations
+        locations: state.protectedData.locations,
+        locationError: state.forecast.locationError
     };
 };
 

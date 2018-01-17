@@ -10,10 +10,15 @@ import {
     GET_ALERT_ERROR
 } from '../actions/forecast';
 
+import {
+    VALIATE_LOCATION_ERROR
+} from '../actions/forecast';
+
 const initialState = {
     currentForecastData: {},
     extendedForecastData: {forecastday: [{date: {},high: {},low: {},}]},
-    alert: [{}]
+    alert: [{}],
+    locationError: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -70,6 +75,13 @@ export default function reducer(state = initialState, action) {
         case 'GET_ALERT_ERROR': {
             return Object.assign({}, state, {
                 message: action.message,
+                loading: false
+            });
+        }
+        case 'VALIDATE_LOCATION_ERROR': {
+            console.log('VALIDATE LOC ERROR IN REDUCER', action.err)
+            return Object.assign({}, state, {
+                locationError: action.err,
                 loading: false
             });
         }
