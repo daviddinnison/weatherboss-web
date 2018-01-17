@@ -3,13 +3,13 @@
 }
 
 .single-location {
-    background-color: #D2FFFF;
+    background-color: #F5E7F5;
     border: 2px solid black;
     margin-bottom: 10px;
 }
 
 .single-location:nth-child(odd) {
-    background-color: #F5E7F5;
+    background-color: #D2FFFF;
 }
 
 .empty-locations {
