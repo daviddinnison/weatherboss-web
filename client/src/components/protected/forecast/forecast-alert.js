@@ -18,25 +18,25 @@ export class ForecastAlert extends React.Component {
         if (this.props.alert.length > 0) {
             const alerts = this.props.alert.map((item, index) =>
                 <li key={index}>
-                    <p>{item.description}</p>
+                    <p className="alert-description">{item.description}</p>
                     <p>{item.message}</p>
                 </li>
             );
             return (
-                <div>
+                <div className="alerts">
                     <ul>
                         {alerts}
                     </ul>
                 </div>
             );
         } else {
-            return (<li>no alerts.</li>)
+            return (<div className="alerts">no alerts.</div>)
         }
     }
     render() {
 
         return (
-            <div className="alert-container">
+            <div>
                 {this.renderAlert()}
             </div>
         );

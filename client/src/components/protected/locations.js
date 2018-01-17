@@ -15,7 +15,7 @@ export class Locations extends React.Component {
     
     renderLocations() {
         if (this.props.locations.length===0) {
-            return (<li>nothing to see here</li>)
+            return (<li className="empty-locations">nothing to see here</li>)
         } else {
             const locationsData = this.props.locations.map((item, index) =>
                 <li key={item._id} className="single-location">

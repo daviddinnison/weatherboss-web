@@ -1,3 +1,15 @@
-.alert-container {
+.alerts {
+    margin-bottom: 30px;
+}
+
+
+.alerts li {
     background-color: yellow;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+
+.alert-description {
+    font-weight: bold;
+    font-size: 17px;
 }

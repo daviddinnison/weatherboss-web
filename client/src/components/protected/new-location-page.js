@@ -5,10 +5,12 @@ import requiresLogin from '../requires-login';
 import NewLocationForm from './forms/new-location-form'
 import BackButton from '../reusable/back-button';
 
+import './styles/new-location-page.css';
+
 export class NewLocationPage extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="container new-location-page">
                 <BackButton/>
                 <h2>Add location</h2>
                 <NewLocationForm/>

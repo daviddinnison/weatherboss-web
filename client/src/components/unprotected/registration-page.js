@@ -4,6 +4,8 @@ import {Link, Redirect} from 'react-router-dom';
 
 import RegistrationForm from './forms/registration-form';
 
+import './styles/registration-page.css';
+
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the user's dashboard
@@ -14,7 +16,7 @@ export function RegistrationPage(props) {
         <div className="home container">
             <h2>Become a WeatherBoss</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            <Link to="/">Go back</Link>
         </div>
     );
 }
