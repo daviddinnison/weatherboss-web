@@ -8,6 +8,8 @@ import ExtendedForecast from './extended-forecast';
 import CurrentConditions from './current-conditions';
 import ForecastAlert from './forecast-alert';
 
+import './styles/forecast-page.css';
+
 export class ForecastPage extends React.Component {
     componentDidMount() {
         const location = this.props.location.pathname.replace('/forecast/','');
@@ -17,7 +19,7 @@ export class ForecastPage extends React.Component {
         
         const location = this.props.location.pathname.replace('/forecast/','');
         return (
-            <div className="container">
+            <div className="container forecast-page">
                 <BackButton/>
                 <h2>{location}</h2>
                 {/* <CurrentConditions/> */}
