@@ -6,6 +6,8 @@ import requiresLogin from '../../requires-login';
 import BackButton from '../../reusable/back-button';
 import { getExtendedForecast } from '../../../actions/forecast';
 
+import './styles/extended-forecast.css';
+
 export class ExtendedForecast extends React.Component {
     componentDidMount() {
         const location = this.props.name;
@@ -16,7 +18,7 @@ export class ExtendedForecast extends React.Component {
             <li className="individual-day" key={index}>
                 <h4>{item.date.weekday}, {item.date.monthname} {item.date.day}</h4>
                 <img src={item.icon_url}></img>
-                <p>Conditions: {item.conditions}</p>
+                <p>{item.conditions}</p>
                 <p>high: {item.high.fahrenheit}° F</p>
                 <p>low: {item.low.fahrenheit}° F</p>
             </li>
