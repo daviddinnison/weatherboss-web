@@ -11,7 +11,10 @@ import {
 } from '../actions/forecast';
 
 import {
-    VALIATE_LOCATION_ERROR
+    CLEAR_VALIDATE_LOCATION_ERROR,
+    VALIDATE_LOCATION_REQUEST,
+    VALIDATE_LOCATION_SUCCESS,
+    VALIDATE_LOCATION_ERROR
 } from '../actions/forecast';
 
 const initialState = {
@@ -78,8 +81,22 @@ export default function reducer(state = initialState, action) {
                 loading: false
             });
         }
+        case 'CLEAR_VALIDATE_LOCATION_ERROR': {
+            return Object.assign({}, state, {
+                locationError: null
+            });
+        }
+        case 'VALIDATE_LOCATION_REQUEST': {
+            return Object.assign({}, state, {
+                loading: true
+            });
+        }
+        case 'VALIDATE_LOCATION_SUCCESS': {
+            return Object.assign({}, state, {
+                loading: false
+            });
+        }
         case 'VALIDATE_LOCATION_ERROR': {
-            console.log('VALIDATE LOC ERROR IN REDUCER', action.err)
             return Object.assign({}, state, {
                 locationError: action.err,
                 loading: false

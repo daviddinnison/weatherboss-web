@@ -70,6 +70,21 @@ export const fetchLocations = (id) => dispatch => {
         });
 };
 
+export const CLEAR_VALIDATE_LOCATION_ERROR = 'CLEAR_VALIDATE_LOCATION_ERROR';
+export const clearValidateLocationError = () => ({
+    type: CLEAR_VALIDATE_LOCATION_ERROR
+});
+
+export const VALIDATE_LOCATION_REQUEST = 'VALIDATE_LOCATION_REQUEST';
+export const validateLocationRequest = () => ({
+    type: VALIDATE_LOCATION_REQUEST,
+});
+
+export const VALIDATE_LOCATION_SUCCESS = 'VALIDATE_LOCATION_SUCCESS';
+export const validateLocationSuccess = locations => ({
+    type: VALIDATE_LOCATION_SUCCESS,
+});
+
 export const VALIDATE_LOCATION_ERROR = 'VALIDATE_LOCATION_ERROR';
 export const validateLocationError = err => ({
     type: VALIDATE_LOCATION_ERROR,
@@ -81,53 +96,53 @@ export const validateLocation = (id, userInput) => dispatch => {
     console.log('input', userInput);
     // dispatch(getCurrentForecastRequest());
     fetch(`http://api.wunderground.com/api/${API_KEY}/geolookup/q/${userInput}.json`, {})
-    .then(res => {
-        console.log('res......', res)
-        if (!res.ok) {
-            throw new Error(res.statusText);
-        }
-        return res.json();
-    })
-    .then(data => {
-        console.log('data......', data)
-        if (data.response.error) {
-            // console.log('this is the data error response', data.response.error.description)
-            const err = data.response.error.description;
-            dispatch(validateLocationError(err))
+        .then(res => {
+            console.log('res......', res)
+            if (!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log('data......', data)
+            if (data.response.error) {
+                // console.log('this is the data error response', data.response.error.description)
+                const err = data.response.error.description;
+                dispatch(validateLocationError(err))
 
-            throw new Error(err);
-        } else {
-            console.log('THIS DATA IS VALID and ready to be sent to addLocation', data)
-            
-            //if the input isnt specific and returns multiple results we ask the user to be more specific
-            if (data.response.results) {
-                const err = 'Please include a state or country name in search';
-                dispatch(validateLocationError(err))
+                throw new Error(err);
+            } else {
+                console.log('THIS DATA IS VALID and ready to be sent to addLocation', data)
+
+                //if the input isnt specific and returns multiple results we ask the user to be more specific
+                if (data.response.results) {
+                    const err = 'Please include a state or country name in search';
+                    dispatch(validateLocationError(err))
+                }
+
+                let formattedLocation;
+                //this formats the location if it is in the us
+                if (data.location.type === "CITY") {
+                    formattedLocation = `${data.location.city}, ${data.location.state}`;
+                }
+                //this formats the location if it is outside the us
+                else if (data.location.type === "INTLCITY") {
+                    formattedLocation = `${data.location.city}, ${data.location.country_name}`;
+                }
+                //any other situations throws an error
+                else {
+                    console.log('DIFFERENT TYPE?', data.location.type)
+                    const err = 'This location is invalid. Please enter a city/US state or city/country.';
+                    dispatch(validateLocationError(err))
+                }
+                console.log(formattedLocation, 'THIS WILL BE SENT')
+                dispatch(addLocation(id, formattedLocation))
             }
-            
-            let formattedLocation;
-            //this formats the location if it is in the us
-            if (data.location.type === "CITY") {
-                formattedLocation = `${data.location.city}, ${data.location.state}`;
-            }
-            //this formats the location if it is outside the us
-            else if (data.location.type === "INTLCITY") {
-                formattedLocation = `${data.location.city}, ${data.location.country_name}`;
-            }
-            //any other situations throws an error
-            else {
-                console.log('DIFFERENT TYPE?', data.location.type)
-                const err = 'This location is invalid. Please enter a city/US state or city/country.';
-                dispatch(validateLocationError(err))
-            }
-            console.log(formattedLocation, 'THIS WILL BE SENT')
-            dispatch(addLocation(id, formattedLocation))
-        }
-    })
-    .catch(err => {
-        const message = 'This location is invalid. Please enter a city/state or city/country.';
-        dispatch(validateLocationError(message))
-    });
+        })
+        .catch(err => {
+            const message = 'This location is invalid. Please enter a city/state or city/country.';
+            dispatch(validateLocationError(message))
+        });
 }
 
 export const ADD_LOCATION_REQUEST = 'ADD_LOCATION_REQUEST';
