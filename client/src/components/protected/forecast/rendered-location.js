@@ -16,12 +16,19 @@ export class RenderedLocation extends React.Component {
     render() {
 
         return (
-            <div className="rendered-location">
-                <Link to={`/forecast/${this.props.name}`}>
-                    <h1 className="rendered-location-name">{this.props.name}</h1>
-                    <p>{this.props.currentForecastData.weather}</p>
-                </Link>
-            </div>
+            <Link to={`/forecast/${this.props.name}`} className="rendered-location-link">
+               
+                    <div className="rendered-location-box">
+                        <h1 className="rendered-location-name">{this.props.name}</h1>
+                        <span className="rendered-location-temperature">{this.props.currentForecastData.temp_f}<span>°F</span></span>
+                    </div>
+                    <div className="rendered-location-box">
+                        <span className="rendered-location-condition">{this.props.currentForecastData.weather}</span>
+                        <img src={this.props.currentForecastData.icon_url}></img>
+                    </div>
+
+      
+            </Link>
         );
     }
 
