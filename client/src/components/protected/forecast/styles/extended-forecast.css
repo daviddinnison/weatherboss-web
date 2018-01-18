@@ -1,16 +1,18 @@
 .individual-day {
     background: #fff;
-    border: 2px solid black;
+    background: linear-gradient(to left, #F5F5F5, #E1E1E1);
     padding: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .individual-day:nth-child(odd) {
-    background-color: #D2FFFF;
+    background: #D2FFFF;
+    background: linear-gradient(to bottom right, #00E1E1, #F5E7F5);
 }
 
 .individual-day:nth-child(3n+0) {
-    background-color: #F5E7F5;
+    background: #F5E7F5;
+    background: linear-gradient(to bottom left, #D2FFFF, #FFBEFF);
 }
 
 .individual-day>h4 {
