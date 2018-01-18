@@ -1,14 +1,18 @@
 
 .dashboard-add-location {
-    background-color: #EBEBEB;
     border: 1px solid grey;
-    border-radius: 2px;
-    display: inline-block;
-    padding: 10px 15px;
-    width: auto;
+    background: #fff;
+    border-radius: 4px;
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 300px;
+    padding: 20px 15px;
+    text-align: center;
+    width: 90%;
 }
 
 .dashboard-add-location>a {
-    color: black;
+    color: grey;
     text-decoration: none;
+    text-align: center;
 }
