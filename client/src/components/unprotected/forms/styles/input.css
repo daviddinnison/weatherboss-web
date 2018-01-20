@@ -1,0 +1,10 @@
+.form-input > input {
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 5px 10px;
+  width: 300px;
+}
+
+label {
+
+}
