@@ -1,1 +1,11 @@
 /planning
+
+# dependencies
+node_modules
+
+# misc
+server/secret.js
+*-lock.json
+server/package-lock.json
+client/package-lock.json
+*package-lock*
