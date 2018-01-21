@@ -8,6 +8,8 @@
 
 .header-bar > h1 {
   margin: 0px;
+  padding: 10px;
+  padding-bottom: 0px;
 }
 
 .header-bar > h2 {
@@ -19,5 +21,9 @@
 
 .logout {
   background: none;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif;
   float: right;
+  padding: 0px 10px;
 }
