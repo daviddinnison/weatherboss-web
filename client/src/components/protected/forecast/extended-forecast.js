@@ -6,6 +6,8 @@ import requiresLogin from '../../requires-login';
 import BackButton from '../../reusable/back-button';
 import { getExtendedForecast } from '../../../actions/forecast';
 
+import Loader from "halogen/SyncLoader";
+
 import './styles/extended-forecast.css';
 
 export class ExtendedForecast extends React.Component {
@@ -34,7 +36,7 @@ export class ExtendedForecast extends React.Component {
             );
         }
         else {
-            return <p>loading....</p>
+            return <Loader color="#1E1E1E" size="10px" margin="4px" />;
         }
     }
 

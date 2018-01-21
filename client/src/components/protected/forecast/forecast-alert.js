@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
 import { Link } from "react-router-dom";
+import Loader from "halogen/SquareLoader";
 
 import { getAlert } from "../../../actions/forecast";
 
@@ -13,8 +14,8 @@ export class ForecastAlert extends React.Component {
   }
 
   renderAlert() {
-    if (this.props.loading === true) {
-      return <p>loading...</p>;
+    if (this.props.alertLoading === true) {
+      return <Loader color="#1E1E1E" size="60px" margin="4px" />;
     } else {
       if (this.props.alert.length > 0) {
         const alerts = this.props.alert.map((item, index) => (
@@ -32,7 +33,6 @@ export class ForecastAlert extends React.Component {
         return <div className="alerts">no alerts.</div>;
       }
     }
-
   }
 
   render() {
@@ -47,7 +47,7 @@ const mapStateToProps = state => {
     locations: state.protectedData.locations,
     currentForecastData: state.forecast.currentForecastData,
     alert: state.forecast.alert,
-    loading: state.forecast.loading.alert
+    alertLoading: state.forecast.loading.alert
   };
 };
 
