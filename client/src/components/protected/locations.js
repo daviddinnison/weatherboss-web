@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
 import { Link } from "react-router-dom";
-import { fetchLocations } from "../../actions/users";
+import { fetchLocations } from "../../actions/forecast";
 import RenderedLocation from "./forecast/rendered-location";
 
 import "./styles/locations.css";
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
-    locations: state.protectedData.locations
+    locations: state.forecast.locations
   };
 };
 

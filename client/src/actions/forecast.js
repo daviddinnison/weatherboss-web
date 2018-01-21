@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config';
 const API_KEY = "b20a7be72cb0b77a";
 
 export const GET_CURRENT_FORECAST_REQUEST = "GET_CURRENT_FORECAST_REQUEST";
@@ -112,4 +113,46 @@ export const getAlert = userInput => dispatch => {
     .catch(err => {
       dispatch(getAlertError(err));
     });
+};
+
+
+export const FETCH_LOCATIONS_REQUEST = 'FETCH_LOCATIONS_REQUEST';
+export const fetchLocationsRequest = () => ({
+    type: FETCH_LOCATIONS_REQUEST
+});
+
+export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
+export const fetchLocationsSuccess = locations => ({
+    type: FETCH_LOCATIONS_SUCCESS,
+    locations
+});
+
+export const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR';
+export const fetchLocationsError = message => ({
+    type: FETCH_LOCATIONS_ERROR,
+    message
+});
+
+
+export const fetchLocations = (id) => dispatch => {
+    dispatch(fetchLocationsRequest());
+    fetch(`${API_BASE_URL}/users/locations/${id}`, {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(res.statusText);
+            }
+            return res.json();
+        })
+        .then(locations => {
+
+            dispatch(fetchLocationsSuccess(locations));
+        })
+        .catch(err => {
+            dispatch(fetchLocationsError(err));
+        });
 };

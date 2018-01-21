@@ -23,6 +23,8 @@ const initialState = {
   currentForecastData: {},
   extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {} }] },
   extendedLoading: false,
+  fetchLocationLoading: false,
+  locations: [],
   locationError: null,
   test: "THIS IS A TEST"
 };
@@ -99,6 +101,24 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         locationError: action.err,
         loading: false
+      });
+    }
+    case "FETCH_LOCATIONS_REQUEST": {
+      return Object.assign({}, state, {
+        fetchLocationLoading: true
+      });
+    }
+
+    case "FETCH_LOCATIONS_SUCCESS": {
+      return Object.assign({}, state, {
+        locations: action.locations,
+        fetchLocationLoading: false
+      });
+    }
+    case "FETCH_LOCATIONS_ERROR": {
+      return Object.assign({}, state, {
+        error: action.message,
+        fetchLocationLoading: false
       });
     }
   }
