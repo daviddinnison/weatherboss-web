@@ -21,7 +21,12 @@ const initialState = {
   currentForecastData: {},
   extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {} }] },
   alert: [{}],
-  locationError: null
+  locationError: null,
+  loading: {
+    alert: false,
+    extended: false
+  },
+  test: "THIS IS A TEST"
 };
 
 export default function reducer(state = initialState, action) {
@@ -44,38 +49,41 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_EXTENDED_FORECAST_REQUEST": {
+      console.log('REQUEST')
       return Object.assign({}, state, {
-        loading: true
+        loading: { extended: true }
       });
     }
     case "GET_EXTENDED_FORECAST_SUCCESS": {
+      console.log('SUCCESS')
       return Object.assign({}, state, {
         extendedForecastData: action.data,
-        loading: false
+        loading: { extended: false }
       });
     }
     case "GET_EXTENDED_FORECAST_ERROR": {
+      console.log('ERROR')
       return Object.assign({}, state, {
         message: action.message,
-        loading: false
+        loading: {extended: false}
       });
     }
     case "GET_ALERT_REQUEST": {
       return Object.assign({}, state, {
-        loading: true
+        loading: { alert: true }
       });
     }
     case "GET_ALERT_SUCCESS": {
       console.log(action, "action in reducer");
       return Object.assign({}, state, {
         alert: action.data,
-        loading: false
+        loading: { alert: false }
       });
     }
     case "GET_ALERT_ERROR": {
       return Object.assign({}, state, {
         message: action.message,
-        loading: false
+        loading: { alert: false }
       });
     }
     case "CLEAR_VALIDATE_LOCATION_ERROR": {

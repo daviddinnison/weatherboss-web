@@ -14,23 +14,31 @@ export class ExtendedForecast extends React.Component {
         this.props.dispatch(getExtendedForecast(location))
     }
     renderDays() {
-        const tenDayData = this.props.extendedForecastData.forecastday.map((item, index) =>
-            <li className="individual-day" key={index}>
-                <h4>{item.date.weekday}, {item.date.monthname} {item.date.day}</h4>
-                <img src={item.icon_url}></img>
-                <p>{item.conditions}</p>
-                <p>high: {item.high.fahrenheit}° F</p>
-                <p>low: {item.low.fahrenheit}° F</p>
-            </li>
-        );
-        return (
-            <div className="extended-forecast">
-                <ul>
-                    {tenDayData}
-                </ul>
-            </div>
-        );
+        console.log('this.props.loading', this.props.extendedLoading)
+        if(this.props.extendedLoading===false) {
+            const tenDayData = this.props.extendedForecastData.forecastday.map((item, index) =>
+                <li className="individual-day" key={index}>
+                    <h4>{item.date.weekday}, {item.date.monthname} {item.date.day}</h4>
+                    <img src={item.icon_url}></img>
+                    <p>{item.conditions}</p>
+                    <p>high: {item.high.fahrenheit}° F</p>
+                    <p>low: {item.low.fahrenheit}° F</p>
+                </li>
+            );
+            return (
+                <div className="extended-forecast">
+                    <ul>
+                        {tenDayData}
+                    </ul>
+                </div>
+            );
+        }
+        else {
+            return <p>loading....</p>
+        }
     }
+
+
 
     render() {
         return (
@@ -46,7 +54,8 @@ const mapStateToProps = state => {
     return {
         id: state.auth.currentUser.id,
         locations: state.protectedData.locations,
-        extendedForecastData: state.forecast.extendedForecastData
+        extendedForecastData: state.forecast.extendedForecastData,
+        extendedLoading: state.forecast.loading.extended
     };
 };
 
