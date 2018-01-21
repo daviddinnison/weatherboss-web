@@ -38,10 +38,11 @@
     "node": "8.4.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon index.js",
     "dev": "run-p dev:server dev:client start",
     "dev:client": "cd client && cross-env BROWSER=none npm start -- --color=always | xp http://localhost:3000/ http://localhost:8080/",
     "dev:server": "cd server && npm start",
+    "install": "run-s install:server install:client",
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install"
   }
