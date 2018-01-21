@@ -47,7 +47,7 @@ const mapStateToProps = state => {
     locations: state.protectedData.locations,
     currentForecastData: state.forecast.currentForecastData,
     alert: state.forecast.alert,
-    alertLoading: state.forecast.loading.alert
+    alertLoading: state.forecast.alertLoading
   };
 };
 

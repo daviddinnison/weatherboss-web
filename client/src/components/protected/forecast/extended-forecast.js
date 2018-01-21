@@ -52,7 +52,7 @@ const mapStateToProps = state => {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,
     extendedForecastData: state.forecast.extendedForecastData,
-    extendedLoading: state.forecast.loading.extended
+    extendedLoading: state.forecast.extendedLoading
   };
 };
 
