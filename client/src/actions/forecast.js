@@ -100,19 +100,16 @@ export const getAlert = userInput => dispatch => {
     {}
   )
     .then(res => {
-      console.log("INSIDE FIRST .THEN. this is the response:::", res);
       if (!res.ok) {
         throw new Error(res.statusText);
       }
       return res.json();
     })
     .then(data => {
-      console.log(data.alerts, "data received from server-----");
       dispatch(getAlertSuccess(data.alerts));
     })
 
     .catch(err => {
-      console.log(err, "------error from server");
       dispatch(getAlertError(err));
     });
 };

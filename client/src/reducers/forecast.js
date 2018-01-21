@@ -47,20 +47,17 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_EXTENDED_FORECAST_REQUEST": {
-      console.log("REQUEST");
       return Object.assign({}, state, {
         extendedLoading: true
       });
     }
     case "GET_EXTENDED_FORECAST_SUCCESS": {
-      console.log("SUCCESS");
       return Object.assign({}, state, {
         extendedForecastData: action.data,
         extendedLoading: false
       });
     }
     case "GET_EXTENDED_FORECAST_ERROR": {
-      console.log("ERROR");
       return Object.assign({}, state, {
         message: action.message,
         extendedLoading: false
@@ -72,7 +69,6 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_ALERT_SUCCESS": {
-      console.log(action, "action in reducer");
       return Object.assign({}, state, {
         alertLoading: false,
         alert: action.data
