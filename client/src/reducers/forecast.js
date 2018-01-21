@@ -76,8 +76,8 @@ export default function reducer(state = initialState, action) {
     case "GET_ALERT_SUCCESS": {
       console.log(action, "action in reducer");
       return Object.assign({}, state, {
-        alert: action.data,
-        loading: { alert: false }
+        loading: { alert: false },
+        alert: action.data
       });
     }
     case "GET_ALERT_ERROR": {
