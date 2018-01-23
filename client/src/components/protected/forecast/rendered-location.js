@@ -8,7 +8,7 @@ import "./styles/rendered-location.css";
 export class RenderedLocation extends React.Component {
   componentDidMount() {
     console.log('id from props', this.props.locationId)
-    this.props.dispatch(getCurrentForecast(this.props.name));
+    this.props.dispatch(getCurrentForecast(this.props.name, this.props.locationId));
   }
 
   render() {
