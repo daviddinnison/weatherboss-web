@@ -24,6 +24,8 @@ const initialState = {
   extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {} }] },
   extendedLoading: false,
   fetchLocationLoading: false,
+  hourlyLoading: false,
+  hourlyForecastData: {},
   locations: [],
   locationError: null,
   test: "THIS IS A TEST"
@@ -54,6 +56,26 @@ export default function reducer(state = initialState, action) {
         loading: false
       });
     }
+    //
+    case "GET_HOURLY_FORECAST_REQUEST": {
+      return Object.assign({}, state, {
+        hourlyLoading: true
+      });
+    }
+    case "GET_HOURLY_FORECAST_SUCCESS": {
+      console.log('GET HOURLY SUCCESS reducer', action.data)
+      return Object.assign({}, state, {
+        hourlyForecastData: action.data,
+        hourlyLoading: false
+      });
+    }
+    case "GET_HOURLY_FORECAST_ERROR": {
+      return Object.assign({}, state, {
+        message: action.message,
+        hourlyLoading: false
+      });
+    }
+    //
     case "GET_EXTENDED_FORECAST_REQUEST": {
       return Object.assign({}, state, {
         extendedLoading: true
