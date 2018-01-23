@@ -4,8 +4,7 @@
     text-decoration: none;
 }
 
-.rendered-location-box {
-}
+
 
 .rendered-location-box>h1 {
     margin: 0px;
@@ -28,5 +27,18 @@
 .rendered-location-condition {
     display: block;
     font-family: 'Oswald', serif;
+    
+}
+
+@media (max-width: 576px) {
+    .rendered-location-name{font-size: 20px;}
+    .rendered-location-temperature {
+        font-size: 30px;
+    }
+    
+    .rendered-location-temperature>span {
+        font-size: 15px;
+        vertical-align: top;
+    }
     
 }

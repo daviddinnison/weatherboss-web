@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
 import { getHourlyForecast } from "../../../actions/forecast";
 import Loader from "halogen/SyncLoader";
+import "./styles/hourly-forecast.css";
 
 export class HourlyForecast extends React.Component {
   componentDidMount() {
@@ -13,16 +14,22 @@ export class HourlyForecast extends React.Component {
     if (this.props.hourlyLoading === false) {
       const hourlyData = this.props.hourlyForecastData.map((item, index) => (
         <li className="individual-day row" key={index}>
-          <div className="col-xs-3">
+          <div className="col-xs-2 hourly-time">
             <p>{item.FCTTIME.civil}</p>
           </div>
-          <div className="col-xs-3">
-            <p>{item.temp.english}° F</p>
-            <p>feels like {item.feelslike.english}° F</p>
+          <div className="col-xs-3 hourly-temp">
+            <p>
+              {item.temp.english} <span className="hourly-temp-degrees">°F</span>
+            </p>
+            <p>
+              <span className="feels-like">feels like {item.feelslike.english}</span>
+            
+              <span className="feels-like-degrees">°F</span>
+            </p>
           </div>
-          <div className="col-xs-3">
-            <p>{item.condition}</p>
+          <div className="col-xs-4 hourly-condition">
             <img src={item.icon_url} />
+            <p>{item.condition}</p>
           </div>
           <div className="col-xs-3">
             <p>precip: {item.qpf.english} in</p>
