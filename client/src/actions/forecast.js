@@ -38,6 +38,48 @@ export const getCurrentForecast = (location, id) => dispatch => {
       dispatch(getCurrentForecastError(err));
     });
 };
+//BEGIN
+// export const GET_HOURLY_FORECAST_REQUEST = "GET_HOURLY_FORECAST_REQUEST";
+// export const getHourlyForecastRequest = () => ({
+//   type: GET_HOURLY_FORECAST_REQUEST
+// });
+
+// export const GET_HOURLY_FORECAST_SUCCESS = "GET_HOURLY_FORECAST_SUCCESS";
+// export const getHourlyForecastSuccess = data => ({
+//   type: GET_HOURLY_FORECAST_SUCCESS,
+//   data
+// });
+
+// export const GET_HOURLY_FORECAST_ERROR = "GET_HOURLY_FORECAST_ERROR";
+// export const getHourlyForecastError = message => ({
+//   type: GET_HOURLY_FORECAST_ERROR,
+//   message
+// });
+
+export const getHourlyForecast = userInput => dispatch => {
+  // dispatch(getHourlyForecastRequest());
+  fetch(
+    `http://api.wunderground.com/api/${API_KEY}/hourly/q/${userInput}.json`,
+    {}
+  )
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+        // Actions.error();
+      }
+      return res.json();
+    })
+    .then(data => {
+
+      console.log('data in getHourly success action', data.hourly_forecast);
+      // dispatch(getHourlyForecastSuccess(data));
+    })
+
+    .catch(err => {
+      // dispatch(getHourlyForecastError(err));
+    });
+};
+//END
 
 export const GET_EXTENDED_FORECAST_REQUEST = "GET_EXTENDED_FORECAST_REQUEST";
 export const getExtendedForecastRequest = () => ({

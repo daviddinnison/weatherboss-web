@@ -7,12 +7,14 @@ import BackButton from '../../reusable/back-button';
 import ExtendedForecast from './extended-forecast';
 import CurrentConditions from './current-conditions';
 import ForecastAlert from './forecast-alert';
+import { getHourlyForecast } from "../../../actions/forecast";
 
 import './styles/forecast-page.css';
 
 export class ForecastPage extends React.Component {
     componentDidMount() {
         const location = this.props.location.pathname.replace('/forecast/','');
+        this.props.dispatch(getHourlyForecast(location))
     }
 
     render() {
