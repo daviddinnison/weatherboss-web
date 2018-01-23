@@ -50,34 +50,23 @@ export const validateLocationError = err => ({
 });
 
 export const validateLocation = (id, userInput) => dispatch => {
-  console.log("ID", id);
-  console.log("input", userInput);
   // dispatch(getCurrentForecastRequest());
   fetch(
     `http://api.wunderground.com/api/${API_KEY}/geolookup/q/${userInput}.json`,
     {}
   )
     .then(res => {
-      console.log("res......", res);
       if (!res.ok) {
         throw new Error(res.statusText);
       }
       return res.json();
     })
     .then(data => {
-      console.log("data......", data);
       if (data.response.error) {
-        // console.log('this is the data error response', data.response.error.description)
         const err = data.response.error.description;
         dispatch(validateLocationError(err));
-
         throw new Error(err);
       } else {
-        console.log(
-          "THIS DATA IS VALID and ready to be sent to addLocation",
-          data
-        );
-
         //if the input isnt specific and returns multiple results we ask the user to be more specific
         if (data.response.results) {
           const err = "Please include a state or country name in search";
@@ -95,12 +84,10 @@ export const validateLocation = (id, userInput) => dispatch => {
           }`;
         } else {
           //any other situations throws an error
-          console.log("DIFFERENT TYPE?", data.location.type);
           const err =
             "This location is invalid. Please enter a city/US state or city/country.";
           dispatch(validateLocationError(err));
         }
-        console.log(formattedLocation, "THIS WILL BE SENT");
         dispatch(addLocation(id, formattedLocation));
       }
     })
@@ -131,7 +118,6 @@ export const addLocationError = message => ({
 export const addLocation = (id, input) => dispatch => {
   dispatch(addLocationRequest());
   const formattedInput = { name: input };
-  console.log("INPUT INSIDE addLocation", formattedInput);
   fetch(`${API_BASE_URL}/users/newlocation/${id}`, {
     headers: {
       Accept: "application/json",
@@ -141,18 +127,15 @@ export const addLocation = (id, input) => dispatch => {
     method: "POST"
   })
     .then(res => {
-      console.log("THE RES", res);
       if (!res.ok) {
         throw new Error(res.statusText);
       }
       return res.json();
     })
     .then(locations => {
-      console.log("LOCATIONS RETURNED SUCCESSFULLY", locations);
       dispatch(addLocationSuccess());
     })
     .catch(err => {
-      console.log("final catch error");
       dispatch(addLocationError(err));
     });
 };
