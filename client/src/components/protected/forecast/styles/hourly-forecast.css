@@ -1,3 +1,20 @@
+.hourly {
+  background: #fff;
+  background: linear-gradient(to left, #F5F5F5, #E1E1E1);
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.hourly:nth-child(odd) {
+  background: #D2FFFF;
+  background: linear-gradient(to bottom right, #00E1E1, #F5E7F5);
+}
+
+.hourly:nth-child(3n+0) {
+  background: #F5E7F5;
+  background: linear-gradient(to bottom left, #D2FFFF, #FFBEFF);
+}
+
 .hourly-time {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
@@ -22,4 +39,20 @@
   font-style: italic;
   font-size: 10px;
   vertical-align: top;
+}
+@media (max-width: 576px) {
+
+  .hourly {
+      padding: 0px;
+      font-size: 12px;
+  }
+  .feels-like {
+    font-size: 12px;
+    padding: 0px;
+  }
+  .feels-like-degrees {
+    font-size: 8px;
+    vertical-align: initial;
+  }
+  
 }

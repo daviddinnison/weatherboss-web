@@ -30,7 +30,7 @@ export class ForecastAlert extends React.Component {
           </div>
         );
       } else {
-        return <div className="alerts">no alerts.</div>;
+        return <div className="no-alerts">No weather alerts.</div>;
       }
     }
   }

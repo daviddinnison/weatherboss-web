@@ -1,26 +1,42 @@
 .individual-day {
-    background: #fff;
-    background: linear-gradient(to left, #F5F5F5, #E1E1E1);
-    padding: 20px;
-    margin-bottom: 10px;
+  background: #fff;
+  background: linear-gradient(to left, #f5f5f5, #e1e1e1);
+  padding: 20px;
+  margin-bottom: 10px;
 }
 
 .individual-day:nth-child(odd) {
-    background: #D2FFFF;
-    background: linear-gradient(to bottom right, #00E1E1, #F5E7F5);
+  background: #d2ffff;
+  background: linear-gradient(to bottom right, #00e1e1, #f5e7f5);
 }
 
-.individual-day:nth-child(3n+0) {
-    background: #F5E7F5;
-    background: linear-gradient(to bottom left, #D2FFFF, #FFBEFF);
+.individual-day:nth-child(3n + 0) {
+  background: #f5e7f5;
+  background: linear-gradient(to bottom left, #d2ffff, #ffbeff);
 }
 
-.individual-day>h4 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
+.individual-day h4 {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
 }
 
-.individual-day>p {
-    font-family: 'Oswald', sans-serif;
-    margin: 0px;
+.individual-day > p {
+  font-family: "Oswald", sans-serif;
+  margin: 0px;
+}
+
+@media (max-width: 576px) {
+  .individual-day {
+    padding: 0px;
+  }
+  .individual-day h4 {
+    font-size: 18px;
+  }
+  .extended-conditions {
+    font-size: 13px;
+  }
+  .extended-temp,
+  .extended-precip {
+    font-size: 12px;
+  }
 }

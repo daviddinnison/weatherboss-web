@@ -13,7 +13,7 @@ export class HourlyForecast extends React.Component {
   renderHours() {
     if (this.props.hourlyLoading === false) {
       const hourlyData = this.props.hourlyForecastData.map((item, index) => (
-        <li className="individual-day row" key={index}>
+        <li className="hourly row" key={index}>
           <div className="col-xs-2 hourly-time">
             <p>{item.FCTTIME.civil}</p>
           </div>

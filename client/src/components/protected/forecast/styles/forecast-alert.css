@@ -13,3 +13,8 @@
     font-weight: bold;
     font-size: 17px;
 }
+
+.no-alerts {
+    font-style: italic;
+    text-align: center;
+}

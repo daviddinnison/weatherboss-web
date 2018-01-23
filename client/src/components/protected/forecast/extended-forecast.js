@@ -26,15 +26,15 @@ export class ExtendedForecast extends React.Component {
                 {item.date.weekday}, {item.date.monthname} {item.date.day}
               </h4>
             </div>
-            <div className="col-xs-3">
+            <div className="col-xs-3 extended-conditions">
               <p>{item.conditions}</p>
               <img src={item.icon_url} />
             </div>
-            <div className="col-xs-3">
-              <p>high: {item.high.fahrenheit}° F</p>
-              <p>low: {item.low.fahrenheit}° F</p>
+            <div className="col-xs-3 extended-temp">
+              <p>H: {item.high.fahrenheit}° F</p>
+              <p>L: {item.low.fahrenheit}° F</p>
             </div>
-            <div className="col-xs-3">
+            <div className="col-xs-3 extended-precip">
             <p>{item.qpf_allday.in} in. precipitation</p>
             <p>{item.avehumidity}% avg humidity</p>
               
