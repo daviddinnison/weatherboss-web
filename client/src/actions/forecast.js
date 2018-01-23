@@ -20,7 +20,6 @@ export const getCurrentForecastError = message => ({
 });
 
 export const getCurrentForecast = (location, id) => dispatch => {
-  console.log('GET CURRENT FORECAST id......', id)
   dispatch(getCurrentForecastRequest());
   fetch(
     `http://api.wunderground.com/api/${API_KEY}/conditions/q/${location}.json`,
