@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { fetchLocations } from "../../actions/forecast";
 import RenderedLocation from "./forecast/rendered-location";
 
@@ -14,7 +14,7 @@ export class Locations extends React.Component {
 
   renderLocations() {
     if (this.props.locations.length === 0) {
-      return <li className="empty-locations">nothing to see here</li>;
+      return <Redirect to="/newlocation" />;;
     } else {
       const locationsData = this.props.locations.map((item, index) => (
         <li key={item._id} className="single-location">
