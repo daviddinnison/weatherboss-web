@@ -3,3 +3,13 @@
     font-size: 50px;
     text-align: center;
 }
+
+.toggle-forecast {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
