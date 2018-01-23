@@ -25,7 +25,7 @@ const initialState = {
   extendedLoading: false,
   fetchLocationLoading: false,
   hourlyLoading: false,
-  hourlyForecastData: {},
+  hourlyForecastData: [{FCTTIME: {}, feelslike: {}, temp: {}, qpf: {}}],
   locations: [],
   locationError: null,
   test: "THIS IS A TEST"
