@@ -8,11 +8,12 @@
     margin-bottom: 300px;
     padding: 20px 15px;
     text-align: center;
-    width: 90%;
-}
-
-.dashboard-add-location>a {
     color: grey;
     text-decoration: none;
     text-align: center;
+    width: 90%;
+}
+
+.dashboard-add-location:hover {
+    text-decoration: none;
 }
