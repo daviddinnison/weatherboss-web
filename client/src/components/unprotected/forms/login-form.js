@@ -2,7 +2,6 @@ import React from "react";
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./input";
 import { login } from "../../../actions/auth";
-import { required, nonEmpty } from "../../../validators";
 
 import "./styles/login-form.css";
 
@@ -32,7 +31,6 @@ export class LoginForm extends React.Component {
           type="text"
           name="username"
           id="username"
-          validate={[required, nonEmpty]}
         />
         <label htmlFor="password">Password</label>
         <Field
@@ -40,7 +38,6 @@ export class LoginForm extends React.Component {
           type="password"
           name="password"
           id="password"
-          validate={[required, nonEmpty]}
         />
         <button disabled={this.props.pristine || this.props.submitting} className="login-button">
           Log in
