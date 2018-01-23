@@ -13,21 +13,17 @@ export class Locations extends React.Component {
   }
 
   renderLocations() {
-    if (this.props.locations.length === 0) {
-      return <Redirect to="/newlocation" />;;
-    } else {
-      const locationsData = this.props.locations.map((item, index) => (
-        <li key={item._id} className="single-location">
-          <RenderedLocation name={item.name} locationId={item._id}/>
-          {/* <Link to={`/forecast/${item.name}`}>{item.name}</Link> */}
-        </li>
-      ));
-      return (
-        <div className="locations">
-          <ul>{locationsData}</ul>
-        </div>
-      );
-    }
+    const locationsData = this.props.locations.map((item, index) => (
+      <li key={item._id} className="single-location">
+        <RenderedLocation name={item.name} locationId={item._id} />
+        {/* <Link to={`/forecast/${item.name}`}>{item.name}</Link> */}
+      </li>
+    ));
+    return (
+      <div className="locations">
+        <ul>{locationsData}</ul>
+      </div>
+    );
   }
   render() {
     return <div>{this.renderLocations()}</div>;

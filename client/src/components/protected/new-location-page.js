@@ -20,11 +20,7 @@ export class NewLocationPage extends React.Component {
     }
     return (
       <div className="container new-location-page">
-        {this.props.locations.length !== 0 ? (
-          <BackButton />
-        ) : (
-          <p>Add a location to get started.</p>
-        )}
+        <BackButton />
         <h2>Add location</h2>
         <NewLocationForm />
       </div>

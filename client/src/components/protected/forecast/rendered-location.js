@@ -7,7 +7,9 @@ import "./styles/rendered-location.css";
 
 export class RenderedLocation extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getCurrentForecast(this.props.name, this.props.locationId));
+    this.props.dispatch(
+      getCurrentForecast(this.props.name, this.props.locationId)
+    );
   }
 
   render() {
@@ -16,18 +18,30 @@ export class RenderedLocation extends React.Component {
         to={`/forecast/${this.props.name}`}
         className="rendered-location-link"
       >
-        <div className="rendered-location-box">
-          <h1 className="rendered-location-name">{this.props.name}</h1>
-          <span className="rendered-location-temperature">
-            {this.props.currentForecastData.temp_f}
-            <span>°F</span>
-          </span>
-        </div>
-        <div className="rendered-location-box">
-          <span className="rendered-location-condition">
-            {this.props.currentForecastData.weather}
-          </span>
-          <img src={this.props.currentForecastData.icon_url} />
+        <div className="row">
+          <div className="rendered-location-box col-xs-3">
+            <h1 className="rendered-location-name">{this.props.name}</h1>
+            <span className="rendered-location-temperature">
+              {this.props.currentForecastData.temp_f}
+              <span>°F</span>
+            </span>
+          </div>
+          <div className="rendered-location-box col-xs-3">
+            <span className="rendered-location-condition">
+              {this.props.currentForecastData.weather}
+            </span>
+            <img src={this.props.currentForecastData.icon_url} />
+          </div>
+          <div className="rendered-location-box col-xs-3">
+            <span className="">
+              {this.props.currentForecastData.relative_humidity} humidity
+            </span>
+          </div>
+          <div className="rendered-location-box col-xs-3">
+            <span className="">
+              winds: {this.props.currentForecastData.wind_dir} {this.props.currentForecastData.wind_mph} mph
+            </span>
+          </div>
         </div>
       </Link>
     );

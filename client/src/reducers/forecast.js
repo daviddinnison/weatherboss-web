@@ -39,11 +39,12 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_CURRENT_FORECAST_SUCCESS": {
-      console.log("FORECAST SUCCES IN REDUCER id....", action.id);
+      console.log('DATA IN CURRENT FORECAST reducer success', action.data)
+      // console.log("FORECAST SUCCES IN REDUCER id....", action.id);
       //find location by id
-      let matchingLocation = state.locations.find(o => o._id === action.id);
-      console.log("STATE...", state.locations);
-      console.log("matchingLocation", matchingLocation);
+      // let matchingLocation = state.locations.find(o => o._id === action.id);
+      // console.log("STATE...", state.locations);
+      // console.log("matchingLocation", matchingLocation);
       //insert currentforecast data into that location
       return Object.assign({}, state, {
         currentForecastData: action.data,
