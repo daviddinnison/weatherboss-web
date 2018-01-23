@@ -22,9 +22,9 @@ export class ForecastPage extends React.Component {
       <div className="container forecast-page">
         <BackButton />
         <h2>{location}</h2>
-        {/* <ForecastAlert name={location} /> */}
-        <HourlyForecast name={location}/>
-        {/* <ExtendedForecast name={location} /> */}
+        <ForecastAlert name={location} />
+        {/* <HourlyForecast name={location}/> */}
+        <ExtendedForecast name={location} />
       </div>
     );
   }

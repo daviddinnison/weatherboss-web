@@ -11,23 +11,25 @@ export class HourlyForecast extends React.Component {
   }
   renderHours() {
     if (this.props.hourlyLoading === false) {
-      const hourlyData = this.props.hourlyForecastData.map(
-        (item, index) => (
-          <li className="individual-day" key={index}>
-            <p>{item.FCTTIME.civil} {item.FCTTIME.mday} {item.FCTTIME.month_name}</p>
-            <p>{item.condition}</p>
-            <img src={item.icon_url} />
-
-            {/* new box */}
+      const hourlyData = this.props.hourlyForecastData.map((item, index) => (
+        <li className="individual-day row" key={index}>
+          <div className="col-xs-3">
+            <p>{item.FCTTIME.civil}</p>
+          </div>
+          <div className="col-xs-3">
             <p>{item.temp.english}° F</p>
             <p>feels like {item.feelslike.english}° F</p>
-
-            {/* new box */}
+          </div>
+          <div className="col-xs-3">
+            <p>{item.condition}</p>
+            <img src={item.icon_url} />
+          </div>
+          <div className="col-xs-3">
             <p>precip: {item.qpf.english} in</p>
             <p>humidity: {item.humidity}%</p>
-          </li>
-        )
-      );
+          </div>
+        </li>
+      ));
       return (
         <div className="extended-forecast">
           <ul>{hourlyData}</ul>
@@ -39,12 +41,8 @@ export class HourlyForecast extends React.Component {
   }
 
   render() {
-    console.log('HOURLY DATA PROPS', this.props.hourlyForecastData)
-    return (
-      <div>
-        {this.renderHours()}
-      </div>
-    );
+    console.log("HOURLY DATA PROPS", this.props.hourlyForecastData);
+    return <div>{this.renderHours()}</div>;
   }
 }
 

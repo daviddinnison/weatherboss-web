@@ -21,7 +21,7 @@ const initialState = {
   alert: [{}],
   alertLoading: false,
   currentForecastData: {},
-  extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {} }] },
+  extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {}}] },
   extendedLoading: false,
   fetchLocationLoading: false,
   hourlyLoading: false,

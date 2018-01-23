@@ -16,17 +16,29 @@ export class ExtendedForecast extends React.Component {
     this.props.dispatch(getExtendedForecast(location));
   }
   renderDays() {
+    console.log(this.props.extendedForecastData.forecastday)
     if (this.props.extendedLoading === false) {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (
-          <li className="individual-day" key={index}>
-            <h4>
-              {item.date.weekday}, {item.date.monthname} {item.date.day}
-            </h4>
-            <img src={item.icon_url} />
-            <p>{item.conditions}</p>
-            <p>high: {item.high.fahrenheit}° F</p>
-            <p>low: {item.low.fahrenheit}° F</p>
+          <li className="individual-day row" key={index}>
+            <div className="col-xs-3">
+              <h4>
+                {item.date.weekday}, {item.date.monthname} {item.date.day}
+              </h4>
+            </div>
+            <div className="col-xs-3">
+              <p>{item.conditions}</p>
+              <img src={item.icon_url} />
+            </div>
+            <div className="col-xs-3">
+              <p>high: {item.high.fahrenheit}° F</p>
+              <p>low: {item.low.fahrenheit}° F</p>
+            </div>
+            <div className="col-xs-3">
+            <p>{item.qpf_allday.in} in. precipitation</p>
+            <p>{item.avehumidity}% avg humidity</p>
+              
+            </div>
           </li>
         )
       );
