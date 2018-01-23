@@ -12,6 +12,22 @@ import HourlyForecast from "./hourly-forecast";
 import "./styles/forecast-page.css";
 
 export class ForecastPage extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      hourly: true,
+      extended: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      hourly: !this.state.hourly,
+      extended: !this.state.extended
+    });
+  }
   componentDidMount() {
     const location = this.props.location.pathname.replace("/forecast/", "");
   }
@@ -23,8 +39,12 @@ export class ForecastPage extends React.Component {
         <BackButton />
         <h2>{location}</h2>
         <ForecastAlert name={location} />
-        <HourlyForecast name={location}/>
-        {/* <ExtendedForecast name={location} /> */}
+
+        <button type="button" onClick={this.handleClick}>
+          Toggle
+        </button>
+        {this.state.hourly && <HourlyForecast name={location}/>}
+        {this.state.extended && <ExtendedForecast name={location} />}
       </div>
     );
   }
