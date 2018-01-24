@@ -5,24 +5,28 @@ import requiresLogin from "../requires-login";
 import NewLocationForm from "./forms/new-location-form";
 import BackButton from "../reusable/back-button";
 
+// (free commercial use image) courtesy of https://pixabay.com/en/compass-trip-travel-directions-2384365/
+import compass from "./images/compass.svg";
+
 import "./styles/new-location-page.css";
 
 export class NewLocationPage extends React.Component {
-  // conditionalBackButton(){
-  //     if(this.props.locations.length!==0) {
-  //         return <BackButton/>
-  //     }
-  // }
-
   render() {
     if (this.props.redirect) {
       return <Redirect to="/dashboard" />;
     }
     return (
       <div className="container new-location-page">
-        <BackButton />
-        <h2>Add location</h2>
-        <NewLocationForm />
+        <div className="row">
+          <div className="col-sm-6 new-location-info">
+            <BackButton />
+            <p>add a location to gain access to weather data from all over the world!</p>
+            <img src={compass} className="compass-img"></img>
+          </div>
+          <div className="col-sm-6">
+            <NewLocationForm />
+          </div>
+        </div>
       </div>
     );
   }

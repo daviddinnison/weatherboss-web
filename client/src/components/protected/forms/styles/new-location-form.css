@@ -1,0 +1,11 @@
+.location-form {
+    border: 1px solid black;
+}
+
+.location-input, .location-submit {
+    margin: 0px auto;
+    margin-bottom: 10px;
+    display: block;
+    padding: 5px;
+    width: 90%
+}

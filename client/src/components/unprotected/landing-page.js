@@ -1,25 +1,32 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
-import LoginForm from './forms/login-form';
+import LoginForm from "./forms/login-form";
 
 export function LandingPage(props) {
-    // If we are logged in redirect straight to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/dashboard" />;
-    }
+  // If we are logged in redirect straight to the user's dashboard
+  if (props.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
 
-    return (
-        <div className="home container">
-            <LoginForm />
-            <Link to="/register">Register</Link>
+  return (
+    <div className="home container">
+      <div className="row">
+        <div className="col-sm-6">
+          <p>placeholder stuff</p>
         </div>
-    );
+        <div className="col-sm-6">
+          <LoginForm />
+          <Link to="/register">Register</Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(LandingPage);

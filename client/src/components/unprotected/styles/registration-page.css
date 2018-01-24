@@ -1,3 +1,11 @@
 .home>h2 {
     font-family: 'Oswald', sans-serif;
 }
+
+.laptop-img {
+    display: block;
+    width: 400px;
+    height: auto;
+    margin: 0px auto;
+  }
+  
