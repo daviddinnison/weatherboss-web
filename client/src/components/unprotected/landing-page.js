@@ -4,6 +4,11 @@ import { Link, Redirect } from "react-router-dom";
 
 import LoginForm from "./forms/login-form";
 
+import './styles/landing-page.css';
+
+import globe from './images/globe.svg';
+// commerical freeuse image from https://pixabay.com/en/globe-mesh-sphere-1293295/
+
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
@@ -11,12 +16,18 @@ export function LandingPage(props) {
   }
 
   return (
-    <div className="home container">
+    <div className="landing-page container">
       <div className="row">
-        <div className="col-sm-6">
-          <p>placeholder stuff</p>
+        <div className="col-sm-6 landing-info">
+        <h1>WeatherBoss</h1>
+        <h2>Be the boss of your own weather</h2>
+        <ul>
+            <li>up to the minute forecasts and alerts</li>
+            <li>thousands of locations from all around the world</li>
+        </ul>
+        <img src={globe} className="globe-img"></img>
         </div>
-        <div className="col-sm-6">
+        <div className="col-sm-6 landing-login">
           <LoginForm />
           <Link to="/register">Register</Link>
         </div>

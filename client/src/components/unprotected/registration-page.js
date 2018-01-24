@@ -16,7 +16,7 @@ export function RegistrationPage(props) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="home container">
+    <div className="home container-fluid">
       <div className="row">
         <div className="col-sm-6">
           <img src={laptop} className="laptop-img" />

@@ -1,0 +1,18 @@
+.landing-page {
+    margin: 10px auto;
+}
+
+.landing-info h1, h2 {
+    margin: 0px;
+}
+
+.landing-login {
+
+}
+
+.globe-img {
+    height: auto;
+    display: block;
+    margin: 0px auto;
+    width: 400px;
+}
