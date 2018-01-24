@@ -20,7 +20,7 @@ export class ExtendedForecast extends React.Component {
     if (this.props.extendedLoading === false) {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (
-          <li className="individual-day row" key={index}>
+          <li className="individual-day gradient row" key={index}>
             <div className="col-xs-3">
               <h4>
                 {item.date.weekday}, {item.date.monthname} {item.date.day}

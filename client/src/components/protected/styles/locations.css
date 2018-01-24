@@ -1,26 +1,25 @@
 .locations {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .single-location {
-
-    margin-bottom: 10px;
-    background: #fff;
-    background: linear-gradient(to left, #F5F5F5, #E1E1E1);
+  margin-bottom: 10px;
 }
 
-.single-location:nth-child(odd) {
-    background: #D2FFFF;
-    background: linear-gradient(to bottom right, #00E1E1, #F5E7F5);
+.gradient {
+  background: #fff;
+  background: linear-gradient(to left, #f5f5f5, #e1e1e1);
+}
+.gradient:nth-child(4n + 1) {
+  background: #5cd6d6;
+  background: linear-gradient(to bottom right, #5cd6d6, #8effff);
 }
 
-.single-location:nth-child(3n+0) {
-
-    background: #F5E7F5;
-    background: linear-gradient(to bottom left, #D2FFFF, #FFBEFF);
-    
+.gradient:nth-child(4n + 3) {
+  background: #ff8f8f;
+  background: linear-gradient(to bottom left, #ff8f8f, #ffc1c1);
 }
 
 .empty-locations {
-    list-style-type: none;
+  list-style-type: none;
 }

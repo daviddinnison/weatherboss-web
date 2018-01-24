@@ -1,19 +1,19 @@
-
 .dashboard-add-location {
-    border: 1px solid grey;
-    background: #fff;
-    border-radius: 4px;
-    display: block;
-    margin: 0px auto;
-    margin-bottom: 300px;
-    padding: 20px 15px;
-    text-align: center;
-    color: grey;
-    text-decoration: none;
-    text-align: center;
-    width: 90%;
+  border: 1px solid grey;
+
+  border-radius: 4px;
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 300px;
+  padding: 20px 15px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  width: 90%;
+  background: #d75c5c;
 }
 
 .dashboard-add-location:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
