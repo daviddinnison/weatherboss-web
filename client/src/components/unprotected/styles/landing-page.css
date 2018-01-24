@@ -27,9 +27,18 @@ h2 {
 
 .register-link {
     display: block;
-    text-align: center;
 }
 .globe-img {
+  display: block;
   height: auto;
   width: 400px;
+}
+
+@media (max-width: 778px) {
+
+  .globe-img {
+    width: 80%;
+    margin: 0px auto;
+  }
+  
 }

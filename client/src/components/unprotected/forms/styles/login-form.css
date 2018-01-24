@@ -1,19 +1,11 @@
-.login-form {
-    display: block;
-    margin: 0px auto;
-    padding: 20px 15px;
-    text-align: center;
-}
-
-
 .login-form button {
-border: none;
-    background: #D75C5C;
-    background: linear-gradient(#D75C5C, #FF8E8E);
-    border-radius: 4px;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 5px;
-    text-align: center;
-    width: 200px;
+  border: none;
+  background: #d75c5c;
+  background: linear-gradient(#d75c5c, #ff8e8e);
+  border-radius: 4px;
+  display: block;
+  margin: 20px 0px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 200px;
 }

@@ -24,8 +24,9 @@ export function LandingPage(props) {
           <ul>
             <li>
               up to the minute
-              forecasts and alerts
+              forecasts
             </li>
+            <li>special weather conditions</li>
             <li>thousands of locations from all around the world</li>
           </ul>
           <img src={globe} className="globe-img" />

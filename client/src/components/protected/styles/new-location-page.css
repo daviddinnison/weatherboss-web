@@ -1,5 +1,5 @@
 .new-location-page {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .new-location-page h2 {
@@ -7,12 +7,7 @@
 }
 
 .new-location-info {
-  border: 1px solid black;
-}
-
-.new-location-info p {
-    font-size: 20px;
-    padding: 20px;
+  margin-top: 70px;
 }
 
 .compass-img {
