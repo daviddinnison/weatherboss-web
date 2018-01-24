@@ -20,20 +20,35 @@ export function LandingPage(props) {
       <div className="row">
         <div className="col-sm-6 landing-info">
           <h1>WeatherBoss</h1>
-          <h2><i class="fa fa-map-marker" aria-hidden="true"></i>Be the boss of your own weather</h2>
+          <h2>Be the boss of your own weather</h2>
           <ul>
             <li>
-              up to the minute
-              forecasts
+              <span
+                className="glyphicon glyphicon-cloud landing-glyphicon"
+                aria-hidden="true"
+              />
+              up to the minute current and extended forecasts
             </li>
-            <li>special weather conditions</li>
-            <li>thousands of locations from all around the world</li>
+            <li>
+              <span
+                className="glyphicon glyphicon-exclamation-sign landing-glyphicon"
+                aria-hidden="true"
+              />alerts for special conditions
+            </li>
+            <li>
+              <span
+                className="glyphicon glyphicon-map-marker landing-glyphicon"
+                aria-hidden="true"
+              />locations from all around the world
+            </li>
           </ul>
           <img src={globe} className="globe-img" />
         </div>
         <div className="col-sm-6 landing-login">
           <LoginForm />
-          <Link to="/register" className="register-link">Register</Link>
+          <Link to="/register" className="register-link">
+            Register
+          </Link>
         </div>
       </div>
     </div>

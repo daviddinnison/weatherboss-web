@@ -18,11 +18,14 @@ h2 {
 }
 
 .landing-info ul {
-  margin-left: 20px;
-  margin-bottom: 30px;
-  list-style-type: initial;
+
+  margin-bottom: 30px;;
 }
 .landing-login {
+}
+
+.landing-glyphicon {
+  margin-right: 10px;
 }
 
 .register-link {
