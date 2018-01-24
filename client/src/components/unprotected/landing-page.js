@@ -4,9 +4,9 @@ import { Link, Redirect } from "react-router-dom";
 
 import LoginForm from "./forms/login-form";
 
-import './styles/landing-page.css';
+import "./styles/landing-page.css";
 
-import globe from './images/globe.svg';
+import globe from "./images/globe.svg";
 // commerical freeuse image from https://pixabay.com/en/globe-mesh-sphere-1293295/
 
 export function LandingPage(props) {
@@ -19,17 +19,20 @@ export function LandingPage(props) {
     <div className="landing-page container">
       <div className="row">
         <div className="col-sm-6 landing-info">
-        <h1>WeatherBoss</h1>
-        <h2>Be the boss of your own weather</h2>
-        <ul>
-            <li>up to the minute forecasts and alerts</li>
+          <h1>WeatherBoss</h1>
+          <h2><i class="fa fa-map-marker" aria-hidden="true"></i>Be the boss of your own weather</h2>
+          <ul>
+            <li>
+              up to the minute
+              forecasts and alerts
+            </li>
             <li>thousands of locations from all around the world</li>
-        </ul>
-        <img src={globe} className="globe-img"></img>
+          </ul>
+          <img src={globe} className="globe-img" />
         </div>
         <div className="col-sm-6 landing-login">
           <LoginForm />
-          <Link to="/register">Register</Link>
+          <Link to="/register" className="register-link">Register</Link>
         </div>
       </div>
     </div>

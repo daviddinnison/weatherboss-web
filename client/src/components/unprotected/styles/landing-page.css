@@ -1,18 +1,35 @@
 .landing-page {
-    margin: 10px auto;
+  margin-top: 30px;
 }
 
-.landing-info h1, h2 {
-    margin: 0px;
+.landing-info h1,
+h2 {
+    font-family: "Oswald", sans-serif;
+  margin: 0px;
 }
 
+.landing-info h1 {
+
+  font-size: 30px;
+}
+.landing-info h2 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.landing-info ul {
+  margin-left: 20px;
+  margin-bottom: 30px;
+  list-style-type: initial;
+}
 .landing-login {
-
 }
 
-.globe-img {
-    height: auto;
+.register-link {
     display: block;
-    margin: 0px auto;
-    width: 400px;
+    text-align: center;
+}
+.globe-img {
+  height: auto;
+  width: 400px;
 }

@@ -16,15 +16,15 @@ export function RegistrationPage(props) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="home container-fluid">
+    <div className="registration-page container-fluid">
       <div className="row">
         <div className="col-sm-6">
+          <h2>Become a WeatherBoss</h2>
           <img src={laptop} className="laptop-img" />
         </div>
         <div className="col-sm-6">
-          <h2>Become a WeatherBoss</h2>
           <RegistrationForm />
-          <Link to="/">Go back</Link>
+          <Link to="/" className="register-link">Go back</Link>
         </div>
       </div>
     </div>

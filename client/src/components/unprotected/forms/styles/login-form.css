@@ -7,8 +7,9 @@
 
 
 .login-form button {
-    border: 1px solid grey;
-    background: #fff;
+border: none;
+    background: #D75C5C;
+    background: linear-gradient(#D75C5C, #FF8E8E);
     border-radius: 4px;
     display: block;
     margin: 20px auto;
