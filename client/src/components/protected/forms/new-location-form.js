@@ -37,8 +37,17 @@ export class NewLocationForm extends React.Component {
       "Lima, Peru",
       "Dubai, UAE",
       "Chicago, IL",
-      "Moskow, Russia",
-      "Boston, MA"
+      "Moscow, Russia",
+      "Boston, MA",
+      "Asheville, NC",
+      "Lagos, Nigeria",
+      "Oaxaca, Mexico",
+      "Paris, France",
+      "Melbourne, Australia",
+      "Kyoto, Japan",
+      "Charleston, SC",
+      "Salt Lake City, UT",
+      "Seattle, WA"
     ];
     const randomItem =
       placeholders[Math.floor(Math.random() * placeholders.length)];
