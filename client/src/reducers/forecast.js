@@ -39,17 +39,26 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_CURRENT_FORECAST_SUCCESS": {
-      console.log('DATA IN CURRENT FORECAST reducer success', action.data)
-      // console.log("FORECAST SUCCES IN REDUCER id....", action.id);
+
       //find location by id
-      // let matchingLocation = state.locations.find(o => o._id === action.id);
-      // console.log("STATE...", state.locations);
-      // console.log("matchingLocation", matchingLocation);
-      //insert currentforecast data into that location
+      const matchingLocation = state.locations.find(o => o._id === action.id);
+
+      
+      console.log('action data', action.data);
+      console.log("STATE...", state.locations);
+      console.log("matchingLocation", matchingLocation);
+      //insert currentforecast data into the matching location
+      // return Object.assign({}, state, {
+      //   matchingLocation: {currentForecastData: action.data},
+      //   loading: false
+      // });
       return Object.assign({}, state, {
-        currentForecastData: action.data,
-        loading: false
-      });
+          currentForecastData: action.data,
+          loading: false
+        });
+
+
+        // return { ...state, matchingLocation: {currentForecastData: action.data}, loading: false }
     }
     case "GET_CURRENT_FORECAST_ERROR": {
       return Object.assign({}, state, {

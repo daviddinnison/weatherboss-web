@@ -164,11 +164,22 @@ router.get('/locations/:id', jsonParser, (req, res) => {
 
 //add location
 router.post('/newlocation/:id', jsonParser, (req, res) => {
-  console.log(req.body, '-----------this is the req body------')
   User
       .findByIdAndUpdate(req.params.id, { $push: { locations: {name: req.body.name} } }, { new: true }, function (err, newData) {
           if (err) {
               console.err(err)
+          } else {
+              res.send(newData);
+          }
+      })
+});
+
+//delete location
+router.delete('/deletelocation/:id', jsonParser, (req, res) => {
+  User
+      .findByIdAndUpdate(req.params.id, { $pull: { locations: {_id: req.body.locationId} } }, { new: true }, function (err, newData) {
+          if (err) {
+              console.log(err)
           } else {
               res.send(newData);
           }
