@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import requiresLogin from "../../requires-login";
-import BackButton from "../../reusable/back-button";
 import { getExtendedForecast } from "../../../actions/forecast";
 
 import Loader from "halogen/SyncLoader";

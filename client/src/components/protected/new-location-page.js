@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import requiresLogin from "../requires-login";
 import NewLocationForm from "./forms/new-location-form";
-import BackButton from "../reusable/back-button";
 
 // (free commercial use image) courtesy of https://pixabay.com/en/compass-trip-travel-directions-2384365/
 import compass from "./images/compass.svg";
@@ -19,11 +18,13 @@ export class NewLocationPage extends React.Component {
       <div className="container new-location-page">
         <div className="row">
           <div className="col-sm-6">
-            <BackButton />
-            <img src={compass} className="compass-img"></img>
+            <img src={compass} className="compass-img" />
           </div>
           <div className="col-sm-6  new-location-info">
-          <p>add a location to gain access to weather data from all over the world!</p>
+            <p>
+              add a location to gain access to weather data from all over the
+              world!
+            </p>
             <NewLocationForm />
           </div>
         </div>

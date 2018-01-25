@@ -4,6 +4,7 @@ import { Route, withRouter } from "react-router-dom";
 
 // components
 import HeaderBar from "./unprotected/header-bar";
+import NavBar from "./protected/nav-bar";
 import LandingPage from "./unprotected/landing-page";
 import Dashboard from "./protected/dashboard";
 import RegistrationPage from "./unprotected/registration-page";
@@ -48,6 +49,7 @@ export class App extends React.Component {
     return (
       <div className="app">
         <HeaderBar />
+        <NavBar/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/register" component={RegistrationPage} />
         <Route exact path="/dashboard" component={Dashboard} />

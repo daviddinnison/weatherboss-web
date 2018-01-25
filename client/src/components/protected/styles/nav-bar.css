@@ -29,3 +29,7 @@
   background-color: #8fffff;
   text-decoration: none;
 }
+
+.logout-button {
+    cursor: pointer;
+}

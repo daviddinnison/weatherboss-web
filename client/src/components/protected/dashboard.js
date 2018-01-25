@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
 import requiresLogin from "../requires-login";
-
-import { clearRedirect } from "../../actions/protected-data";
-
-import NavBar from "./nav-bar";
 import Locations from "./locations";
 
+import { clearRedirect } from "../../actions/protected-data";
 import { getMetricData } from "../../actions/users";
 
 import "./styles/dashboard.css";
@@ -24,7 +22,6 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard container">
-        <NavBar/>
         <div className="dashboard-username">Welcome, {this.props.username}</div>
         <Locations />
         <Link to="/newlocation" className="dashboard-add-location">

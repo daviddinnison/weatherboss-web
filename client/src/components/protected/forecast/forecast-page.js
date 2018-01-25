@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import requiresLogin from "../../requires-login";
-import BackButton from "../../reusable/back-button";
 import ExtendedForecast from "./extended-forecast";
 import CurrentConditions from "./current-conditions";
 import ForecastAlert from "./forecast-alert";
@@ -36,15 +35,13 @@ export class ForecastPage extends React.Component {
     const location = this.props.location.pathname.replace("/forecast/", "");
     return (
       <div className="container forecast-page">
-        <BackButton />
         <h2>{location}</h2>
         <ForecastAlert name={location} />
-
         <span onClick={this.handleClick} className="toggle-forecast">
           {this.state.hourly && "extended forecast"}
           {this.state.extended && "hourly forecast"}
         </span>
-        {this.state.hourly && <HourlyForecast name={location}/>}
+        {this.state.hourly && <HourlyForecast name={location} />}
         {this.state.extended && <ExtendedForecast name={location} />}
       </div>
     );

@@ -5,13 +5,12 @@ import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
 import EditLocations from "./edit-locations";
 import EditMetric from "./edit-metric";
-import BackButton from "../../reusable/back-button";
+
 
 export class UserPreferencesPage extends React.Component {
   render() {
     return (
       <div className="user-preferences-page container">
-        <BackButton />
         <EditMetric />
         <EditLocations />
       </div>
