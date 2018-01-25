@@ -1,5 +1,9 @@
 .main-nav {
-  margin-top: 15px;
+  background-color: #DEDEDE;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 0px auto;
+  width: 300px;
 }
 
 .main-nav ul {
@@ -7,16 +11,20 @@
 }
 
 .main-nav li {
-  background-color: #7bebeb;
   border: none;
-  border-radius: 4px;
   display: inline-block;
   margin-right: 10px;
   padding: 10px;
 }
+/* .main-nav li:last-child {
+
+  margin: 0px;
+
+} */
+
 
 .main-nav a {
-  color: grey;
+  color: #848484;
   height: 100%;
   width: 100%;
 }
@@ -26,7 +34,7 @@
 }
 
 .main-nav li:hover {
-  background-color: #8fffff;
+  background-color: #B6B6B6;
   text-decoration: none;
 }
 
