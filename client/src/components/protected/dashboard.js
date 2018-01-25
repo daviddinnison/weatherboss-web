@@ -5,6 +5,7 @@ import requiresLogin from "../requires-login";
 
 import { clearRedirect } from "../../actions/protected-data";
 
+import NavBar from "./nav-bar";
 import Locations from "./locations";
 
 import { getMetricData } from "../../actions/users";
@@ -17,15 +18,13 @@ export class Dashboard extends React.Component {
     if (this.props.redirect) {
       this.props.dispatch(clearRedirect());
     } else {
-      this.props.dispatch(getMetricData(this.props.id))
+      this.props.dispatch(getMetricData(this.props.id));
     }
   }
   render() {
     return (
       <div className="dashboard container">
-      <Link to="/preferences">
-          preferences
-        </Link>
+        <NavBar/>
         <div className="dashboard-username">Welcome, {this.props.username}</div>
         <Locations />
         <Link to="/newlocation" className="dashboard-add-location">

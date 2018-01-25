@@ -1,0 +1,31 @@
+.main-nav {
+  margin-top: 15px;
+}
+
+.main-nav ul {
+  text-align: center;
+}
+
+.main-nav li {
+  background-color: #7bebeb;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.main-nav a {
+  color: grey;
+  height: 100%;
+  width: 100%;
+}
+
+.main-nav a:hover {
+  text-decoration: none;
+}
+
+.main-nav li:hover {
+  background-color: #8fffff;
+  text-decoration: none;
+}

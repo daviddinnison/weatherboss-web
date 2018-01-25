@@ -10,7 +10,7 @@
   background: #fff;
   background: linear-gradient(to left, #f5f5f5, #e1e1e1);
 }
-.gradient:nth-child(4n + 1) {
+/* .gradient:nth-child(4n + 1) {
   background: #5cd6d6;
   background: linear-gradient(to bottom right, #5cd6d6, #8effff);
 }
@@ -18,7 +18,7 @@
 .gradient:nth-child(4n + 3) {
   background: #ff8f8f;
   background: linear-gradient(to bottom left, #ff8f8f, #ffc1c1);
-}
+} */
 
 .empty-locations {
   list-style-type: none;
