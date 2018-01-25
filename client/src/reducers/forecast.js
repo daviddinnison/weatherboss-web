@@ -17,15 +17,23 @@ import {
   VALIDATE_LOCATION_ERROR
 } from "../actions/forecast";
 
+import {
+  DELETE_LOCATION_REQUEST,
+  DELETE_LOCATION_SUCCESS,
+  DELETE_LOCATION_ERROR
+} from "../actions/users";
+
 const initialState = {
   alert: [{}],
   alertLoading: false,
   currentForecastData: {},
-  extendedForecastData: { forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {}}] },
+  extendedForecastData: {
+    forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {} }]
+  },
   extendedLoading: false,
   fetchLocationLoading: false,
   hourlyLoading: false,
-  hourlyForecastData: [{FCTTIME: {}, feelslike: {}, temp: {}, qpf: {}}],
+  hourlyForecastData: [{ FCTTIME: {}, feelslike: {}, temp: {}, qpf: {} }],
   locations: [],
   locationError: null,
   test: "THIS IS A TEST"
@@ -39,26 +47,23 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_CURRENT_FORECAST_SUCCESS": {
-
       //find location by id
       const matchingLocation = state.locations.find(o => o._id === action.id);
 
-      
-      console.log('action data', action.data);
-      console.log("STATE...", state.locations);
-      console.log("matchingLocation", matchingLocation);
+      // console.log('action data', action.data);
+      // console.log("STATE...", state.locations);
+      // console.log("matchingLocation", matchingLocation);
       //insert currentforecast data into the matching location
       // return Object.assign({}, state, {
       //   matchingLocation: {currentForecastData: action.data},
       //   loading: false
       // });
       return Object.assign({}, state, {
-          currentForecastData: action.data,
-          loading: false
-        });
+        currentForecastData: action.data,
+        loading: false
+      });
 
-
-        // return { ...state, matchingLocation: {currentForecastData: action.data}, loading: false }
+      // return { ...state, matchingLocation: {currentForecastData: action.data}, loading: false }
     }
     case "GET_CURRENT_FORECAST_ERROR": {
       return Object.assign({}, state, {
@@ -73,7 +78,7 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_HOURLY_FORECAST_SUCCESS": {
-      console.log('GET HOURLY SUCCESS reducer', action.data)
+      console.log("GET HOURLY SUCCESS reducer", action.data);
       return Object.assign({}, state, {
         hourlyForecastData: action.data,
         hourlyLoading: false
@@ -157,6 +162,25 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         error: action.message,
         fetchLocationLoading: false
+      });
+    }
+    //
+    case "DELETE_LOCATION_REQUEST": {
+      return Object.assign({}, state, {
+        loading: true
+      });
+    }
+    case "DELETE_LOCATION_SUCCESS": {
+      console.log('DELETE LOCATION REDUCER', action.locations.locations)
+      return Object.assign({}, state, {
+        locations: action.locations.locations,
+        loading: false
+      });
+    }
+    case "DELETE_LOCATION_ERROR": {
+      return Object.assign({}, state, {
+        loading: false,
+        message: action.message
       });
     }
   }

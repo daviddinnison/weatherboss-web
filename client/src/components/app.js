@@ -2,12 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 
+// components
 import HeaderBar from "./unprotected/header-bar";
 import LandingPage from "./unprotected/landing-page";
 import Dashboard from "./protected/dashboard";
 import RegistrationPage from "./unprotected/registration-page";
 import NewLocationPage from "./protected/new-location-page";
 import ForecastPage from "./protected/forecast/forecast-page";
+import UserPreferencesPage from "./protected/user-preferences/user-preferences-page";
+
+// actions
 import { refreshAuthToken } from "../actions/auth";
 
 export class App extends React.Component {
@@ -45,10 +49,11 @@ export class App extends React.Component {
       <div className="app">
         <HeaderBar />
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/newlocation" component={NewLocationPage} />
         <Route exact path="/forecast/:name" component={ForecastPage} />
+        <Route exact path="/preferences" component={UserPreferencesPage} />
       </div>
     );
   }

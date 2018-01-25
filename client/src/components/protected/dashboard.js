@@ -19,6 +19,9 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard container">
+      <Link to="/preferences">
+          preferences
+        </Link>
         <div className="dashboard-username">Welcome, {this.props.username}</div>
         <Locations />
         <Link to="/newlocation" className="dashboard-add-location">

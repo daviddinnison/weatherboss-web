@@ -139,3 +139,45 @@ export const addLocation = (id, input) => dispatch => {
       dispatch(addLocationError(err));
     });
 };
+
+export const DELETE_LOCATION_REQUEST = "DELETE_LOCATION_REQUEST";
+export const deleteLocationRequest = () => ({
+  type: DELETE_LOCATION_REQUEST
+});
+
+export const DELETE_LOCATION_SUCCESS = "DELETE_LOCATION_SUCCESS";
+export const deleteLocationSuccess = locations => ({
+  type: DELETE_LOCATION_SUCCESS,
+  locations
+});
+
+export const DELETE_LOCATION_ERROR = "DELETE_LOCATION_ERROR";
+export const deleteLocationError = message => ({
+  type: DELETE_LOCATION_ERROR,
+  message
+});
+
+export const deleteLocation = (id, locationId) => dispatch => {
+  dispatch(deleteLocationRequest());
+  const formattedLocationId = { locationId: locationId };
+  fetch(`${API_BASE_URL}/users/deletelocation/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formattedLocationId),
+    method: "DELETE"
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(data => {
+      dispatch(deleteLocationSuccess(data));
+    })
+    .catch(err => {
+      dispatch(deleteLocationError(err));
+    });
+};
