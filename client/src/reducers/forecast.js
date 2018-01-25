@@ -36,6 +36,7 @@ const initialState = {
   hourlyForecastData: [{ FCTTIME: {}, feelslike: {}, temp: {}, qpf: {} }],
   locations: [],
   locationError: null,
+  metric: true,
   test: "THIS IS A TEST"
 };
 

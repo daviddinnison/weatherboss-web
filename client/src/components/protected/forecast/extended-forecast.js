@@ -16,7 +16,7 @@ export class ExtendedForecast extends React.Component {
     this.props.dispatch(getExtendedForecast(location));
   }
   renderDays() {
-    console.log(this.props.extendedForecastData.forecastday)
+    console.log(this.props.extendedForecastData.forecastday);
     if (this.props.extendedLoading === false) {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (
@@ -31,13 +31,22 @@ export class ExtendedForecast extends React.Component {
               <img src={item.icon_url} />
             </div>
             <div className="col-xs-3 extended-temp">
-              <p>H: {item.high.fahrenheit}° F</p>
-              <p>L: {item.low.fahrenheit}° F</p>
+              <p>
+                H:{" "}
+                {this.props.metric ? item.high.celsius : item.high.fahrenheit}
+                {this.props.metric ? "°C" : "°F"}
+              </p>
+              <p>
+                L: {this.props.metric ? item.low.celsius : item.low.fahrenheit}
+                {this.props.metric ? "°C" : "°F"}
+              </p>
             </div>
             <div className="col-xs-3 extended-precip">
-            <p>{item.qpf_allday.in} in. precipitation</p>
-            <p>{item.avehumidity}% avg humidity</p>
-              
+              <p>
+                {this.props.metric ? item.qpf_allday.mm : item.qpf_allday.in}{" "}
+                {this.props.metric ? "mm" : "in"} precipitation
+              </p>
+              <p>{item.avehumidity}% avg humidity</p>
             </div>
           </li>
         )
@@ -63,7 +72,8 @@ const mapStateToProps = state => {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,
     extendedForecastData: state.forecast.extendedForecastData,
-    extendedLoading: state.forecast.extendedLoading
+    extendedLoading: state.forecast.extendedLoading,
+    metric: state.forecast.metric
   };
 };
 

@@ -19,12 +19,21 @@ export class HourlyForecast extends React.Component {
           </div>
           <div className="col-xs-3 hourly-temp">
             <p>
-              {item.temp.english} <span className="hourly-temp-degrees">°F</span>
+              {this.props.metric ? item.temp.metric : item.temp.english}
+              <span className="hourly-temp-degrees">
+                {this.props.metric ? "°C" : "°F"}
+              </span>
             </p>
             <p>
-              <span className="feels-like">feels like {item.feelslike.english}</span>
-            
-              <span className="feels-like-degrees">°F</span>
+              <span className="feels-like">
+                feels like{" "}
+                {this.props.metric
+                  ? item.feelslike.metric
+                  : item.feelslike.english}
+              </span>
+              <span className="feels-like-degrees">
+                {this.props.metric ? "°C" : "°F"}
+              </span>
             </p>
           </div>
           <div className="col-xs-4 hourly-condition">
@@ -32,7 +41,10 @@ export class HourlyForecast extends React.Component {
             <p>{item.condition}</p>
           </div>
           <div className="col-xs-3">
-            <p>precip: {item.qpf.english} in</p>
+            <p>
+              precip: {this.props.metric ? item.qpf.metric : item.qpf.english}{" "}
+              {this.props.metric ? "mm" : "in"}
+            </p>
             <p>humidity: {item.humidity}%</p>
           </div>
         </li>
@@ -58,7 +70,8 @@ const mapStateToProps = state => {
   return {
     id: state.auth.currentUser.id,
     hourlyForecastData: state.forecast.hourlyForecastData,
-    hourlyLoading: state.forecast.hourlyLoading
+    hourlyLoading: state.forecast.hourlyLoading,
+    metric: state.forecast.metric
   };
 };
 
