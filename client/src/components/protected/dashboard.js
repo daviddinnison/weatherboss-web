@@ -7,6 +7,8 @@ import { clearRedirect } from "../../actions/protected-data";
 
 import Locations from "./locations";
 
+import { getMetricData } from "../../actions/users";
+
 import "./styles/dashboard.css";
 
 export class Dashboard extends React.Component {
@@ -14,6 +16,8 @@ export class Dashboard extends React.Component {
     //if user added a location this clears the reducer of redirection props so the user can add another location
     if (this.props.redirect) {
       this.props.dispatch(clearRedirect());
+    } else {
+      this.props.dispatch(getMetricData(this.props.id))
     }
   }
   render() {
@@ -36,7 +40,8 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
-    redirect: state.protectedData.redirect
+    redirect: state.protectedData.redirect,
+    id: state.auth.currentUser.id
   };
 };
 

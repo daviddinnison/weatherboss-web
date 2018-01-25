@@ -185,6 +185,16 @@ router.delete('/deletelocation/:id', jsonParser, (req, res) => {
           }
       })
 });
+//retrieve user preferences for imperial or metric
+router.get('/metric/:id', jsonParser, (req, res) => {
+  User
+      .findById(req.params.id)
+      .then(user => {
+          if (!user) { return res.status(404).end(); }
+          return res.status(200).json(user.metric);
+      })
+      .catch(err => next(err));
+});
 
 //set user preferences for imperial or metric
 router.put('/metric/:id', jsonParser, (req, res) => {

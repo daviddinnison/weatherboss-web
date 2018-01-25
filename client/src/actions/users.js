@@ -181,3 +181,90 @@ export const deleteLocation = (id, locationId) => dispatch => {
       dispatch(deleteLocationError(err));
     });
 };
+
+export const GET_METRIC_REQUEST = "GET_METRIC_REQUEST";
+export const getMetricRequest = () => ({
+  type: GET_METRIC_REQUEST
+});
+
+export const GET_METRIC_SUCCESS = "GET_METRIC_SUCCESS";
+export const getMetricSuccess = data => ({
+  type: GET_METRIC_SUCCESS,
+  data
+});
+
+export const GET_METRIC_ERROR = "GET_METRIC_ERROR";
+export const getMetricError = message => ({
+  type: GET_METRIC_ERROR,
+  message
+});
+
+export const getMetricData = (id) => dispatch => {
+  dispatch(getMetricRequest());
+  fetch(`${API_BASE_URL}/users/metric/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    method: "GET"
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(data => {
+      dispatch(getMetricSuccess(data));
+    })
+    .catch(err => {
+      console.log(err)
+      dispatch(getMetricError(err));
+    });
+};
+
+
+export const EDIT_METRIC_REQUEST = "EDIT_METRIC_REQUEST";
+export const editMetricRequest = () => ({
+  type: EDIT_METRIC_REQUEST
+});
+
+export const EDIT_METRIC_SUCCESS = "EDIT_METRIC_SUCCESS";
+export const editMetricSuccess = data => ({
+  type: EDIT_METRIC_SUCCESS,
+  data
+});
+
+export const EDIT_METRIC_ERROR = "EDIT_METRIC_ERROR";
+export const editMetricError = message => ({
+  type: EDIT_METRIC_ERROR,
+  message
+});
+
+
+export const editMetricData = (id, metricInput) => dispatch => {
+  // dispatch(editMetricRequest());
+  const formattedRequest = {
+    metric: metricInput
+  }
+  fetch(`${API_BASE_URL}/users/metric/${id}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formattedRequest),
+    method: "PUT"
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then(data => {
+      dispatch(editMetricSuccess(data));
+    })
+    .catch(err => {
+      dispatch(editMetricError(err));
+    });
+};

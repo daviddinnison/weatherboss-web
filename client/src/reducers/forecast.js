@@ -20,7 +20,13 @@ import {
 import {
   DELETE_LOCATION_REQUEST,
   DELETE_LOCATION_SUCCESS,
-  DELETE_LOCATION_ERROR
+  DELETE_LOCATION_ERROR,
+  GET_METRIC_REQUEST,
+  GET_METRIC_SUCCESS,
+  GET_METRIC_ERROR,
+  EDIT_METRIC_REQUEST,
+  EDIT_METRIC_SUCCESS,
+  EDIT_METRIC_ERROR
 } from "../actions/users";
 
 const initialState = {
@@ -172,13 +178,47 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "DELETE_LOCATION_SUCCESS": {
-      console.log('DELETE LOCATION REDUCER', action.locations.locations)
       return Object.assign({}, state, {
         locations: action.locations.locations,
         loading: false
       });
     }
     case "DELETE_LOCATION_ERROR": {
+      return Object.assign({}, state, {
+        loading: false,
+        message: action.message
+      });
+    }
+    case "GET_METRIC_REQUEST": {
+      return Object.assign({}, state, {
+        loading: true
+      });
+    }
+    case "GET_METRIC_SUCCESS": {
+      return Object.assign({}, state, {
+        metric: action.data,
+        loading: false
+      });
+    }
+    case "GET_METRIC_ERROR": {
+      return Object.assign({}, state, {
+        loading: false,
+        message: action.message
+      });
+    }
+    case "EDIT_METRIC_REQUEST": {
+      return Object.assign({}, state, {
+        loading: true
+      });
+    }
+    case "EDIT_METRIC_SUCCESS": {
+      console.log('EDIT METRIC REDUCER', action)
+      return Object.assign({}, state, {
+        metric: action.data.metric,
+        loading: false
+      });
+    }
+    case "EDIT_METRIC_ERROR": {
       return Object.assign({}, state, {
         loading: false,
         message: action.message
