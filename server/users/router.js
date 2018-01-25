@@ -186,5 +186,18 @@ router.delete('/deletelocation/:id', jsonParser, (req, res) => {
       })
 });
 
+//set user preferences for imperial or metric
+router.put('/metric/:id', jsonParser, (req, res) => {
+  console.log('hello')
+  User
+      .findByIdAndUpdate(req.params.id, { $set: { metric: req.body.metric } }, { new: true }, function (err, newData) {
+          if (err) {
+              console.log(err)
+          } else {
+              res.send(newData);
+          }
+      })
+});
+
 
 module.exports = {router};

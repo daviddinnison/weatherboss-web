@@ -14,7 +14,8 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  locations: [{name: String, id: Number}]
+  locations: [{name: String, id: Number}],
+  metric: {type: Boolean, default: false}
 });
 
 UserSchema.methods.serialize = function() {
@@ -22,6 +23,7 @@ UserSchema.methods.serialize = function() {
     id: this._id,
     username: this.username || '',
     locations: [{}],
+    metric: false
   };
 };
 
