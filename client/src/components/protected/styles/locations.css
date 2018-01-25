@@ -2,6 +2,10 @@
   margin-bottom: 20px;
 }
 
+.locations h1 {
+  font-size: 25px;
+}
+
 .single-location {
   margin-bottom: 10px;
 }
@@ -10,6 +14,17 @@
   background: #fff;
   background: linear-gradient(to left, #f5f5f5, #e1e1e1);
 }
+.gradient:nth-child(4n + 1) {
+  background: #8effff;
+  background: linear-gradient(to right, #8effff, #B7FFFF);
+}
+
+.gradient:nth-child(4n + 3) {
+  background: #ffc1c1;
+  background: linear-gradient(to left, #FFE9E9, #ffc1c1);
+}
+
+
 /* .gradient:nth-child(4n + 1) {
   background: #5cd6d6;
   background: linear-gradient(to bottom right, #5cd6d6, #8effff);

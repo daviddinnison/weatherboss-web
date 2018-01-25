@@ -1,9 +1,13 @@
+.edit-metric {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 .edit-metric button {
   background-color: #7bebeb;
   border: none;
   border-radius: 4px;
   display: inline-block;
-  margin-right: 10px;
   padding: 10px;
 }
 
@@ -13,4 +17,8 @@
 
 .edit-metric button > span {
   margin-right: 5px;
+}
+
+.emphasis {
+  font-weight: bold;
 }

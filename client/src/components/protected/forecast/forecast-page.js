@@ -38,8 +38,8 @@ export class ForecastPage extends React.Component {
         <h2>{location}</h2>
         <ForecastAlert name={location} />
         <span onClick={this.handleClick} className="toggle-forecast">
-          {this.state.hourly && "extended forecast"}
-          {this.state.extended && "hourly forecast"}
+          {this.state.hourly && "view extended forecast"}
+          {this.state.extended && "view hourly forecast"}
         </span>
         {this.state.hourly && <HourlyForecast name={location} />}
         {this.state.extended && <ExtendedForecast name={location} />}

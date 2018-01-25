@@ -16,11 +16,19 @@ export class Locations extends React.Component {
     const locationsData = this.props.locations.map((item, index) => (
       <li key={item._id} className="single-location gradient">
         <RenderedLocation name={item.name} locationId={item._id} />
-        {/* <Link to={`/forecast/${item.name}`}>{item.name}</Link> */}
       </li>
     ));
     return (
       <div className="locations">
+        {this.props.locations.length > 0 ? (
+          <h1>
+            <span className="glyphicon glyphicon-globe" aria-hidden="true" />{" "}
+            {this.props.username}'s locations
+          </h1>
+        ) : (
+          ""
+        )}
+
         <ul>{locationsData}</ul>
       </div>
     );
@@ -33,6 +41,7 @@ export class Locations extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
+    username: state.auth.currentUser.username,
     id: state.auth.currentUser.id,
     locations: state.forecast.locations
   };

@@ -22,10 +22,12 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard container">
-        <div className="dashboard-username">Welcome, {this.props.username}</div>
         <Locations />
         <Link to="/newlocation" className="dashboard-add-location">
-          Add location
+        <span
+                className="glyphicon glyphicon-plus"
+                aria-hidden="true"
+              />
         </Link>
       </div>
     );
@@ -35,7 +37,6 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    username: state.auth.currentUser.username,
     redirect: state.protectedData.redirect,
     id: state.auth.currentUser.id
   };
