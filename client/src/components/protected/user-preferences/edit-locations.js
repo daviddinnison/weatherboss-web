@@ -6,6 +6,8 @@ import requiresLogin from "../../requires-login";
 import { fetchLocations } from "../../../actions/forecast";
 import { deleteLocation } from "../../../actions/users";
 
+import "./styles/edit-locations.css";
+
 export class EditLocations extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchLocations(this.props.id));
@@ -17,8 +19,14 @@ export class EditLocations extends React.Component {
 
   renderLocationsEdit() {
     const locationsData = this.props.locations.map((item, index) => (
-      <li key={item._id} onClick={() => this.deleteItem(item._id)}>
-        {item.name}
+      <li key={item._id}>
+        <button onClick={() => this.deleteItem(item._id)}>
+        <span
+                className="glyphicon glyphicon-trash"
+                aria-hidden="true"
+              />
+        </button>
+        <span>{item.name}</span>
       </li>
     ));
 
