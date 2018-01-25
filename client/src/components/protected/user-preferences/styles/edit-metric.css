@@ -1,0 +1,17 @@
+.edit-metric button {
+  background-color: #7BEBEB;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  /* font-size: 10px; */
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.edit-metric button:hover {
+    background-color: #8FFFFF;
+}
+
+.edit-metric button > span {
+  margin-right: 5px;
+}

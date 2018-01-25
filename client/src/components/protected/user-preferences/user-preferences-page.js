@@ -12,10 +12,6 @@ export class UserPreferencesPage extends React.Component {
     return (
       <div className="user-preferences-page container">
         <BackButton />
-        <p>
-          welcome and please make yourself at home in the user preferences page
-          component.
-        </p>
         <EditMetric />
         <EditLocations />
       </div>
