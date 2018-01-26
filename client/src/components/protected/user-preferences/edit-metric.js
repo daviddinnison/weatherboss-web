@@ -18,17 +18,20 @@ export class EditMetric extends React.Component {
     return (
       <div className="edit-metric">
         <p>
-          You are using <span className="emphasis">{this.props.metric ? "metric" : "imperial"}</span> units. You
-          will see temperature in {this.props.metric ? "Celsius" : "Fahrenheit"},
-          wind speed in {this.props.metric ? "kph" : "mph"}, and precipitation in{" "}
-          {this.props.metric ? "millimeters" : "inches"}.
+          You are currently using{" "}
+          <span className="emphasis">
+            {this.props.metric ? "metric" : "imperial"}
+          </span>{" "}
+          units.
         </p>
+        <ul>
+          <li>temperature: {this.props.metric ? "celsius" : "fahrenheit"}</li>
+          <li>wind speed: {this.props.metric ? "kilometers per hour" : "mph"}</li>
+          <li>precipitation: {this.props.metric ? "millimeters" : "inches"}</li>
+        </ul>
         <button onClick={() => this.setMetric()}>
-          {this.props.metric
-            ? "enable imperial units"
-            : "enable metric units"}
+          {this.props.metric ? "enable imperial units" : "enable metric units"}
         </button>
-        
       </div>
     );
   }

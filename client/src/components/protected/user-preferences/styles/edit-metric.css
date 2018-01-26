@@ -3,6 +3,11 @@
   margin-top: 30px;
 }
 
+.edit-metric > ul {
+  list-style-type: circle;
+  padding-left: 15px;
+}
+
 .edit-metric button {
   background-color: #7bebeb;
   border: none;
