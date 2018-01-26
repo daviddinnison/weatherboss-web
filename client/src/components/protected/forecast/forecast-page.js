@@ -37,10 +37,16 @@ export class ForecastPage extends React.Component {
       <div className="container forecast-page">
         <h2>{location}</h2>
         <ForecastAlert name={location} />
-        <span onClick={this.handleClick} className="toggle-forecast">
-          {this.state.hourly && "view extended forecast"}
-          {this.state.extended && "view hourly forecast"}
-        </span>
+        <div className="forecast-nav">
+          <span className="current-forecast">
+            {this.state.hourly && "hourly forecast"}
+            {this.state.extended && "extended forecast"}
+          </span>
+          <span onClick={this.handleClick} className="toggle-forecast">
+            {this.state.hourly && "view extended forecast"}
+            {this.state.extended && "view hourly forecast"}
+          </span>
+        </div>
         {this.state.hourly && <HourlyForecast name={location} />}
         {this.state.extended && <ExtendedForecast name={location} />}
       </div>
