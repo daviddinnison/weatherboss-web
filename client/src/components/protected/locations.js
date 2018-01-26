@@ -20,14 +20,14 @@ export class Locations extends React.Component {
     ));
     return (
       <div className="locations">
-        {this.props.locations.length > 0 ? (
+        {/* {this.props.locations.length > 0 ? (
           <h1>
             <span className="glyphicon glyphicon-globe" aria-hidden="true" />{" "}
             {this.props.username}'s locations
           </h1>
         ) : (
           ""
-        )}
+        )} */}
 
         <ul>{locationsData}</ul>
       </div>

@@ -10,10 +10,12 @@ import Loader from "halogen/SyncLoader";
 import "./styles/extended-forecast.css";
 
 export class ExtendedForecast extends React.Component {
+  
   componentDidMount() {
     const location = this.props.name;
     this.props.dispatch(getExtendedForecast(location));
   }
+
   renderDays() {
     console.log(this.props.extendedForecastData.forecastday);
     if (this.props.extendedLoading === false) {

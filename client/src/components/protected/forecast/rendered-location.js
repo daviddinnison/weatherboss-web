@@ -22,8 +22,8 @@ export class RenderedLocation extends React.Component {
         className="rendered-location-link"
       >
         <div className="row">
-          <div className="rendered-location-box col-xs-3">
-            <h1 className="rendered-location-name">{this.props.name}</h1>
+          <div className="primary-location-box col-xs-3">
+            <span className="rendered-location-name">{this.props.name}</span>
             <span className="rendered-location-temperature">
               {this.props.metric ? current.temp_c : current.temp_f}
               <span>{this.props.metric ? "°C" : "°F"}</span>

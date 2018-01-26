@@ -20,13 +20,13 @@ export class ForecastPage extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
   handleClick() {
     this.setState({
       hourly: !this.state.hourly,
       extended: !this.state.extended
     });
   }
+
   componentDidMount() {
     const location = this.props.location.pathname.replace("/forecast/", "");
   }
@@ -52,8 +52,7 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
-    locations: state.protectedData.locations,
-    test: state.forecast.test
+    locations: state.protectedData.locations
   };
 };
 
