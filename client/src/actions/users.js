@@ -50,7 +50,6 @@ export const validateLocationError = err => ({
 });
 
 export const validateLocation = (id, userInput) => dispatch => {
-  // dispatch(getCurrentForecastRequest());
   fetch(
     `http://api.wunderground.com/api/${API_KEY}/geolookup/q/${userInput}.json`,
     {}

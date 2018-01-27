@@ -1,7 +1,4 @@
 import {
-  GET_CURRENT_FORECAST_REQUEST,
-  GET_CURRENT_FORECAST_SUCCESS,
-  GET_CURRENT_FORECAST_ERROR,
   GET_EXTENDED_FORECAST_REQUEST,
   GET_EXTENDED_FORECAST_SUCCESS,
   GET_EXTENDED_FORECAST_ERROR,
@@ -32,7 +29,6 @@ import {
 const initialState = {
   alert: [{}],
   alertLoading: false,
-  currentForecastData: {},
   extendedForecastData: {
     forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {} }]
   },
@@ -48,37 +44,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_CURRENT_FORECAST_REQUEST": {
-      return Object.assign({}, state, {
-        loading: true
-      });
-    }
-    case "GET_CURRENT_FORECAST_SUCCESS": {
-      //find location by id
-      const matchingLocation = state.locations.find(o => o._id === action.id);
-
-      // console.log('action data', action.data);
-      // console.log("STATE...", state.locations);
-      // console.log("matchingLocation", matchingLocation);
-      //insert currentforecast data into the matching location
-      // return Object.assign({}, state, {
-      //   matchingLocation: {currentForecastData: action.data},
-      //   loading: false
-      // });
-      return Object.assign({}, state, {
-        currentForecastData: action.data,
-        loading: false
-      });
-
-      // return { ...state, matchingLocation: {currentForecastData: action.data}, loading: false }
-    }
-    case "GET_CURRENT_FORECAST_ERROR": {
-      return Object.assign({}, state, {
-        message: action.message,
-        loading: false
-      });
-    }
-    //
     case "GET_HOURLY_FORECAST_REQUEST": {
       return Object.assign({}, state, {
         hourlyLoading: true

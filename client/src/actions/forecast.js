@@ -1,44 +1,6 @@
 import { API_BASE_URL } from "../config";
 const API_KEY = "b20a7be72cb0b77a";
 
-export const GET_CURRENT_FORECAST_REQUEST = "GET_CURRENT_FORECAST_REQUEST";
-export const getCurrentForecastRequest = () => ({
-  type: GET_CURRENT_FORECAST_REQUEST
-});
-
-export const GET_CURRENT_FORECAST_SUCCESS = "GET_CURRENT_FORECAST_SUCCESS";
-export const getCurrentForecastSuccess = (data, id) => ({
-  type: GET_CURRENT_FORECAST_SUCCESS,
-  data,
-  id
-});
-
-export const GET_CURRENT_FORECAST_ERROR = "GET_CURRENT_FORECAST_ERROR";
-export const getCurrentForecastError = message => ({
-  type: GET_CURRENT_FORECAST_ERROR,
-  message
-});
-
-export const getCurrentForecast = (location, id) => dispatch => {
-  dispatch(getCurrentForecastRequest());
-  fetch(
-    `http://api.wunderground.com/api/${API_KEY}/conditions/q/${location}.json`,
-    {}
-  )
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(res.statusText);
-      }
-      return res.json();
-    })
-    .then(data => {
-      dispatch(getCurrentForecastSuccess(data.current_observation, id));
-    })
-    .catch(err => {
-      dispatch(getCurrentForecastError(err));
-    });
-};
-
 export const GET_HOURLY_FORECAST_REQUEST = "GET_HOURLY_FORECAST_REQUEST";
 export const getHourlyForecastRequest = () => ({
   type: GET_HOURLY_FORECAST_REQUEST

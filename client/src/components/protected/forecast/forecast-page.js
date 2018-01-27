@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import requiresLogin from "../../requires-login";
 import ExtendedForecast from "./extended-forecast";
-import CurrentConditions from "./current-conditions";
 import ForecastAlert from "./forecast-alert";
 import HourlyForecast from "./hourly-forecast";
 

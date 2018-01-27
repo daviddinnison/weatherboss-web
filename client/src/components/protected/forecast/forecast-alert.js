@@ -45,7 +45,6 @@ const mapStateToProps = state => {
   return {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,
-    currentForecastData: state.forecast.currentForecastData,
     alert: state.forecast.alert,
     alertLoading: state.forecast.alertLoading
   };
