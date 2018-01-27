@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
 import { Link, Redirect } from "react-router-dom";
+
 import NewUserPresetLocations from "./forms/new-user-preset-locations";
+
+// import { fetchLocations } from "../../../actions/forecast";
 
 import {
     validateLocation,
@@ -10,6 +13,10 @@ import {
   } from "../../actions/users";
 
 export class NewUser extends React.Component {
+  // componentDidMount() {
+  //   this.props.dispatch(fetchLocations(this.props.id));
+  // }
+
   addPresetLocations(input) {
     let locations = [];
     switch (input) {

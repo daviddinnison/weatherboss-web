@@ -160,6 +160,7 @@ export default function reducer(state = initialState, action) {
     }
 
     case "FETCH_LOCATIONS_SUCCESS": {
+      console.log('in reducer', action.locations)
       return Object.assign({}, state, {
         locations: action.locations,
         fetchLocationLoading: false

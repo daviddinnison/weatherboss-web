@@ -7,6 +7,8 @@ import {
   clearValidateLocationError
 } from "../../../actions/users";
 
+import { fetchLocations } from "../../../actions/forecast";
+
 export class NewUserPresetLocations extends React.Component {
   componentDidMount() {
     //clears any existing errors
@@ -25,11 +27,11 @@ export class NewUserPresetLocations extends React.Component {
     }
     for (let i = 0; i < locations.length; i++) {
       console.log(locations[i]);
-      // this.props.dispatch(validateLocation(this.props.id, locations[i]));
       this.props.dispatch(validateLocation(this.props.id, locations[i]));
     }
-    console.log('heloooooo')
-    // return <Redirect to="/dashboard" />;
+
+
+      // .then(() => this.props.dispatch(fetchLocations(this.props.id)));
   }
 
   render() {
