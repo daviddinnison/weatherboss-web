@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import requiresLogin from "../requires-login";
 import { Link, Redirect } from "react-router-dom";
-import { fetchLocations } from "../../actions/forecast";
+
+import requiresLogin from "../requires-login";
 import RenderedLocation from "./forecast/rendered-location";
+import NewUser from "./new-user";
+
+import { fetchLocations } from "../../actions/forecast";
 
 import "./styles/locations.css";
 
@@ -13,25 +16,20 @@ export class Locations extends React.Component {
   }
 
   renderLocations() {
-    const locationsData = this.props.locations.map((item, index) => (
-      <li key={item._id} className="single-location gradient">
-        <RenderedLocation name={item.name} locationId={item._id} />
-      </li>
-    ));
-    return (
-      <div className="locations">
-        {/* {this.props.locations.length > 0 ? (
-          <h1>
-            <span className="glyphicon glyphicon-globe" aria-hidden="true" />{" "}
-            {this.props.username}'s locations
-          </h1>
-        ) : (
-          ""
-        )} */}
-
-        <ul>{locationsData}</ul>
-      </div>
-    );
+    if (this.props.locations.length === 0) {
+      return <Redirect to="/newuser" />;
+    } else {
+      const locationsData = this.props.locations.map((item, index) => (
+        <li key={item._id} className="single-location gradient">
+          <RenderedLocation name={item.name} locationId={item._id} />
+        </li>
+      ));
+      return (
+        <div className="locations">
+          <ul>{locationsData}</ul>
+        </div>
+      );
+    }
   }
   render() {
     return <div>{this.renderLocations()}</div>;

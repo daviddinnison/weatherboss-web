@@ -11,6 +11,7 @@ import RegistrationPage from "./unprotected/registration-page";
 import NewLocationPage from "./protected/new-location-page";
 import ForecastPage from "./protected/forecast/forecast-page";
 import UserPreferencesPage from "./protected/user-preferences/user-preferences-page";
+import NewUser from "./protected/new-user";
 
 // actions
 import { refreshAuthToken } from "../actions/auth";
@@ -52,6 +53,7 @@ export class App extends React.Component {
         <NavBar/>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/newuser" component={NewUser} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/newlocation" component={NewLocationPage} />
         <Route exact path="/forecast/:name" component={ForecastPage} />
