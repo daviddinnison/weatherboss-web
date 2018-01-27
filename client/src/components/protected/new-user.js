@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
 import { Link, Redirect } from "react-router-dom";
+import NewUserPresetLocations from "./forms/new-user-preset-locations";
 
 import {
     validateLocation,
@@ -20,8 +21,10 @@ export class NewUser extends React.Component {
         break;
     }
     for (let i = 0; i < locations.length; i++) {
-      this.props.dispatch(validateLocation(this.props.id, locations[i]));
+      console.log(locations[i])
+      // this.props.dispatch(validateLocation(this.props.id, locations[i]));
     }
+    this.props.dispatch(validateLocation(this.props.id, "Berlin, Germany"))
   }
 
   render() {
@@ -36,10 +39,8 @@ export class NewUser extends React.Component {
           or if you are curious to see what the weather is like around the world
           select prefered locations!
         </p>
-        <ul>
-          <li onClick={() => this.addPresetLocations("usa")}>USA</li>
-          <li onClick={() => this.addPresetLocations("europe")}>Europe</li>
-        </ul>
+        <NewUserPresetLocations/>
+        
         <Link to="/newlocation" className="dashboard-add-location">
         <span
                 className="glyphicon glyphicon-plus"
