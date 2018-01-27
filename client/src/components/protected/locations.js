@@ -17,7 +17,7 @@ export class Locations extends React.Component {
 
   renderLocations() {
     if (this.props.locations.length === 0) {
-      return <Redirect to="/newuser" />;
+      return <NewUser/>;
     } else {
       const locationsData = this.props.locations.map((item, index) => (
         <li key={item._id} className="single-location gradient">

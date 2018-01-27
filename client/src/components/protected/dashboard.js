@@ -20,15 +20,15 @@ export class Dashboard extends React.Component {
     }
   }
   render() {
+    const link = (
+      <Link to="/newlocation" className="dashboard-add-location">
+        <span className="glyphicon glyphicon-plus" aria-hidden="true" />
+      </Link>
+    );
     return (
       <div className="dashboard container">
         <Locations />
-        <Link to="/newlocation" className="dashboard-add-location">
-        <span
-                className="glyphicon glyphicon-plus"
-                aria-hidden="true"
-              />
-        </Link>
+        {this.props.locations.length>0 ? link: ""}
       </div>
     );
   }
@@ -38,7 +38,8 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     redirect: state.protectedData.redirect,
-    id: state.auth.currentUser.id
+    id: state.auth.currentUser.id,
+    locations: state.forecast.locations
   };
 };
 

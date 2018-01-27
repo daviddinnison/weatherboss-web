@@ -9,6 +9,7 @@ import {
   ADD_LOCATION_ERROR
 } from "../actions/users";
 const initialState = {
+  addLocationLoading: false,
   data: "",
   error: null,
   redirect: false
@@ -30,20 +31,20 @@ export default function reducer(state = initialState, action) {
 
     case "ADD_LOCATION_REQUEST": {
       return Object.assign({}, state, {
-        loading: true
+        addLocationLoading: true
       });
     }
 
     case "ADD_LOCATION_SUCCESS": {
       return Object.assign({}, state, {
         redirect: true,
-        loading: false
+        addLocationLoading: false
       });
     }
     case "ADD_LOCATION_ERROR": {
       return Object.assign({}, state, {
         error: action.message,
-        loading: false
+        addLocationLoading: false
       });
     }
     case "CLEAR_REDIRECT": {

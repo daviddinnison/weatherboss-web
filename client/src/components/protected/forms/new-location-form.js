@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import Loader from "halogen/PulseLoader";
+
 import requiresLogin from "../../requires-login";
+
 import {
   validateLocation,
   clearValidateLocationError
@@ -69,6 +72,7 @@ export class NewLocationForm extends React.Component {
           Submit
         </button>
         <p>{this.props.locationError}</p>
+        {this.props.addLocationLoading ? <Loader color="#00D7D7" size="16px" margin="4px"/> : ""}
       </form>
     );
   }
@@ -78,7 +82,8 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
-    locationError: state.forecast.locationError
+    locationError: state.forecast.locationError,
+    addLocationLoading: state.protectedData.addLocationLoading
   };
 };
 

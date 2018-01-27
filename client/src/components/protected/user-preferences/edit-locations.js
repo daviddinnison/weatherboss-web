@@ -21,10 +21,7 @@ export class EditLocations extends React.Component {
     const locationsData = this.props.locations.map((item, index) => (
       <li key={item._id}>
         <button onClick={() => this.deleteItem(item._id)}>
-        <span
-                className="glyphicon glyphicon-trash"
-                aria-hidden="true"
-              />
+          <span className="glyphicon glyphicon-trash" aria-hidden="true" />
         </button>
         <span>{item.name}</span>
       </li>
@@ -38,9 +35,14 @@ export class EditLocations extends React.Component {
   }
 
   render() {
+    const link = (
+      <Link to="/newlocation" className="edit-add-location">
+        Add locations
+      </Link>
+    );
     return (
       <div className="edit-locations">
-        <h1>Edit locations</h1>
+        {this.props.locations.length > 0 ? <h1>Edit locations</h1> : link}
         {this.renderLocationsEdit()}
       </div>
     );
