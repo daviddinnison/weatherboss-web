@@ -217,7 +217,6 @@ export const getMetricData = (id) => dispatch => {
       dispatch(getMetricSuccess(data));
     })
     .catch(err => {
-      console.log(err)
       dispatch(getMetricError(err));
     });
 };

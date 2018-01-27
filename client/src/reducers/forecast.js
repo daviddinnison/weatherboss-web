@@ -50,7 +50,6 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "GET_HOURLY_FORECAST_SUCCESS": {
-      console.log("GET HOURLY SUCCESS reducer", action.data);
       return Object.assign({}, state, {
         hourlyForecastData: action.data,
         hourlyLoading: false
@@ -125,7 +124,6 @@ export default function reducer(state = initialState, action) {
     }
 
     case "FETCH_LOCATIONS_SUCCESS": {
-      console.log('in reducer', action.locations)
       return Object.assign({}, state, {
         locations: action.locations,
         fetchLocationLoading: false
@@ -178,7 +176,6 @@ export default function reducer(state = initialState, action) {
       });
     }
     case "EDIT_METRIC_SUCCESS": {
-      console.log('EDIT METRIC REDUCER', action)
       return Object.assign({}, state, {
         metric: action.data.metric,
         loading: false

@@ -60,7 +60,6 @@ export class HourlyForecast extends React.Component {
   }
 
   render() {
-    console.log("HOURLY DATA PROPS", this.props.hourlyForecastData);
     return <div>{this.renderHours()}</div>;
   }
 }

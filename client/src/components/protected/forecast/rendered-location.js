@@ -29,7 +29,6 @@ export class RenderedLocation extends React.Component {
       })
       .then(
         result => {
-          console.log(result, "REULST");
           this.setState({
             isLoaded: true,
             items: result.current_observation

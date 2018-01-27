@@ -26,7 +26,6 @@ export class NewUserPresetLocations extends React.Component {
         break;
     }
     for (let i = 0; i < locations.length; i++) {
-      console.log(locations[i]);
       this.props.dispatch(validateLocation(this.props.id, locations[i]));
     }
 

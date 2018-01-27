@@ -6,13 +6,6 @@ const morgan = require('morgan');
 const passport = require('passport');
 
 const {User} = require('./users/models');
-// Here we use destructuring assignment with renaming so the two variables
-// called router (from ./users and ./auth) have different names
-// For example:
-// const actorSurnames = { james: "Stewart", robert: "De Niro" };
-// const { james: jimmy, robert: bobby } = actorSurnames;
-// console.log(jimmy); // Stewart - the variable name is jimmy, not james
-// console.log(bobby); // De Niro - the variable name is bobby, not robert
 const { router: usersRouter } = require('./users');
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
@@ -46,11 +39,9 @@ const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // A protected endpoint which needs a valid JWT to access it
 app.get('/api/protected/:id', jwtAuth, (req, res) => {
-  console.log("REQ DOT BODY", req.params.id)
   User
       .findById(req.params.id)
       .then(user => {
-        console.log('USER', user.locations)
           if (!user) { return res.status(404).end(); }
           return res.status(200).json(user.locations);
       })

@@ -17,7 +17,6 @@ export class ExtendedForecast extends React.Component {
   }
 
   renderDays() {
-    console.log(this.props.extendedForecastData.forecastday);
     if (this.props.extendedLoading === false) {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (

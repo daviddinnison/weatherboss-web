@@ -122,7 +122,6 @@ export const fetchLocationsRequest = () => ({
 });
 
 export const FETCH_LOCATIONS_SUCCESS = "FETCH_LOCATIONS_SUCCESS";
-// console.log('yo this is the eaction', locations)
 export const fetchLocationsSuccess = locations => ({
   type: FETCH_LOCATIONS_SUCCESS,
   locations
@@ -143,14 +142,12 @@ export const fetchLocations = id => dispatch => {
     }
   })
   .then(res => {
-    console.log(res.body, 'res in action')
     if (!res.ok) {
       throw new Error(res.statusText);
     }
     return res.json();
   })
   .then(locations => {
-    console.log('successfull response', locations)
       dispatch(fetchLocationsSuccess(locations));
     })
     .catch(err => {
