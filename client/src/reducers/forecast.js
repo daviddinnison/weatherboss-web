@@ -35,7 +35,7 @@ const initialState = {
   extendedLoading: false,
   fetchLocationLoading: false,
   hourlyLoading: false,
-  hourlyForecastData: [{ FCTTIME: {}, feelslike: {}, temp: {}, qpf: {} }],
+  hourlyForecastData: [{ FCTTIME: {}, feelslike: {}, temp: {}, qpf: {}, wdir:{}, wspd: {}, dewpoint: {}, mslp: {} }],
   locations: [],
   locationError: null,
   metric: false,

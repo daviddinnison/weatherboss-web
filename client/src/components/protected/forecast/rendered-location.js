@@ -69,19 +69,19 @@ export class RenderedLocation extends React.Component {
           </div>
           <div className="rendered-location-box col-xs-3">
             <span className="rendered-location-precipitation">
-              precipitation:{" "}
+              <span className="rendered-location-heading">precipitation:</span>{" "}
               {this.props.metric
                 ? current.precip_today_metric
                 : current.precip_today_in}
               <span> {this.props.metric ? "mm" : "in"}</span>
             </span>
             <span className="rendered-location-winds">
-              winds: {current.wind_dir}{" "}
+              <span className="rendered-location-heading">winds:</span> {current.wind_dir}{" "}
               {this.props.metric ? current.wind_kph : current.wind_mph}{" "}
               {this.props.metric ? "kph" : "mph"}
             </span>
             <span className="rendered-location-visibility">
-              visibility:{" "}
+              <span className="rendered-location-heading">visibility:</span>{" "}
               {this.props.metric
                 ? current.visibility_km
                 : current.visibility_mi}
@@ -90,19 +90,19 @@ export class RenderedLocation extends React.Component {
           </div>
           <div className="rendered-location-box col-xs-3">
             <span className="rendered-location-humidity">
-              humidity: {current.relative_humidity}
+              <span className="rendered-location-heading">humidity:</span> {current.relative_humidity}
             </span>
             <span className="rendered-location-pressure">
-              air pressure:{" "}
+              <span className="rendered-location-heading">air pressure:</span>{" "}
               {this.props.metric ? current.pressure_mb : current.pressure_in}
               <span> {this.props.metric ? "mb" : "in"}</span>
             </span>
             <span className="rendered-location-dewpoint">
-              dewpoint:{" "}
+              <span className="rendered-location-heading">dewpoint:</span>{" "}
               {this.props.metric ? current.dewpoint_c : current.dewpoint_f}
               <span> {this.props.metric ? "°C" : "°F"}</span>
             </span>
-            <span className="rendered-location-uv">UV index: {current.UV}</span>
+            <span className="rendered-location-uv"><span className="rendered-location-heading">UV index:</span> {current.UV}</span>
           </div>
         </div>
       </Link>

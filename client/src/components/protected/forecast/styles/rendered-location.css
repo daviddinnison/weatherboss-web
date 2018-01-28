@@ -38,7 +38,16 @@
 }
 .weather-icon {
   display: block;
-  margin:0px auto;
+  margin: 0px auto;
+}
+
+.rendered-location-heading,
+.rendered-location-condition {
+  font-weight: 600;
+}
+
+.rendered-location-box {
+  color: #343434;
 }
 
 .rendered-location-condition,
