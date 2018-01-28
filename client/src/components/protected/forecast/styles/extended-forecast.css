@@ -1,4 +1,5 @@
 .individual-day {
+  color:#343434;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 10px;
@@ -10,9 +11,21 @@
   font-weight: bold;
 }
 
-.individual-day > p {
-  font-family: "Oswald", sans-serif;
-  margin: 0px;
+.extended-heading {
+    font-weight: 600;
+}
+
+.individual-day img {
+  display: block;
+  margin: 0px auto;
+}
+
+.extended-pop,
+.extended-conditions,
+.extended-wind,
+.extended-precipitation,
+.extended-humidity {
+  display: block;
 }
 
 @media (max-width: 576px) {
@@ -25,8 +38,7 @@
   .extended-conditions {
     font-size: 13px;
   }
-  .extended-temp,
-  .extended-precip {
+  .extended-temp {
     font-size: 12px;
   }
 }

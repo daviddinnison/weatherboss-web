@@ -30,7 +30,7 @@ const initialState = {
   alert: [{}],
   alertLoading: false,
   extendedForecastData: {
-    forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {} }]
+    forecastday: [{ date: {}, high: {}, low: {}, qpf_allday: {}, avewind: {} }]
   },
   extendedLoading: false,
   fetchLocationLoading: false,

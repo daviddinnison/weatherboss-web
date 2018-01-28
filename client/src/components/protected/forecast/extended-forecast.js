@@ -10,7 +10,6 @@ import Loader from "halogen/SyncLoader";
 import "./styles/extended-forecast.css";
 
 export class ExtendedForecast extends React.Component {
-  
   componentDidMount() {
     const location = this.props.name;
     this.props.dispatch(getExtendedForecast(location));
@@ -25,28 +24,47 @@ export class ExtendedForecast extends React.Component {
               <h4>
                 {item.date.weekday}, {item.date.monthname} {item.date.day}
               </h4>
+              <div className="extended-temp">
+                <p>
+                  H:{" "}
+                  {this.props.metric ? item.high.celsius : item.high.fahrenheit}
+                  {this.props.metric ? "°C" : "°F"}
+                </p>
+                <p>
+                  L:{" "}
+                  {this.props.metric ? item.low.celsius : item.low.fahrenheit}
+                  {this.props.metric ? "°C" : "°F"}
+                </p>
+              </div>
             </div>
-            <div className="col-xs-3 extended-conditions">
-              <p>{item.conditions}</p>
+            <div className="col-xs-3">
+              <span className="extended-heading">{item.conditions}</span>
               <img src={item.icon_url} />
             </div>
-            <div className="col-xs-3 extended-temp">
-              <p>
-                H:{" "}
-                {this.props.metric ? item.high.celsius : item.high.fahrenheit}
-                {this.props.metric ? "°C" : "°F"}
-              </p>
-              <p>
-                L: {this.props.metric ? item.low.celsius : item.low.fahrenheit}
-                {this.props.metric ? "°C" : "°F"}
-              </p>
+            <div className="col-xs-3">
+            <span className="extended-pop">
+              <span className="extended-heading">chance of precip: </span>{" "}
+              {item.pop}%
+            </span>
+              <span className="extended-precipitation">
+                <span className="extended-heading">precipitation: </span>
+                {this.props.metric
+                  ? item.qpf_allday.mm
+                  : item.qpf_allday.in}{" "}
+                {this.props.metric ? "mm" : "in"}
+              </span>
+              <span className="extended-wind">
+                <span className="extended-heading">wind: </span>
+                {item.avewind.dir} {" "}
+                {this.props.metric ? item.avewind.kph : item.avewind.mph}{" "}
+                {this.props.metric ? "kph" : "mph"}
+              </span>
             </div>
-            <div className="col-xs-3 extended-precip">
-              <p>
-                {this.props.metric ? item.qpf_allday.mm : item.qpf_allday.in}{" "}
-                {this.props.metric ? "mm" : "in"} precipitation
-              </p>
-              <p>{item.avehumidity}% avg humidity</p>
+            <div className="col-xs-3">
+              <span className="extended-humidity">
+                <span className="extended-heading">humidity: </span>
+                {item.avehumidity}%
+              </span>
             </div>
           </li>
         )
