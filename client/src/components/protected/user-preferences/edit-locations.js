@@ -20,7 +20,7 @@ export class EditLocations extends React.Component {
   renderLocationsEdit() {
     const locationsData = this.props.locations.map((item, index) => (
       <li key={item._id}>
-        <button onClick={() => this.deleteItem(item._id)}>
+        <button onClick={() => {if (window.confirm(`Are you sure you wish to delete ${item.name} from your list of saved locations?`))this.deleteItem(item._id)}}>
           <span className="glyphicon glyphicon-trash" aria-hidden="true" />
         </button>
         <span>{item.name}</span>
