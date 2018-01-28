@@ -31,6 +31,12 @@
   vertical-align: top;
 }
 
+.last-updated {
+  display: block;
+  font-size: 8px;
+  font-style: italic;
+}
+
 .rendered-location-condition {
   display: block;
 }

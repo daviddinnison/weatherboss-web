@@ -1,19 +1,18 @@
 .dashboard-add-location {
-  background: #F57A7A;
+  background: #f57a7a;
   border: none;
   border-radius: 4px;
   display: block;
   margin: 20px auto;
   padding: 15px 25px;
   text-align: center;
-  color: #F5F5F5;
+  color: #f5f5f5;
   text-decoration: none;
   width: 65px;
-  
 }
 
 .dashboard-add-location:hover {
   background: #d75c5c;
-  color: #CDCDCD;
+  color: #cdcdcd;
   text-decoration: none;
 }

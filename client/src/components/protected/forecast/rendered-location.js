@@ -58,6 +58,7 @@ export class RenderedLocation extends React.Component {
             {this.props.metric ? current.temp_c : current.temp_f}
             <span>{this.props.metric ? "°C" : "°F"}</span>
           </span>
+          <span className="last-updated">{current.observation_time}</span>
         </div>
         <div className="rendered-location-box col-xs-3">
           <span className="rendered-location-condition">

@@ -17,6 +17,10 @@ export class HourlyForecast extends React.Component {
           <div className="col-xs-2 hourly-time">
             <p>{item.FCTTIME.civil}</p>
           </div>
+          <div className="col-xs-3 hourly-condition">
+            <p>{item.condition}</p>
+            <img src={item.icon_url} />
+          </div>
           <div className="col-xs-3 hourly-temp">
             <p>
               {this.props.metric ? item.temp.metric : item.temp.english}
@@ -36,11 +40,7 @@ export class HourlyForecast extends React.Component {
               </span>
             </p>
           </div>
-          <div className="col-xs-4 hourly-condition">
-            <img src={item.icon_url} />
-            <p>{item.condition}</p>
-          </div>
-          <div className="col-xs-3">
+          <div className="col-xs-4">
             <p>
               precip: {this.props.metric ? item.qpf.metric : item.qpf.english}{" "}
               {this.props.metric ? "mm" : "in"}
