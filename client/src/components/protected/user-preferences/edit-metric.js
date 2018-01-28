@@ -28,6 +28,7 @@ export class EditMetric extends React.Component {
           <li>temperature: {this.props.metric ? "celsius" : "fahrenheit"}</li>
           <li>wind speed: {this.props.metric ? "kilometers per hour" : "mph"}</li>
           <li>precipitation: {this.props.metric ? "millimeters" : "inches"}</li>
+          <li>air pressure: {this.props.metric ? "mb" : "in"}</li>
         </ul>
         <button onClick={() => this.setMetric()}>
           {this.props.metric ? "enable imperial units" : "enable metric units"}

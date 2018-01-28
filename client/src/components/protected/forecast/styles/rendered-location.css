@@ -36,9 +36,22 @@
   font-size: 8px;
   font-style: italic;
 }
-
-.rendered-location-condition {
+.weather-icon {
   display: block;
+  margin:0px auto;
+}
+
+.rendered-location-condition,
+.rendered-location-precipitation,
+.rendered-location-humidity,
+.rendered-location-pressure,
+.rendered-location-winds,
+.rendered-location-dewpoint,
+.rendered-location-visibility,
+.rendered-location-uv {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 2px;
 }
 
 @media (max-width: 576px) {
