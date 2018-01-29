@@ -1,23 +1,30 @@
 .individual-day {
-  color:#343434;
+  color:#525252;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 10px;
-  text-align: center;
+  text-align:left;
 }
 
-.individual-day h4 {
+.extended-time {
   font-family: "Oswald", sans-serif;
   font-weight: bold;
+}
+
+.extended-time, .extended-temp-highlow {
+  color: #343434
 }
 
 .extended-heading {
     font-weight: 600;
 }
 
+.extended-temp-highlow {
+  display: block;
+}
+
 .individual-day img {
   display: block;
-  margin: 0px auto;
 }
 
 .extended-pop,
@@ -30,15 +37,17 @@
 
 @media (max-width: 576px) {
   .individual-day {
-    padding: 0px;
-  }
-  .individual-day h4 {
-    font-size: 18px;
-  }
-  .extended-conditions {
+    padding: 5px;
     font-size: 13px;
   }
-  .extended-temp {
-    font-size: 12px;
+  .extended-time {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .extended-temp-highlow {
+    font-size: 17px;
+  }
+  .extended-conditions {
+    margin-top: 5px;
   }
 }

@@ -20,52 +20,46 @@ export class ExtendedForecast extends React.Component {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (
           <li className="individual-day gradient row" key={index}>
-            <div className="col-xs-3">
-              <h4>
-                {item.date.weekday}, {item.date.monthname} {item.date.day}
-              </h4>
-              <div className="extended-temp">
-                <p>
-                  H:{" "}
-                  {this.props.metric ? item.high.celsius : item.high.fahrenheit}
-                  {this.props.metric ? "°C" : "°F"}
-                </p>
-                <p>
-                  L:{" "}
-                  {this.props.metric ? item.low.celsius : item.low.fahrenheit}
-                  {this.props.metric ? "°C" : "°F"}
-                </p>
+            <div className="col-xs-12 col-sm-4">
+                <span className="extended-time">
+                  {item.date.weekday}, {item.date.monthname} {item.date.day}
+                </span>
+                <span className="extended-heading extended-conditions">{item.conditions}</span>
+                <img src={item.icon_url} />
+            </div>
+              <div className="col-xs-12 col-sm-4">
+                <div className="extended-temp">
+                  <span className="extended-temp-highlow">
+                    <span className="extended-heading">High:</span>{" "}
+                    {this.props.metric
+                      ? item.high.celsius
+                      : item.high.fahrenheit}
+                    {this.props.metric ? "°C" : "°F"}
+                  </span>
+                  <span className="extended-temp-highlow">
+                    <span className="extended-heading">Low:</span>{" "}
+                    {this.props.metric ? item.low.celsius : item.low.fahrenheit}
+                    {this.props.metric ? "°C" : "°F"}
+                  </span>
+                
+                </div>
               </div>
-            </div>
-            <div className="col-xs-3">
-              <span className="extended-heading">{item.conditions}</span>
-              <img src={item.icon_url} />
-            </div>
-            <div className="col-xs-3">
-            <span className="extended-pop">
-              <span className="extended-heading">chance of precip: </span>{" "}
-              {item.pop}%
-            </span>
-              <span className="extended-precipitation">
-                <span className="extended-heading">precipitation: </span>
-                {this.props.metric
-                  ? item.qpf_allday.mm
-                  : item.qpf_allday.in}{" "}
-                {this.props.metric ? "mm" : "in"}
-              </span>
-              <span className="extended-wind">
-                <span className="extended-heading">wind: </span>
-                {item.avewind.dir} {" "}
-                {this.props.metric ? item.avewind.kph : item.avewind.mph}{" "}
-                {this.props.metric ? "kph" : "mph"}
-              </span>
-            </div>
-            <div className="col-xs-3">
-              <span className="extended-humidity">
-                <span className="extended-heading">humidity: </span>
-                {item.avehumidity}%
-              </span>
-            </div>
+              <div className="col-xs-12 col-sm-4">
+                <span className="extended-pop">
+                  <span className="extended-heading">chance of precip: </span>{" "}
+                  {item.pop}%
+                </span>
+                <span className="extended-wind">
+                  <span className="extended-heading">wind: </span>
+                  {item.avewind.dir}{" "}
+                  {this.props.metric ? item.avewind.kph : item.avewind.mph}{" "}
+                  {this.props.metric ? "kph" : "mph"}
+                </span>
+                <span className="extended-humidity">
+                  <span className="extended-heading">humidity: </span>
+                  {item.avehumidity}%
+                </span>
+              </div>
           </li>
         )
       );

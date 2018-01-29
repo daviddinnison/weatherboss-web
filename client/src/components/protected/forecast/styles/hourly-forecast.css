@@ -1,15 +1,31 @@
 .hourly {
-  color:#343434;
-  border-radius: 5px;
+  color: #525252;
+  border-radius: 8px;
   padding: 20px;
+  padding-top: 0px;
   margin-bottom: 2px;
-  text-align: center;
+  text-align: left;
+}
+
+.hourly:first-child {
+  border-top-left-radius: 0px;
+}
+
+.hourly-time,
+.hourly-time-midnight,
+.hourly-temp,
+.hourly-temp-degrees,
+.hourly-condition {
+  color: #343434;
 }
 
 .hourly-time {
+  display: block;
   font-family: "Oswald", sans-serif;
   font-size: 20px;
   font-weight: 500;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .hourly-time-midnight {
@@ -19,17 +35,23 @@
   margin: 0px;
 }
 
-.hourly-temp {
-  font-size: 20px;
+.hourly-data {
+  margin-top: 10px;
+}
+.hourly-temp > span {
+  font-family: "Adamina", serif;
+  font-size: 25px;
+  display: block;
 }
 
 .hourly-temp-degrees {
+  display: inline;
   font-size: 15px;
   vertical-align: top;
 }
 
 .hourly-heading {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .hourly-precipitation,
@@ -37,42 +59,50 @@
   display: block;
 }
 
-.feels-like {
-  font-size: 15px;
-  font-style: italic;
-}
-
-.feels-like-degrees {
-  font-style: italic;
-  font-size: 10px;
-  vertical-align: top;
-}
-
-.hourly-condition span {
+.hourly-condition > span {
   display: block;
   margin: 0px;
 }
 
 .hourly-pop,
+.hourly-wind,
+.hourly-precipitation,
 .hourly-humidity,
 .hourly-pressure,
 .hourly-uv,
 .hourly-dewpoint,
 .hourly-sky {
   display: block;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 576px) {
   .hourly {
-    padding: 0px;
+    padding: 5px;
     font-size: 12px;
   }
-  .feels-like {
-    font-size: 12px;
-    padding: 0px;
+  .hourly-time {
+    /* color: red;
+    display: block;
+    margin: 0px auto;
+    text-align: center; */
   }
-  .feels-like-degrees {
-    font-size: 8px;
-    vertical-align: initial;
+
+  .hourly-temp {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .hourly-condition {
+    font-size: 14px;
+  }
+  .hourly-pop,
+  .hourly-wind,
+  .hourly-precipitation,
+  .hourly-humidity,
+  .hourly-pressure,
+  .hourly-uv,
+  .hourly-dewpoint,
+  .hourly-sky {
+    margin-bottom: 1px;
   }
 }
