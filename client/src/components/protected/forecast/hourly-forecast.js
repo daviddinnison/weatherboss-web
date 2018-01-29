@@ -14,16 +14,16 @@ export class HourlyForecast extends React.Component {
     if (this.props.hourlyLoading === false) {
       const hourlyData = this.props.hourlyForecastData.map((item, index) => (
         <li className="hourly gradient" key={index}>
-          <span className="hourly-time">{item.FCTTIME.civil}</span>
-          {item.FCTTIME.civil === "12:00 AM" ? (
-            <span className="hourly-time-midnight">
-              {item.FCTTIME.weekday_name}
-            </span>
-          ) : (
-            ""
-          )}
           <div className="hourly-data row">
-            <div className="col-xs-12 col-sm-4">
+            <div className="col-xs-12 col-sm-2">
+              {item.FCTTIME.civil === "12:00 AM" ? (
+                <span className="hourly-time-midnight">
+                  {item.FCTTIME.weekday_name},
+                </span>
+              ) : (
+                ""
+              )}
+              <span className="hourly-time">{item.FCTTIME.civil}</span>
               <div className="hourly-temp">
                 <span>
                   {this.props.metric ? item.temp.metric : item.temp.english}
@@ -32,15 +32,15 @@ export class HourlyForecast extends React.Component {
                   </span>
                 </span>
               </div>
-              <div className="hourly-condition">
-                <span className="hourly-heading hourly-condition">
-                  {item.condition}
-                </span>
-                <img src={item.icon_url} />
-              </div>
+              <div className="hourly-condition" />
             </div>
-
-            <div className="col-xs-12 col-sm-4">
+            <div className="col-xs-12 col-sm-3">
+              <span className="hourly-heading hourly-condition">
+                {item.condition}
+              </span>
+              <img src={item.icon_url} />
+            </div>
+            <div className="col-xs-12 col-sm-3">
               <span className="hourly-pop">
                 <span className="hourly-heading">chance of precip: </span>{" "}
                 {item.pop}%
@@ -56,7 +56,7 @@ export class HourlyForecast extends React.Component {
                 {item.sky}%
               </span>
             </div>
-            <div className="col-xs-12 col-sm-4">
+            <div className="col-xs-12 col-sm-3">
               <span className="hourly-humidity">
                 <span className="hourly-heading">humidity: </span>
                 {item.humidity}%

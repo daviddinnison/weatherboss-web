@@ -20,15 +20,15 @@ export class ExtendedForecast extends React.Component {
       const tenDayData = this.props.extendedForecastData.forecastday.map(
         (item, index) => (
           <li className="individual-day gradient row" key={index}>
-            <div className="col-xs-12 col-sm-4">
+            <div className="col-xs-12 col-sm-2">
                 <span className="extended-time">
                   {item.date.weekday}, {item.date.monthname} {item.date.day}
                 </span>
+            </div>
+              <div className="col-xs-12 col-sm-2">
+                <div className="extended-temp">
                 <span className="extended-heading extended-conditions">{item.conditions}</span>
                 <img src={item.icon_url} />
-            </div>
-              <div className="col-xs-12 col-sm-4">
-                <div className="extended-temp">
                   <span className="extended-temp-highlow">
                     <span className="extended-heading">High:</span>{" "}
                     {this.props.metric
@@ -44,7 +44,7 @@ export class ExtendedForecast extends React.Component {
                 
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-4">
+              <div className="col-xs-12 col-sm-3">
                 <span className="extended-pop">
                   <span className="extended-heading">chance of precip: </span>{" "}
                   {item.pop}%

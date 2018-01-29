@@ -7,8 +7,12 @@
 }
 
 .extended-time {
+  display: block;
   font-family: "Oswald", sans-serif;
+  font-size: 20px;
   font-weight: bold;
+  margin-bottom: 5px;
+  /* text-align: center; */
 }
 
 .extended-time, .extended-temp-highlow {
@@ -16,7 +20,7 @@
 }
 
 .extended-heading {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .extended-temp-highlow {
@@ -38,7 +42,9 @@
 @media (max-width: 576px) {
   .individual-day {
     padding: 5px;
+    padding-left: 10px;
     font-size: 13px;
+    margin-bottom: 5px;
   }
   .extended-time {
     font-size: 20px;

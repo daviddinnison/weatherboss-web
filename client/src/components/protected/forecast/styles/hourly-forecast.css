@@ -2,7 +2,6 @@
   color: #525252;
   border-radius: 8px;
   padding: 20px;
-  padding-top: 0px;
   margin-bottom: 2px;
   text-align: left;
 }
@@ -20,10 +19,9 @@
 }
 
 .hourly-time {
-  display: block;
   font-family: "Oswald", sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -31,8 +29,8 @@
 .hourly-time-midnight {
   font-family: "Oswald", sans-serif;
   font-size: 16px;
-  display: block;
   margin: 0px;
+  margin-right: 3px;
 }
 
 .hourly-data {
@@ -59,7 +57,7 @@
   display: block;
 }
 
-.hourly-condition > span {
+.hourly-condition {
   display: block;
   margin: 0px;
 }
@@ -79,15 +77,9 @@
 @media (max-width: 576px) {
   .hourly {
     padding: 5px;
+    padding-left: 10px;
     font-size: 12px;
   }
-  .hourly-time {
-    /* color: red;
-    display: block;
-    margin: 0px auto;
-    text-align: center; */
-  }
-
   .hourly-temp {
     font-size: 25px;
     margin-bottom: 10px;
