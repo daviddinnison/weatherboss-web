@@ -1,6 +1,7 @@
 .individual-day {
   color:#525252;
   border-radius: 5px;
+  font-family: 'Gentium Book Basic', serif;
   font-size: 15px;
   padding: 20px;
   margin-bottom: 2px;
@@ -26,7 +27,6 @@
 
 .extended-temp-highlow {
   display: block;
-  font-family: "Oswald", sans-serif;
 }
 
 .individual-day img {

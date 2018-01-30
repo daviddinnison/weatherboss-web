@@ -2,7 +2,10 @@
   padding: 20px;
   margin-bottom: 10px;
   text-align: center;
-  /* vertical-align: top; */
+}
+
+.rendered-location-data {
+  font-family: 'Gentium Book Basic', serif;
 }
 
 .rendered-location-link {
@@ -33,7 +36,7 @@
 
 .last-updated {
   display: block;
-  font-size: 8px;
+  font-size: 10px;
   font-style: italic;
 }
 .weather-icon {
