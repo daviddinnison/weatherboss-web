@@ -1,5 +1,5 @@
-.edit-locations h1{
-    font-size: 22px;
+.edit-locations h1 {
+  font-size: 22px;
 }
 
 .edit-locations li {
@@ -7,7 +7,11 @@
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 15px;
-  width: 400px;
+  width: 95%;
+}
+
+.edit-locations-location-name {
+  overflow: auto;
 }
 
 .edit-locations button {
@@ -15,7 +19,6 @@
   background: #d75c5c;
   border-radius: 4px;
   display: inline-block;
-  /* font-size: 10px; */
   margin-right: 10px;
   padding: 10px;
 }
@@ -24,9 +27,8 @@
   background: #ff8e8e;
 }
 
-
 .edit-add-location {
-  background: #F57A7A;
+  background: #f57a7a;
   border: none;
   border-radius: 4px;
   display: block;
@@ -35,15 +37,21 @@
   color: white;
   text-decoration: none;
   width: 150px;
-  
 }
 
 .edit-add-location:hover {
   background: #d75c5c;
-  color: #CDCDCD;
+  color: #cdcdcd;
   text-decoration: none;
 }
 
 .edit-location-loader {
   margin-top: 20px;
+}
+
+@media (max-width: 778px) {
+  .edit-locations li {
+    width: 90%;
+  }
+  
 }

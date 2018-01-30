@@ -41,7 +41,7 @@ export class EditLocations extends React.Component {
           >
             <span className="glyphicon glyphicon-trash" aria-hidden="true" />
           </button>
-          <span>{item.name}</span>
+          <span className="edit-locations-location-name">{item.name}</span>
         </li>
       ));
 

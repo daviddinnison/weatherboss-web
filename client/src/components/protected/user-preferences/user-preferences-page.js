@@ -5,13 +5,18 @@ import requiresLogin from "../../requires-login";
 import EditLocations from "./edit-locations";
 import EditMetric from "./edit-metric";
 
-
 export class UserPreferencesPage extends React.Component {
   render() {
     return (
       <div className="user-preferences-page container">
-        <EditMetric />
-        <EditLocations />
+        <div className="row">
+          <div className="col-sm-4">
+            <EditMetric />
+          </div>
+          <div className="col-sm-8">
+            <EditLocations />
+          </div>
+        </div>
       </div>
     );
   }
