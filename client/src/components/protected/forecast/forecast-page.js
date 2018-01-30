@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import requiresLogin from "../../requires-login";
 import ExtendedForecast from "./extended-forecast";
@@ -24,10 +23,6 @@ export class ForecastPage extends React.Component {
       hourly: !this.state.hourly,
       extended: !this.state.extended
     });
-  }
-
-  componentDidMount() {
-    const location = this.props.location.pathname.replace("/forecast/", "");
   }
 
   render() {
@@ -64,7 +59,6 @@ export class ForecastPage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations

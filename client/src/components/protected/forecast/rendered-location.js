@@ -65,7 +65,7 @@ export class RenderedLocation extends React.Component {
             <span className="rendered-location-condition">
               {current.weather}
             </span>
-            <img src={current.icon_url} className="weather-icon" />
+            <img src={current.icon_url} className="weather-icon" alt="phone"/>
           </div>
           <div className="rendered-location-box secondary-location-box col-xs-12 col-sm-3">
             <span className="rendered-location-precipitation">
@@ -98,7 +98,6 @@ export class RenderedLocation extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,

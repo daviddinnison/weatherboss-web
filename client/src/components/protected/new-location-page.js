@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import requiresLogin from "../requires-login";
 import NewLocationForm from "./forms/new-location-form";
 
@@ -18,7 +18,7 @@ export class NewLocationPage extends React.Component {
       <div className="container new-location-page">
         <div className="row">
           <div className="col-sm-6">
-            <img src={compass} className="compass-img" />
+            <img src={compass} className="compass-img" alt="compass"/>
           </div>
           <div className="col-sm-6  new-location-info">
             <p>
@@ -34,7 +34,6 @@ export class NewLocationPage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.forecast.locations,

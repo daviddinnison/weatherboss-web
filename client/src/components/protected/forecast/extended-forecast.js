@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import requiresLogin from "../../requires-login";
 import { getExtendedForecast } from "../../../actions/forecast";
@@ -40,7 +39,7 @@ export class ExtendedForecast extends React.Component {
               <div className="col-xs-12 col-sm-2">
                 <div className="extended-temp">
                 <span className="extended-heading extended-conditions">{item.conditions}</span>
-                <img src={item.icon_url} />
+                <img src={item.icon_url} alt="weather icon"/>
                 
                 </div>
               </div>
@@ -79,7 +78,6 @@ export class ExtendedForecast extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
 import Loader from "halogen/PulseLoader";
 
 import requiresLogin from "../../requires-login";
@@ -79,7 +78,6 @@ export class NewLocationForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locationError: state.forecast.locationError,

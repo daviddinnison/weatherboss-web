@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
-import { Link } from "react-router-dom";
 import Loader from "halogen/SquareLoader";
 
 import { getAlert } from "../../../actions/forecast";
@@ -41,7 +40,6 @@ export class ForecastAlert extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.protectedData.locations,

@@ -37,7 +37,7 @@ export class HourlyForecast extends React.Component {
               <span className="hourly-heading hourly-condition">
                 {item.condition}
               </span>
-              <img src={item.icon_url} />
+              <img src={item.icon_url} alt="weather icon"/>
             </div>
             <div className="col-xs-12 col-sm-3">
               <span className="hourly-pop">
@@ -96,7 +96,6 @@ export class HourlyForecast extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     hourlyForecastData: state.forecast.hourlyForecastData,

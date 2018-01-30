@@ -50,7 +50,6 @@ export class EditLocations extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     locations: state.forecast.locations,
     id: state.auth.currentUser.id

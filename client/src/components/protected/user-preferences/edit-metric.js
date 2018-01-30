@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
 
@@ -39,7 +38,6 @@ export class EditMetric extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     locations: state.forecast.locations,
     id: state.auth.currentUser.id,

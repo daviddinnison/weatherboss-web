@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./styles/new-user.css";
 import phone from "./images/phone.svg";
@@ -44,11 +44,11 @@ export class NewUser extends React.Component {
             </Link>
           </div>
           <div className="col-sm-6">
-            <img src={phone} className="img-responsive"/>
+            <img src={phone} className="img-responsive" alt="phone"/>
             <span className="attribution">
               {" "}
               Design Credits:{" "}
-              <a target="_blank" href="https://www.vecteezy.com">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.vecteezy.com">
                 Vecteezy!
               </a>
             </span>
@@ -64,7 +64,6 @@ export class NewUser extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     id: state.auth.currentUser.id,
     locations: state.forecast.locations,

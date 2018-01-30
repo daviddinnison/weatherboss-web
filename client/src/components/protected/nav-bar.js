@@ -25,7 +25,7 @@ export class NavBar extends React.Component {
               <li>Settings</li>
             </Link>
             <li onClick={() => this.logOut()} className="logout-button">
-              <a href="#">Log out</a>
+              <span>Log out</span>
             </li>
           </ul>
         </div>

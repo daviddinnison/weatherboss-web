@@ -35,7 +35,6 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     redirect: state.protectedData.redirect,
     id: state.auth.currentUser.id,

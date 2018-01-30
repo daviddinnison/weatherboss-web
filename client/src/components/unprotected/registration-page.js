@@ -20,7 +20,7 @@ export function RegistrationPage(props) {
       <div className="row">
         <div className="col-sm-6">
           <h2>Become a WeatherBoss</h2>
-          <img src={laptop} className="laptop-img" />
+          <img src={laptop} className="laptop-img" alt="laptop"/>
         </div>
         <div className="col-sm-6">
           <RegistrationForm />

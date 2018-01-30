@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
 
 import requiresLogin from "../requires-login";
 import RenderedLocation from "./forecast/rendered-location";
@@ -37,7 +36,6 @@ export class Locations extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
     id: state.auth.currentUser.id,

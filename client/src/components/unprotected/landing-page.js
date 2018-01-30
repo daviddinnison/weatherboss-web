@@ -42,7 +42,7 @@ export function LandingPage(props) {
               />locations from all around the world
             </li>
           </ul>
-          <img src={globe} className="globe-img" />
+          <img src={globe} className="globe-img" alt="globe"/>
         </div>
         <div className="col-sm-6 landing-login">
           <LoginForm />
