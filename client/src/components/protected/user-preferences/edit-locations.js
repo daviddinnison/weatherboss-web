@@ -54,14 +54,12 @@ export class EditLocations extends React.Component {
   }
 
   render() {
-    const link = (
-      <Link to="/newlocation" className="edit-add-location">
-        Add locations
-      </Link>
+    const noLocations = (
+      <span className="edit-locations-none">No locations saved.</span>
     );
     return (
       <div className="edit-locations">
-        {this.props.locations.length > 0 ? <h1>Edit locations</h1> : link}
+        {this.props.locations.length > 0 ? <h1>Edit locations</h1> : noLocations}
         {this.renderLocationsEdit()}
       </div>
     );
