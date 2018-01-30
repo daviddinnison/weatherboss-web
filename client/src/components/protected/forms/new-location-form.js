@@ -73,7 +73,7 @@ export class NewLocationForm extends React.Component {
         <p>{this.props.locationError}</p>
         {this.props.addLocationLoading ? (
           <div className="location-loader">
-            <Loader color="#1E1E1E" size="50px" margin="4px" />
+            <Loader color="#5a5a5a" size="50px" margin="4px" />
           </div>
         ) : (
           ""

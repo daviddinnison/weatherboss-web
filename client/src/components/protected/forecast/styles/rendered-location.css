@@ -62,6 +62,11 @@
   margin-bottom: 2px;
 }
 
+.rendered-location-loader {
+  margin-top: 20px;
+  text-align: center;
+}
+
 @media (max-width: 778px) {
   .rendered-location-data {
     text-align: left;

@@ -22,7 +22,7 @@ export class EditLocations extends React.Component {
   renderLocationsEdit() {
     if (this.props.fetchLocationLoading) {
       return (<div className="edit-location-loader">
-      <Loader color="#1E1E1E" size="20px" margin="4px" />
+      <Loader color="#5a5a5a" size="20px" margin="4px" />
     </div>);
     } else {
       const locationsData = this.props.locations.map((item, index) => (
