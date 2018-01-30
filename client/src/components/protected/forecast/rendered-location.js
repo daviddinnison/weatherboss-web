@@ -75,7 +75,7 @@ export class RenderedLocation extends React.Component {
               <span className="last-updated">{current.observation_time}</span>
             </div>
             <div className="rendered-location-box col-xs-12 col-sm-3">
-              <span className="rendered-location-condition">
+              <span className="rendered-location-heading">
                 {current.weather}
               </span>
               <img
@@ -84,8 +84,8 @@ export class RenderedLocation extends React.Component {
                 alt="phone"
               />
             </div>
-            <div className="rendered-location-box secondary-location-box col-xs-12 col-sm-3">
-              <span className="rendered-location-precipitation">
+            <div className="rendered-location-box col-xs-12 col-sm-3">
+              <span className="rendered-location-inner">
                 <span className="rendered-location-heading">
                   precipitation:
                 </span>{" "}
@@ -94,20 +94,20 @@ export class RenderedLocation extends React.Component {
                   : current.precip_today_in}
                 <span> {this.props.metric ? "mm" : "in"}</span>
               </span>
-              <span className="rendered-location-winds">
+              <span className="rendered-location-inner">
                 <span className="rendered-location-heading">winds:</span>{" "}
                 {current.wind_dir}{" "}
                 {this.props.metric ? current.wind_kph : current.wind_mph}{" "}
                 {this.props.metric ? "kph" : "mph"}
               </span>
-              <span className="rendered-location-visibility">
+              <span className="rendered-location-inner">
                 <span className="rendered-location-heading">visibility:</span>{" "}
                 {this.props.metric
                   ? current.visibility_km
                   : current.visibility_mi}
                 <span> {this.props.metric ? "km" : "mi"}</span>
               </span>
-              <span className="rendered-location-humidity">
+              <span className="rendered-location-inner">
                 <span className="rendered-location-heading">humidity:</span>{" "}
                 {current.relative_humidity}
               </span>

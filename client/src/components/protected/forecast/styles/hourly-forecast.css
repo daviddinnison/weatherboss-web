@@ -1,7 +1,7 @@
 .hourly {
   color: #525252;
   border-radius: 8px;
-  font-family: 'Gentium Book Basic', serif;
+  font-family: "Gentium Book Basic", serif;
   padding: 20px;
   margin-bottom: 2px;
   text-align: left;
@@ -11,9 +11,8 @@
 .hourly-time-midnight,
 .hourly-temp,
 .hourly-temp-degrees {
-  color: #343434;
+  color: #3e3e3e;
 }
-
 
 .hourly-time {
   font-family: "Oswald", sans-serif;
@@ -27,10 +26,6 @@
   margin: 0px;
   margin-right: 3px;
   text-transform: uppercase;
-}
-
-.hourly-data {
-  /* margin-top: 10px; */
 }
 
 .hourly-temp > span {
@@ -48,29 +43,19 @@
 }
 
 .hourly-heading {
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c5c5c;
 }
 
-.hourly-precipitation,
-.hourly-wind {
+.hourly-inner {
   display: block;
+  margin-bottom: 5px;
 }
 
 .hourly-condition {
   display: block;
   margin: 0px;
-}
-
-.hourly-pop,
-.hourly-wind,
-.hourly-precipitation,
-.hourly-humidity,
-.hourly-pressure,
-.hourly-uv,
-.hourly-dewpoint,
-.hourly-sky {
-  display: block;
-  margin-bottom: 5px;
 }
 
 .loader {
@@ -81,27 +66,26 @@
 @media (max-width: 778px) {
   .hourly {
     padding: 5px;
-    padding-left: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
     font-size: 12px;
   }
-  .hourly-temp {
-    font-size: 25px;
+  .hourly:first-child {
+    border-top-left-radius: 0px;
+  }
+  .hourly-img {
     margin-bottom: 10px;
   }
+  .hourly-temp {
+    margin-bottom: 10px;
+  }
+  
   .hourly-temp > span {
+    font-size: 30px;
     margin-left: 0px;
   }
-  .hourly-condition {
-    font-size: 14px;
-  }
-  .hourly-pop,
-  .hourly-wind,
-  .hourly-precipitation,
-  .hourly-humidity,
-  .hourly-pressure,
-  .hourly-uv,
-  .hourly-dewpoint,
-  .hourly-sky {
+
+  .hourly-inner {
     margin-bottom: 1px;
   }
 }

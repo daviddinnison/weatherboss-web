@@ -23,12 +23,12 @@ export class ExtendedForecast extends React.Component {
               <span className="extended-time">
                 {item.date.weekday}, {item.date.monthname} {item.date.day}
               </span>
-              <span className="extended-temp-highlow">
+              <span className="extended-inner">
                 <span className="extended-heading">High:</span>{" "}
                 {this.props.metric ? item.high.celsius : item.high.fahrenheit}
                 {this.props.metric ? "°C" : "°F"}
               </span>
-              <span className="extended-temp-highlow">
+              <span className="extended-temp-inner">
                 <span className="extended-heading">Low:</span>{" "}
                 {this.props.metric ? item.low.celsius : item.low.fahrenheit}
                 {this.props.metric ? "°C" : "°F"}
@@ -43,17 +43,17 @@ export class ExtendedForecast extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 col-sm-3">
-              <span className="extended-pop">
+              <span className="extended-inner">
                 <span className="extended-heading">chance of precip: </span>{" "}
                 {item.pop}%
               </span>
-              <span className="extended-wind">
+              <span className="extended-inner">
                 <span className="extended-heading">wind: </span>
                 {item.avewind.dir}{" "}
                 {this.props.metric ? item.avewind.kph : item.avewind.mph}{" "}
                 {this.props.metric ? "kph" : "mph"}
               </span>
-              <span className="extended-humidity">
+              <span className="extended-inner">
                 <span className="extended-heading">humidity: </span>
                 {item.avehumidity}%
               </span>

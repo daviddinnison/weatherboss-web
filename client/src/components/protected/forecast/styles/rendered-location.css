@@ -39,28 +39,20 @@
   font-size: 10px;
   font-style: italic;
 }
+
 .weather-icon {
   display: block;
   margin: 0px auto;
 }
 
-.rendered-location-heading,
-.rendered-location-condition {
+.rendered-location-heading {
+  font-size: 15px;
   font-weight: 600;
-}
-
-.rendered-location-condition,
-.rendered-location-box {
   color: #525252;
 }
 
-.rendered-location-condition,
-.rendered-location-precipitation,
-.rendered-location-humidity,
-.rendered-location-winds,
-.rendered-location-visibility,
-.rendered-location-uv {
-  font-size: 12px;
+.rendered-location-inner {
+  font-size: 13px;
   display: block;
   margin-bottom: 2px;
 }
@@ -90,9 +82,5 @@
   }
   .weather-icon {
     margin: 0px;
-  }
-  .secondary-location-box {
-    display: block;
-    margin-left: 10px;
   }
 }
