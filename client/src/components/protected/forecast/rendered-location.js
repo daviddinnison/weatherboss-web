@@ -67,7 +67,7 @@ export class RenderedLocation extends React.Component {
             </span>
             <img src={current.icon_url} className="weather-icon" />
           </div>
-          <div className="rendered-location-box col-xs-12 col-sm-3">
+          <div className="rendered-location-box secondary-location-box col-xs-12 col-sm-3">
             <span className="rendered-location-precipitation">
               <span className="rendered-location-heading">precipitation:</span>{" "}
               {this.props.metric
@@ -87,22 +87,9 @@ export class RenderedLocation extends React.Component {
                 : current.visibility_mi}
               <span> {this.props.metric ? "km" : "mi"}</span>
             </span>
-          </div>
-          <div className="rendered-location-box col-xs-12 col-sm-3">
             <span className="rendered-location-humidity">
               <span className="rendered-location-heading">humidity:</span> {current.relative_humidity}
             </span>
-            <span className="rendered-location-pressure">
-              <span className="rendered-location-heading">air pressure:</span>{" "}
-              {this.props.metric ? current.pressure_mb : current.pressure_in}
-              <span> {this.props.metric ? "mb" : "in"}</span>
-            </span>
-            <span className="rendered-location-dewpoint">
-              <span className="rendered-location-heading">dewpoint:</span>{" "}
-              {this.props.metric ? current.dewpoint_c : current.dewpoint_f}
-              <span> {this.props.metric ? "°C" : "°F"}</span>
-            </span>
-            <span className="rendered-location-uv"><span className="rendered-location-heading">UV index:</span> {current.UV}</span>
           </div>
         </div>
       </Link>

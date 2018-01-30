@@ -6,7 +6,7 @@
 }
 
 .rendered-location-link {
-  color: black;
+  color: #343434;
   text-decoration: none;
 }
 
@@ -46,16 +46,15 @@
   font-weight: 600;
 }
 
+.rendered-location-condition,
 .rendered-location-box {
-  color: #343434;
+  color: #525252;
 }
 
 .rendered-location-condition,
 .rendered-location-precipitation,
 .rendered-location-humidity,
-.rendered-location-pressure,
 .rendered-location-winds,
-.rendered-location-dewpoint,
 .rendered-location-visibility,
 .rendered-location-uv {
   font-size: 12px;
@@ -63,18 +62,29 @@
   margin-bottom: 2px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 778px) {
   .rendered-location-data {
     text-align: left;
     padding-left: 10px;
   }
+  .primary-location-box {
+    margin-bottom: 10px;
+  }
   .rendered-location-name {
-    font-size: 20px;
+    font-size: 30px;
   }
   .rendered-location-temperature {
     font-size: 30px;
   }
+  .rendered-location-condition,
+  .weather-icon {
+    margin-left: 5px;
+  }
   .weather-icon {
     margin: 0px;
+  }
+  .secondary-location-box {
+    display: block;
+    margin-left: 10px;
   }
 }

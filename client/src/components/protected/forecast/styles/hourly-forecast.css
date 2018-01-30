@@ -6,24 +6,18 @@
   text-align: left;
 }
 
-.hourly:first-child {
-  border-top-left-radius: 0px;
-}
-
 .hourly-time,
 .hourly-time-midnight,
 .hourly-temp,
-.hourly-temp-degrees,
-.hourly-condition {
+.hourly-temp-degrees {
   color: #343434;
 }
+
 
 .hourly-time {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
-  font-weight: 600;
   margin-bottom: 5px;
-  text-align: center;
 }
 
 .hourly-time-midnight {
@@ -31,15 +25,19 @@
   font-size: 16px;
   margin: 0px;
   margin-right: 3px;
+  text-transform: uppercase;
 }
 
 .hourly-data {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
+
 .hourly-temp > span {
-  font-family: "Adamina", serif;
-  font-size: 25px;
+  color: #343434;
   display: block;
+  font-family: "Adamina", serif;
+  font-size: 30px;
+  margin-left: 8px;
 }
 
 .hourly-temp-degrees {
@@ -74,7 +72,7 @@
   margin-bottom: 5px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 778px) {
   .hourly {
     padding: 5px;
     padding-left: 10px;
@@ -83,6 +81,9 @@
   .hourly-temp {
     font-size: 25px;
     margin-bottom: 10px;
+  }
+  .hourly-temp > span {
+    margin-left: 0px;
   }
   .hourly-condition {
     font-size: 14px;

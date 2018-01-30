@@ -44,7 +44,7 @@ export class NewUser extends React.Component {
             </Link>
           </div>
           <div className="col-sm-6">
-            <img src={phone} />
+            <img src={phone} className="img-responsive"/>
             <span className="attribution">
               {" "}
               Design Credits:{" "}

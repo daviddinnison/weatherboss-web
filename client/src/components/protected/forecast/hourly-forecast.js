@@ -13,8 +13,8 @@ export class HourlyForecast extends React.Component {
   renderHours() {
     if (this.props.hourlyLoading === false) {
       const hourlyData = this.props.hourlyForecastData.map((item, index) => (
-        <li className="hourly gradient" key={index}>
-          <div className="hourly-data row">
+        <li className="hourly gradient row" key={index}>
+
             <div className="col-xs-12 col-sm-2">
               {item.FCTTIME.civil === "12:00 AM" ? (
                 <span className="hourly-time-midnight">
@@ -32,7 +32,6 @@ export class HourlyForecast extends React.Component {
                   </span>
                 </span>
               </div>
-              <div className="hourly-condition" />
             </div>
             <div className="col-xs-12 col-sm-3">
               <span className="hourly-heading hourly-condition">
@@ -79,7 +78,6 @@ export class HourlyForecast extends React.Component {
                 {this.props.metric ? "°C" : "°F"}
               </span>
             </div>
-          </div>
         </li>
       ));
       return (

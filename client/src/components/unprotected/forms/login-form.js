@@ -25,20 +25,20 @@ export class LoginForm extends React.Component {
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
         {error}
-        <label htmlFor="username">Username</label>
         <Field
           component={Input}
           type="text"
           name="username"
           id="username"
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="username">Username</label>
         <Field
           component={Input}
           type="password"
           name="password"
           id="password"
         />
+        <label htmlFor="password">Password</label>
         <button disabled={this.props.pristine || this.props.submitting} className="login-button">
           Log in
         </button>
