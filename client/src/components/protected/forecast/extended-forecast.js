@@ -39,7 +39,7 @@ export class ExtendedForecast extends React.Component {
                 <span className="extended-heading extended-conditions">
                   {item.conditions}
                 </span>
-                <img src={item.icon_url} alt="weather icon" />
+                <img src={item.icon_url} alt="weather icon representing forecast" />
               </div>
             </div>
             <div className="col-xs-12 col-sm-3">

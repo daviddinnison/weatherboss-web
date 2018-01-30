@@ -81,7 +81,7 @@ export class RenderedLocation extends React.Component {
               <img
                 src={current.icon_url}
                 className="weather-icon"
-                alt="phone"
+                alt="weather icon representing forecast"
               />
             </div>
             <div className="rendered-location-box col-xs-12 col-sm-3">

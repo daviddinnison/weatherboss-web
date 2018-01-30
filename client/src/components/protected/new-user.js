@@ -36,15 +36,15 @@ export class NewUser extends React.Component {
         <div className="row">
           <div className="col-sm-6">
             <p>
-              Welcome to WeatherBoss, {this.props.username}! Add some locations
+              Welcome to WeatherBoss, <span className="new-user-emphasis">{this.props.username}</span>! Add some locations
               to get started.
             </p>
             <Link to="/newlocation" className="new-user-add-location">
               Add locations
             </Link>
           </div>
-          <div className="col-sm-6">
-            <img src={phone} className="img-responsive" alt="phone"/>
+          <div className="col-sm-6 new-user-img">
+            <img src={phone} className="img-responsive" alt="cartoon cell phone with weather icons"/>
             <span className="attribution">
               {" "}
               Design Credits:{" "}

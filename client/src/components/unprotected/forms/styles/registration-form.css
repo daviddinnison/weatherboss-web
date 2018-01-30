@@ -1,0 +1,16 @@
+.registration-form {
+    color: #484848;
+}
+
+.registration-form button {
+    border: none;
+    background: #ff8e8e;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    margin: 20px 0px;
+    padding: 10px 5px;
+    text-align: center;
+    width: 200px;
+  }
+  

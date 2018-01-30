@@ -18,12 +18,11 @@ export class NewLocationPage extends React.Component {
       <div className="container new-location-page">
         <div className="row">
           <div className="col-sm-6">
-            <img src={compass} className="compass-img" alt="compass"/>
+            <img src={compass} className="compass-img" alt="cartoon compass"/>
           </div>
           <div className="col-sm-6  new-location-info">
             <p>
-              add a location to gain access to weather data from all over the
-              world!
+              Add a location to check the forecast for anywhere in the world.
             </p>
             <NewLocationForm />
           </div>

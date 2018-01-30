@@ -2,6 +2,11 @@
   margin-top: 50px;
 }
 
+.new-user-emphasis {
+  font-weight: bold;
+  font-size: 17px;
+}
+
 .new-user img {
   height: auto;
   width: 500px;
@@ -11,7 +16,6 @@
   font-size: 10px;
   font-style: italic;
   display: block;
-  /* text-align: center; */
 }
 
 .new-user p {
@@ -25,7 +29,6 @@
   border-radius: 4px;
   color: white;
   display: block;
-  margin: 0px auto;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -38,11 +41,11 @@
   text-decoration: none;
 }
 
-
 @media (max-width: 778px) {
-
-    .new-user {
-      margin-top: 50px;
-    }
- 
+  .new-user {
+    margin-top: 20px;
   }
+  .new-user-img {
+    margin-top: 40px;
+  }
+}

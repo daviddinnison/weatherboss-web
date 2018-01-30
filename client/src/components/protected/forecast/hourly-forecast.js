@@ -36,7 +36,7 @@ export class HourlyForecast extends React.Component {
             <span className="hourly-heading hourly-condition">
               {item.condition}
             </span>
-            <img src={item.icon_url} alt="weather icon" className="hourly-img"/>
+            <img src={item.icon_url} alt="weather icon representing forecast" className="hourly-img"/>
           </div>
           <div className="col-xs-12 col-sm-3">
             <span className="hourly-inner">
