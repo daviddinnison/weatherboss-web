@@ -1,3 +1,4 @@
+/*eslint-disable */
 import {
   GET_EXTENDED_FORECAST_REQUEST,
   GET_EXTENDED_FORECAST_SUCCESS,
@@ -22,6 +23,7 @@ import {
   EDIT_METRIC_SUCCESS,
   EDIT_METRIC_ERROR
 } from "../actions/users";
+/*eslint-enable */
 
 const initialState = {
   alert: [{}],

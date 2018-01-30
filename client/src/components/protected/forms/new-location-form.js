@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Loader from "halogen/PulseLoader";
+import Loader from "halogen/ClipLoader";
 
 import requiresLogin from "../../requires-login";
 
@@ -71,7 +71,13 @@ export class NewLocationForm extends React.Component {
           Submit
         </button>
         <p>{this.props.locationError}</p>
-        {this.props.addLocationLoading ? <Loader color="#00D7D7" size="16px" margin="4px"/> : ""}
+        {this.props.addLocationLoading ? (
+          <div className="location-loader">
+            <Loader color="#1E1E1E" size="50px" margin="4px" />
+          </div>
+        ) : (
+          ""
+        )}
       </form>
     );
   }

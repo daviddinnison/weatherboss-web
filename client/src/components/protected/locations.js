@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Loader from "halogen/ClipLoader";
 
 import requiresLogin from "../requires-login";
 import RenderedLocation from "./forecast/rendered-location";
@@ -15,7 +16,14 @@ export class Locations extends React.Component {
   }
 
   renderLocations() {
-    if (this.props.locations.length === 0) {
+    if(this.props.fetchLocationLoading) {
+      return (
+        <div className="location-loader">
+          <Loader color="#1E1E1E" size="50px" margin="4px" />
+        </div>
+      );
+    }
+    else if (this.props.locations.length === 0) {
       return <NewUser/>;
     } else {
       const locationsData = this.props.locations.map((item, index) => (
@@ -39,7 +47,8 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     id: state.auth.currentUser.id,
-    locations: state.forecast.locations
+    locations: state.forecast.locations,
+    fetchLocationLoading: state.forecast.fetchLocationLoading
   };
 };
 

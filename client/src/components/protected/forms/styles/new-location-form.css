@@ -1,22 +1,25 @@
 .location-form {
-
 }
 
 .location-input {
-    border: none;
-    border-bottom: 1px solid grey;
-    padding: 5px 10px;
-    width: 300px;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 5px 10px;
+  width: 300px;
 }
 
 .location-submit {
-    border: none;
-    background: #d75c5c;
-    background: linear-gradient(#d75c5c, #ff8e8e);
-    border-radius: 4px;
-    display: block;
-    margin: 20px 0px;
-    padding: 10px 5px;
-    text-align: center;
-    width: 200px;
-  }
+  border: none;
+  background: #d75c5c;
+  background: linear-gradient(#d75c5c, #ff8e8e);
+  border-radius: 4px;
+  display: block;
+  margin: 20px 0px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 200px;
+}
+
+.location-loader {
+  margin-top: 20px;
+}

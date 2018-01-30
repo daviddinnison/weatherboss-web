@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
-import Loader from "halogen/SquareLoader";
+import Loader from "halogen/ClipLoader";
 
 import { getAlert } from "../../../actions/forecast";
 
@@ -14,7 +14,11 @@ export class ForecastAlert extends React.Component {
 
   renderAlert() {
     if (this.props.alertLoading === true) {
-      return <Loader color="#1E1E1E" size="60px" margin="4px" />;
+      return (
+        <div className="loader">
+          <Loader color="#1E1E1E" size="20px" margin="4px" />
+        </div>
+      );
     } else {
       if (this.props.alert.length > 0) {
         const alerts = this.props.alert.map((item, index) => (

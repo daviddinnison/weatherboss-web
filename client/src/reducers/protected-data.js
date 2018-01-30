@@ -1,3 +1,4 @@
+/*eslint-disable */
 import {
   FETCH_PROTECTED_DATA_SUCCESS,
   FETCH_PROTECTED_DATA_ERROR
@@ -8,6 +9,8 @@ import {
   ADD_LOCATION_SUCCESS,
   ADD_LOCATION_ERROR
 } from "../actions/users";
+/*eslint-enable */
+
 const initialState = {
   addLocationLoading: false,
   data: "",

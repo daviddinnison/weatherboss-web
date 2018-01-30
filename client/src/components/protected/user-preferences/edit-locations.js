@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Loader from "halogen/ClipLoader";
+
 import requiresLogin from "../../requires-login";
 
 import { fetchLocations } from "../../../actions/forecast";
@@ -18,20 +20,37 @@ export class EditLocations extends React.Component {
   }
 
   renderLocationsEdit() {
-    const locationsData = this.props.locations.map((item, index) => (
-      <li key={item._id}>
-        <button onClick={() => {if (window.confirm(`Are you sure you wish to delete ${item.name} from your list of saved locations?`))this.deleteItem(item._id)}}>
-          <span className="glyphicon glyphicon-trash" aria-hidden="true" />
-        </button>
-        <span>{item.name}</span>
-      </li>
-    ));
+    if (this.props.fetchLocationLoading) {
+      return (<div className="edit-location-loader">
+      <Loader color="#1E1E1E" size="20px" margin="4px" />
+    </div>);
+    } else {
+      const locationsData = this.props.locations.map((item, index) => (
+        <li key={item._id}>
+          <button
+            onClick={() => {
+              if (
+                window.confirm(
+                  `Are you sure you wish to delete ${
+                    item.name
+                  } from your list of saved locations?`
+                )
+              )
+                this.deleteItem(item._id);
+            }}
+          >
+            <span className="glyphicon glyphicon-trash" aria-hidden="true" />
+          </button>
+          <span>{item.name}</span>
+        </li>
+      ));
 
-    return (
-      <div>
-        <ul>{locationsData}</ul>
-      </div>
-    );
+      return (
+        <div>
+          <ul>{locationsData}</ul>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -52,7 +71,8 @@ export class EditLocations extends React.Component {
 const mapStateToProps = state => {
   return {
     locations: state.forecast.locations,
-    id: state.auth.currentUser.id
+    id: state.auth.currentUser.id,
+    fetchLocationLoading: state.forecast.fetchLocationLoading
   };
 };
 
