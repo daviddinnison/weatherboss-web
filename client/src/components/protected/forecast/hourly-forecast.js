@@ -1,8 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import requiresLogin from "../../requires-login";
+import ApiAttribution from "../../unprotected/api-attribution";
+
 import { getHourlyForecast } from "../../../actions/forecast";
 import Loader from "halogen/ClipLoader";
+
 import "./styles/hourly-forecast.css";
 
 export class HourlyForecast extends React.Component {
@@ -82,8 +86,9 @@ export class HourlyForecast extends React.Component {
         </li>
       ));
       return (
-        <div className="extended-forecast">
+        <div>
           <ul>{hourlyData}</ul>
+          <ApiAttribution/>
         </div>
       );
     } else if (this.props.hourlyLoading === true) {
@@ -96,7 +101,7 @@ export class HourlyForecast extends React.Component {
   }
 
   render() {
-    return <div>{this.renderHours()}</div>;
+    return <div className="hourly-wrapper">{this.renderHours()}</div>;
   }
 }
 

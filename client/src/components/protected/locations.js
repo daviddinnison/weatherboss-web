@@ -4,6 +4,7 @@ import Loader from "halogen/ClipLoader";
 
 import requiresLogin from "../requires-login";
 import RenderedLocation from "./forecast/rendered-location";
+import ApiAttribution from "../unprotected/api-attribution";
 import NewUser from "./new-user";
 
 import { fetchLocations } from "../../actions/forecast";
@@ -16,15 +17,14 @@ export class Locations extends React.Component {
   }
 
   renderLocations() {
-    if(this.props.fetchLocationLoading) {
+    if (this.props.fetchLocationLoading) {
       return (
         <div className="location-loader">
           <Loader color="#5a5a5a" size="50px" margin="4px" />
         </div>
       );
-    }
-    else if (this.props.locations.length === 0) {
-      return <NewUser/>;
+    } else if (this.props.locations.length === 0) {
+      return <NewUser />;
     } else {
       const locationsData = this.props.locations.map((item, index) => (
         <li key={item._id} className="single-location gradient">
@@ -34,6 +34,7 @@ export class Locations extends React.Component {
       return (
         <div className="locations">
           <ul>{locationsData}</ul>
+          <ApiAttribution />
         </div>
       );
     }

@@ -1,0 +1,16 @@
+.api-attribution {
+  color: #525252;
+  font-family: "Gentium Book Basic", serif;
+  display: block;
+  margin: 0px auto;
+  margin-left: 20px;
+}
+
+.api-attribution span {
+    vertical-align: bottom;
+}
+
+.api-attribution img {
+  display: inline-block;
+  width: 100px;
+}

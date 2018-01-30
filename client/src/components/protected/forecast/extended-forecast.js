@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Loader from "halogen/ClipLoader";
 
 import requiresLogin from "../../requires-login";
+import ApiAttribution from "../../unprotected/api-attribution";
 
 import { getExtendedForecast } from "../../../actions/forecast";
 
@@ -64,6 +65,7 @@ export class ExtendedForecast extends React.Component {
       return (
         <div className="extended-forecast">
           <ul>{tenDayData}</ul>
+          <ApiAttribution/>
         </div>
       );
     } else if (this.props.extendedLoading === true) {
@@ -76,7 +78,7 @@ export class ExtendedForecast extends React.Component {
   }
 
   render() {
-    return <div>{this.renderDays()}</div>;
+    return <div className="extended-wrapper">{this.renderDays()}</div>;
   }
 }
 
