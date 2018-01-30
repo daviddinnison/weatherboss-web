@@ -4,10 +4,7 @@ import {
   GET_EXTENDED_FORECAST_ERROR,
   GET_ALERT_REQUEST,
   GET_ALERT_SUCCESS,
-  GET_ALERT_ERROR
-} from "../actions/forecast";
-
-import {
+  GET_ALERT_ERROR,
   CLEAR_VALIDATE_LOCATION_ERROR,
   VALIDATE_LOCATION_REQUEST,
   VALIDATE_LOCATION_SUCCESS,
@@ -38,8 +35,7 @@ const initialState = {
   hourlyForecastData: [{ FCTTIME: {}, feelslike: {}, temp: {}, qpf: {}, wdir:{}, wspd: {}, dewpoint: {}, mslp: {} }],
   locations: [],
   locationError: null,
-  metric: false,
-  test: "THIS IS A TEST"
+  metric: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -61,7 +57,6 @@ export default function reducer(state = initialState, action) {
         hourlyLoading: false
       });
     }
-    //
     case "GET_EXTENDED_FORECAST_REQUEST": {
       return Object.assign({}, state, {
         extendedLoading: true
@@ -135,7 +130,6 @@ export default function reducer(state = initialState, action) {
         fetchLocationLoading: false
       });
     }
-    //
     case "DELETE_LOCATION_REQUEST": {
       return Object.assign({}, state, {
         loading: true
@@ -187,6 +181,6 @@ export default function reducer(state = initialState, action) {
         message: action.message
       });
     }
+    default: return state;
   }
-  return state;
 }

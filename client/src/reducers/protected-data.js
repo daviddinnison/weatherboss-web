@@ -28,7 +28,6 @@ export default function reducer(state = initialState, action) {
         loading: true
       });
     }
-
     case "ADD_LOCATION_REQUEST": {
       return Object.assign({}, state, {
         addLocationLoading: true
@@ -52,7 +51,7 @@ export default function reducer(state = initialState, action) {
         redirect: false
       });
     }
+    default:
+      return state;
   }
-
-  return state;
 }
