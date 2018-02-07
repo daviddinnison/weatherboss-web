@@ -1,17 +1,28 @@
 .alerts {
+    color: #3e3e3e;
     margin-bottom: 30px;
 }
 
-
 .alerts li {
-    background-color: #FFFF6E;
+    background-color: #FFFF86;
+    cursor: pointer;
     padding: 15px 10px;
     margin-bottom: 10px;
 }
 
+.toggle-alert {
+    margin-right: 15px;
+    vertical-align: top;
+}
+
 .alert-description {
+    display: inline;
     font-weight: bold;
     font-size: 17px;
+}
+
+.alert-text {
+    font-size: 13px;
 }
 
 .no-alerts {
