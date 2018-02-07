@@ -68,7 +68,7 @@ export class ExtendedForecast extends React.Component {
           <ApiAttribution/>
         </div>
       );
-    } else if (this.props.extendedLoading === true) {
+    } else if (this.props.extendedLoading) {
       return (
         <div className="loader">
           <Loader color="#5a5a5a" size="50px" margin="4px" />

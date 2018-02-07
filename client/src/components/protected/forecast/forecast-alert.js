@@ -15,7 +15,7 @@ export class ForecastAlert extends React.Component {
   }
 
   renderAlert() {
-    if (this.props.alertLoading === true) {
+    if (this.props.alertLoading) {
       return (
         <div className="loader">
           <Loader color="#5a5a5a" size="20px" margin="4px" />

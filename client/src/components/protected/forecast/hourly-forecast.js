@@ -91,7 +91,7 @@ export class HourlyForecast extends React.Component {
           <ApiAttribution/>
         </div>
       );
-    } else if (this.props.hourlyLoading === true) {
+    } else if (this.props.hourlyLoading) {
       return (
         <div className="loader">
           <Loader color="#5a5a5a" size="50px" margin="4px" />
