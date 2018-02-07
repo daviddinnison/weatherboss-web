@@ -3,25 +3,13 @@ import { connect } from "react-redux";
 import requiresLogin from "../../requires-login";
 import Loader from "halogen/ClipLoader";
 
+import RenderedAlert from "./rendered-alert";
+
 import { getAlert } from "../../../actions/forecast";
 
 import "./styles/forecast-alert.css";
 
 export class ForecastAlert extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      visible: false
-    };
-
-    this.toggleAlert = this.toggleAlert.bind(this);
-  }
-
-  toggleAlert() {
-    this.setState({ visible: !this.state.visible });
-  }
-
   componentDidMount() {
     this.props.dispatch(getAlert(this.props.name));
   }
@@ -36,21 +24,7 @@ export class ForecastAlert extends React.Component {
     } else {
       if (this.props.alert.length > 0) {
         const alerts = this.props.alert.map((item, index) => (
-          <li key={index} onClick={this.toggleAlert}>
-            {this.state.visible ? (
-              <span
-                className="glyphicon glyphicon-minus toggle-alert"
-                aria-hidden="true"
-              />
-            ) : (
-              <span
-                className="glyphicon glyphicon-plus toggle-alert"
-                aria-hidden="true"
-              />
-            )}
-            <p className="alert-description">{item.description}</p>
-            {this.state.visible && <p className="alert-text">{item.message}</p>}
-          </li>
+          <RenderedAlert text={item} key={index}/>
         ));
         return (
           <div className="alerts">
